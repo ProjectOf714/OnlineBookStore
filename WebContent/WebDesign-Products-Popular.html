@@ -1,13 +1,14 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Online Bookstore</title>
-		<link href="css/style.css" rel='stylesheet' type='text/css' />
+		<title>Web Development & Design | Products</title>
         <link rel="icon" type="image/x-icon" href="images/icon.jpg"/>
+		<link href="css/style.css" rel='stylesheet' type='text/css' />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 		</script>
-		<!----webfonts---->	
+		<!----webfonts---->
+		
 		<!----//webfonts---->
 		<!----start-alert-scroller---->
 		<script src="js/jquery.min.js"></script>
@@ -40,24 +41,6 @@
 			  transition: 'fade'
 			});
 		</script>
-		<!----start-pricerage-seletion---->
-		<script type="text/javascript" src="js/jquery-ui.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
-		<script type='text/javascript'>//<![CDATA[ 
-			$(window).load(function(){
-			 $( "#slider-range" ).slider({
-			            range: true,
-			            min: 0,
-			            max: 500,
-			            values: [ 100, 400 ],
-			            slide: function( event, ui ) {  $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
-			            }
-			 });
-			$( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) + " - $" + $( "#slider-range" ).slider( "values", 1 ) );
-			
-			});//]]>  
-		</script>
-		<!----//End-pricerage-seletion---->
 		<!---move-top-top---->
 		<script type="text/javascript" src="js/move-top.js"></script>
 		<script type="text/javascript" src="js/easing.js"></script>
@@ -254,7 +237,7 @@
 												<div class="h_nav">
 													<h4>Bussiness & Money</h4>
 													<ul>
-														<li><a href="">Accounting</a></li>
+														<li><a href="Architecture-Products.html">Accounting</a></li>
 														<li><a href="">Biography & History</a></li>
 														<li><a href="">Business Culture</a></li>
 														<li><a href="">Economics</a></li>
@@ -935,88 +918,40 @@
 				<!----//End-bottom-header---->
 			<!---//End-header---->
 		<!----start-image-slider---->
-		<div class="img-slider">
-			<div class="wrap">
-			<ul id="jquery-demo">
-			  <li>
-			    <a href="#slide1">
-			      <img src="images/slide-1.jpg" alt="" />
-			    </a>
-			    <div class="slider-detils">
-			    	<h3>Hottest TV Show <label>Original Books</label></h3>
-			    	<span>Watching The TV, Reading The Book</span>
-			    	<a class="slide-btn" href="details.html"> Shop Now</a>
-			    </div>
-			  </li>
-			  <li>
-			    <a href="#slide2">
-			      <img src="images/slide-2.jpg"  alt="" />
-			    </a>
-			     <div class="slider-detils">
-			    	<h3>Take Textbooks Home<label>50% Off</label></h3>
-			    	<span>Welcome New Year, Welcome New Semister</span>
-			    	<a class="slide-btn" href="details.html"> Shop Now</a>
-			    </div>
-			  </li>
-			  <li>
-			    <a href="#slide3">
-			      <img src="images/slide-3.jpg" alt="" />
-			    </a>
-			     <div class="slider-detils">
-			    	<h3>Share You Reading Notes<label>80% Off</label></h3>
-			    	<span>You Share, You Get</span>
-			    	<a class="slide-btn" href="details.html"> Shop Now</a>
-			    </div>
-			  </li>
-			</ul>
-			</div>
-		</div>
-		<div class="clear"> </div>
-		<!----//End-image-slider---->
-		<!----start-price-rage--->	
-		<!----//End-price-rage--->
-		<!--- start-content---->
-		<div class="content">
+		<div class="content product-box-main">
 			<div class="wrap">
 				<div class="content-left">
-						<div class="content-left-top-grid">
-							<h3>Popular In Books</h3>
-							<div class="content-left-bottom-grids">
-								<div class="content-left-bottom-grid1">
-									<h5><a href="">&nbsp;Best Books of The Month</a></h5>
-								</div>
-								<div class="content-left-bottom-grid1">
-									<h5><a href="">&nbsp;Books Made into Movies</a></h5>
-									<span>&nbsp;Read it before you see it</span>
-								</div>
-                                <div class="content-left-bottom-grid1">
-									<h5><a href="">&nbsp;100 Books to Read in a Lifetime</a></h5>
-								</div>
-                                <div class="content-left-bottom-grid1">
-									<h5><a href="">&nbsp;Best Books of 2014</a></h5>
-								</div>
-                                <div class="content-left-bottom-grid1">
-									<h5><a href="">&nbsp;Award Winners</a></h5>
-								</div>
-							</div>
-						</div>
-                        <br />
-                        <div class="content-left-bottom-grid">
-							<h3>More In Books</h3>
-							<div class="content-left-bottom-grids">
-								<div class="content-left-bottom-grid1">
-									<h5><a href="">&nbsp;100 Biographies & Memoirs to Read in a Lifetime</a></h5>
-								</div>
-								<div class="content-left-bottom-grid1">
-									<h5><a href="">&nbsp;100 Children's Books to Read in a Lifetime</a></h5>
-								</div>
-                                <div class="content-left-bottom-grid1">
-									<h5><a href="">&nbsp;Popular Books on Facebook</a></h5>
-								</div>
-							</div>
-						</div>
+					<div class="content-left-top-brands">
+						<h3>Categories</h3>
+						<ul>
+							<li><a href="">General Management</a></li>
+							<li><a href="">Programming</a></li>
+							<li><a href="">User Experience</a></li>
+							<li><a href="">Usability</a></li>
+							<li><a href="">User Generated Content</a></li>
+							<li><a href="">Web Design</a></li>
+							<li><a href="">Web Marketing</a></li>
+                            <li><a href="">Web Services</a></li>
+                            <li><a href="">Web Analytics</a></li>
+						</ul>
+					</div>
 				</div>
-				<div class="content-right">
+				<div class="content-right product-box">
+					<div class="product-box-head">
+							<div class="product-box-head-left">
+								<h3>Products <span>(11354)</span></h3>
+							</div>
+							<div class="product-box-head-right">
+								<ul>
+									<li><span>Sort ::</span><a href=""> </a></li>
+									<li><label> </label> <a href="WebDesign-Products-Popular.html"> Popular</a></li>
+									<li><label> </label> <a href="WebDesign-Products.html"> New</a></li>
+									<li><label> </label> <a href=""> Discount</a></li>
+									<li><span>Price ::</span><a href="">Low </a><a href="">High</a></li>
+								</ul>
+							</div>
+							<div class="clear"> </div>
+					</div>
 					<div class="product-grids">
 						<!--- start-rate---->
 							<script src="js/jstarbox.js"></script>
@@ -1043,19 +978,17 @@
 								});
 							</script>
 							<!---//End-rate---->
-							<!---caption-script---->
-							<!---//caption-script---->
-						<div onClick="location.href='details.html';" class="product-grid fade">
+						<div class="product-grid fade" onclick="location.href='details.html';">
 							<div class="product-grid-head">
 								<div class="block">
-									<div class="starbox small ghosting"> </div> <span> (29)</span>
+									<div class="starbox small ghosting"> </div> <span> (641)</span>
 								</div>
 							</div>
 							<div class="product-pic">
-								<a href=""><img src="images/product1.jpg" title="product-name" /></a>
+								<a href=""><img src="images/WebDesign-Product2.jpg" title="product-name" /></a>
 								<p>
-								<a href="">Dead Wake: The Last Crossing of the Lusitania</a>
-								<a href=""><small>Author: </small> Erik Larson </a>
+								<a href="">HTML and CSS: Design and Build Websites</a>
+								<a href=""><small>Author: </small>Jon Duckett</a>
 								</p>
 							</div>
 							<div class="product-info">
@@ -1063,7 +996,7 @@
 									<a href="details.html">Details</a>
 								</div>
 								<div class="product-info-price">
-									<a href="details.html">$ 16.99</a>
+									<a href="details.html">$ 17.39</a>
 								</div>
 								<div class="clear"> </div>
 							</div>
@@ -1071,43 +1004,17 @@
 								<span> </span>
 							</div>
 						</div>
-						<div onClick="location.href='details.html';"  class="product-grid fade">
+						<div class="product-grid fade" onclick="location.href='details.html';">
 							<div class="product-grid-head">
 								<div class="block">
-									<div class="starbox small ghosting"> </div> <span> (23)</span>
+									<div class="starbox small ghosting"> </div> <span> (413)</span>
 								</div>
 							</div>
 							<div class="product-pic">
-								<a href=""><img src="images/product2.jpg" title="product-name" /></a>
+								<a href=""><img src="images/WebDesign-Product3.jpg" title="product-name" /></a>
 								<p>
-								<a href="">Better Than Before: Mastering the Habits of Our Everyday Lifes</a>
-								<a href=""><small>Author: </small> Gretchen Rubin </a>
-							  </p>
-						  </div>
-							<div class="product-info">
-								<div class="product-info-cust">
-									<a href="details.html">Details</a>
-								</div>
-								<div class="product-info-price">
-									<a href="details.html">$ 15.60</a>
-								</div>
-								<div class="clear"> </div>
-							</div>
-							<div class="more-product-info">
-								<span> </span>
-							</div>
-						</div>
-						<div onClick="location.href='details.html';"  class="product-grid fade last-grid">
-							<div class="product-grid-head">
-								<div class="block">
-									<div class="starbox small ghosting"> </div> <span> (29)</span>
-								</div>
-							</div>
-							<div class="product-pic">
-								<a href=""><img src="images/product3.jpg" title="product-name" /></a>
-								<p>
-								<a href="">Go Set a Watchman: A Novel</a>
-								<a href=""><small>Author: </small> Harper Lee </a>
+								<a href="">Growth Hacker Marketing: A Primer on the Future of PR, Marketing, and Advertising</a>
+								<a href=""><small>Author: </small>Ryan Holiday</a>
 								</p>
 							</div>
 							<div class="product-info">
@@ -1115,7 +1022,7 @@
 									<a href="details.html">Details</a>
 								</div>
 								<div class="product-info-price">
-									<a href="details.html">$ 16.79</a>
+									<a href="details.html">$ 8.75</a>
 								</div>
 								<div class="clear"> </div>
 							</div>
@@ -1123,18 +1030,17 @@
 								<span> </span>
 							</div>
 						</div>
-						<div onClick="location.href='details.html';"  class="product-grid fade">
+						<div class="product-grid fade last-grid" onclick="location.href='details.html';">
 							<div class="product-grid-head">
-								<ul class="grid-social">
 								<div class="block">
-									<div class="starbox small ghosting"> </div> <span> (11)</span>
+									<div class="starbox small ghosting"> </div> <span> (279)</span>
 								</div>
 							</div>
 							<div class="product-pic">
-								<a href=""><img src="images/product4.jpg" title="product-name" /></a>
+								<a href=""><img src="images/WebDesign-Product4.jpg" title="product-name" /></a>
 								<p>
-								<a href="">Eat. Nourish. Glow.: 10 easy steps for losing weight, looking younger & feeling healthier</a>
-								<a href=""><small>Author: </small> Amelia Freer </a>
+								<a href="">The Art of Social Media: Power Tips for Power Users</a>
+								<a href=""><small>Author: </small>Guy Kawasaki</a>
 								</p>
 							</div>
 							<div class="product-info">
@@ -1142,7 +1048,7 @@
 									<a href="details.html">Details</a>
 								</div>
 								<div class="product-info-price">
-									<a href="details.html">$ 24.99</a>
+									<a href="details.html">$ 19.23</a>
 								</div>
 								<div class="clear"> </div>
 							</div>
@@ -1150,17 +1056,17 @@
 								<span> </span>
 							</div>
 						</div>
-						<div onClick="location.href='details.html';"  class="product-grid fade">
+						<div class="product-grid fade" onclick="location.href='details.html';">
 							<div class="product-grid-head">
 								<div class="block">
-									<div class="starbox small ghosting"> </div> <span> (8)</span>
+									<div class="starbox small ghosting"> </div> <span> (207)</span>
 								</div>
 							</div>
 							<div class="product-pic">
-								<a href=""><img src="images/product5.jpg" title="product-name" /></a>
+								<a href=""><img src="images/WebDesign-Product9.jpg" title="product-name" /></a>
 								<p>
-								<a href="">The Stranger</a>
-								<a href=""><small>Author: </small> Harlan Coben </a>
+								<a href="">JavaScript and JQuery: Interactive Front-End Web Development</a>
+								<a href=""><small>Author: </small>Jon Duckett</a>
 								</p>
 							</div>
 							<div class="product-info">
@@ -1168,7 +1074,7 @@
 									<a href="details.html">Details</a>
 								</div>
 								<div class="product-info-price">
-									<a href="details.html">$ 16.77</a>
+									<a href="details.html">$ 26.93</a>
 								</div>
 								<div class="clear"> </div>
 							</div>
@@ -1176,17 +1082,17 @@
 								<span> </span>
 							</div>
 						</div>
-						<div onClick="location.href='details.html';"  class="product-grid fade last-grid">
+						<div class="product-grid fade" onclick="location.href='details.html';">
 							<div class="product-grid-head">
 								<div class="block">
-									<div class="starbox small ghosting"> </div> <span> (0)</span>
+									<div class="starbox small ghosting"> </div> <span> (130)</span>
 								</div>
 							</div>
 							<div class="product-pic">
-								<a href=""><img src="images/product6.jpg" title="product-name" /></a>
+								<a href=""><img src="images/WebDesign-Product7.jpg" title="product-name" /></a>
 								<p>
-								<a href="">Make Me: A Jack Reacher Novel</a>
-								<a href=""><small>Author: </small> Lee Child </a>
+								<a href="">Don't Make Me Think, Revisited: A Common Sense Approach to Web Usability (3rd Edition)</a>
+								<a href=""><small>Author: </small>Steve Krug</a>
 								</p>
 							</div>
 							<div class="product-info">
@@ -1194,7 +1100,7 @@
 									<a href="details.html">Details</a>
 								</div>
 								<div class="product-info-price">
-									<a href="details.html">$ 17.37</a>
+									<a href="details.html">$ 30.02</a>
 								</div>
 								<div class="clear"> </div>
 							</div>
@@ -1202,8 +1108,200 @@
 								<span> </span>
 							</div>
 						</div>
+						<div class="product-grid fade last-grid" onclick="location.href='details.html';">
+							<div class="product-grid-head">
+								<div class="block">
+									<div class="starbox small ghosting"> </div> <span> (121)</span>
+								</div>
+							</div>
+							<div class="product-pic">
+								<a href=""><img src="images/WebDesign-Product6.jpg" title="product-name" /></a>
+								<p>
+								<a href="">Learning Python, 5th Edition</a>
+								<a href=""><small>Author: </small>Mark Lutz</a>
+								</p>
+							</div>
+							<div class="product-info">
+								<div class="product-info-cust">
+									<a href="details.html">Details</a>
+								</div>
+								<div class="product-info-price">
+									<a href="details.html">$ 29.15</a>
+								</div>
+								<div class="clear"> </div>
+							</div>
+							<div class="more-product-info">
+								<span> </span>
+							</div>
+						</div>
+						<div class="product-grid fade" onclick="location.href='details.html';">
+							<div class="product-grid-head">
+								<div class="block">
+									<div class="starbox small ghosting"> </div> <span> (97)</span>
+								</div>
+							</div>
+							<div class="product-pic">
+								<a href=""><img src="images/WebDesign-Product8.jpg" title="product-name" /></a>
+								<p>
+								<a href="">Python Programming: An Introduction to Computer Science, 2nd Ed.</a>
+								<a href=""><small>Author: </small>John Zelle</a>
+								</p>
+							</div>
+							<div class="product-info">
+								<div class="product-info-cust">
+									<a href="details.html">Details</a>
+								</div>
+								<div class="product-info-price">
+									<a href="details.html">$ 19.99</a>
+								</div>
+								<div class="clear"> </div>
+							</div>
+							<div class="more-product-info">
+								<span> </span>
+							</div>
+						</div>
+						<div class="product-grid fade" onclick="location.href='details.html';">
+							<div class="product-grid-head">
+								<div class="block">
+									<div class="starbox small ghosting"> </div> <span> (82)</span>
+								</div>
+							</div>
+							<div class="product-pic">
+								<a href=""><img src="images/WebDesign-Product1.jpg" title="product-name" /></a>
+								<p>
+								<a href="">OS X Yosemite: The Missing Manual (Missing Manuals)</a>
+								<a href=""><small>Author: </small>David Pogue</a>
+								</p>
+							</div>
+							<div class="product-info">
+								<div class="product-info-cust">
+									<a href="details.html">Details</a>
+								</div>
+								<div class="product-info-price">
+									<a href="details.html">$ 26.51</a>
+								</div>
+								<div class="clear"> </div>
+							</div>
+							<div class="more-product-info">
+								<span> </span>
+							</div>
+						</div>
+						<div class="product-grid fade last-grid"  onclick="location.href='details.html';">
+							<div class="product-grid-head">
+								<div class="block">
+									<div class="starbox small ghosting"> </div> <span> (80)</span>
+								</div>
+							</div>
+							<div class="product-pic">
+								<a href=""><img src="images/WebDesign-Product12.jpg" title="product-name" /></a>
+								<p>
+								<a href="">Python for Data Analysis: Data Wrangling with Pandas, NumPy, and IPython</a>
+								<a href=""><small>Author: </small>Wes McKinney</a>
+								</p>
+							</div>
+							<div class="product-info">
+								<div class="product-info-cust">
+									<a href="details.html">Details</a>
+								</div>
+								<div class="product-info-price">
+									<a href="details.html">$ 27.68</a>
+								</div>
+								<div class="clear"> </div>
+							</div>
+							<div class="more-product-info">
+								<span> </span>
+							</div>
+						</div>
+                        
+						<div class="product-grid fade" onclick="location.href='details.html';">
+							<div class="product-grid-head">
+								<div class="block">
+									<div class="starbox small ghosting"> </div> <span> (25)</span>
+								</div>
+							</div>
+							<div class="product-pic">
+								<a href=""><img src="images/WebDesign-Product5.jpg" title="product-name" /></a>
+								<p>
+								<a href="">The Age of Cryptocurrency: How Bitcoin and Digital Money Are Challenging the Global Economic Order</a>
+								<a href=""><small>Arthor: </small>Michael J, Casey</a>
+								</p>
+							</div>
+							<div class="product-info">
+								<div class="product-info-cust">
+									<a href="details.html">Details</a>
+								</div>
+								<div class="product-info-price">
+									<a href="details.html">$ 19.46</a>
+								</div>
+								<div class="clear"> </div>
+							</div>
+							<div class="more-product-info">
+								<span> </span>
+							</div>
+						</div>
+                        <div class="product-grid fade" onclick="location.href='details.html';">
+							<div class="product-grid-head">
+								<div class="block">
+									<div class="starbox small ghosting"> </div> <span> (25)</span>
+								</div>
+							</div>
+							<div class="product-pic">
+								<a href=""><img src="images/WebDesign-Product11.jpg" title="product-name" /></a>
+								<p>
+								<a href="">Python Pocket Reference (Pocket Reference (O'Reilly)) </a>
+								<a href=""><small>Author: </small>Mark Lutz</a>
+								</p>
+							</div>
+							<div class="product-info">
+								<div class="product-info-cust">
+									<a href="details.html">Details</a>
+								</div>
+								<div class="product-info-price">
+									<a href="details.html">$ 9.88</a>
+								</div>
+								<div class="clear"> </div>
+							</div>
+							<div class="more-product-info">
+								<span> </span>
+							</div>
+						</div>
+                        
+						<div class="product-grid fade last-grid"  onclick="location.href='details.html';">
+							<div class="product-grid-head">
+								<div class="block">
+									<div class="starbox small ghosting"> </div> <span> (9)</span>
+								</div>
+							</div>
+							<div class="product-pic">
+								<a href=""><img src="images/WebDesign-Product10.jpg" title="product-name" /></a>
+								<p>
+								<a href="">Learning Spark: Lightning-Fast Big Data Analysis.</a>
+								<a href=""><small>Author: </small>Matei Zaharia</a>
+								</p>
+							</div>
+							<div class="product-info">
+								<div class="product-info-cust">
+									<a href="details.html">Details</a>
+								</div>
+								<div class="product-info-price">
+									<a href="details.html">$ 24.92</a>
+								</div>
+								<div class="clear"> </div>
+							</div>
+							<div class="more-product-info">
+								<span> </span>
+							</div>
+						</div>
+                        
+                        
+                        
 						<div class="clear"> </div>
 					</div>
+					<!----start-load-more-products---->
+					<div class="loadmore-products">
+						<a href="">Loadmore Books</a>
+					</div>
+					<!----//End-load-more-products---->
 				</div>
 				<div class="clear"> </div>
 			</div>

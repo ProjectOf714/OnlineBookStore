@@ -422,8 +422,9 @@ input[type=checkbox].css-checkbox15:checked + label i.css-label15 {
 	margin-right:0;
 }
 .product-pic a img{
-	display:block;
-	margin: 0 auto;
+	margin-left: 20%;
+	width:60%;
+	height:60%;
 }
 .product-grid-head{
 	padding:1em;	
@@ -918,7 +919,7 @@ h2.resp-accordion:first-child {
 	background:url(../images/border.png) repeat-x;
 	display:block;
 }
-/*----//End-modal-content-right-price-btn----*/
+/*----//End-modal-content-right-price-selection-tree-btn----*/
 /*---login----*/
 .login-box{
 	padding:0;
@@ -2464,10 +2465,6 @@ span.mail a:hover{
 		height: 12px;
 		width: 17px;
 		background: url(../images/image-sprit.png) no-repeat 0px -158px;
-	}
-	.price-selection-tree input[type="checkbox"]+label {
-		height: 26px;
-		margin-right: 0.2em;
 	}
 	.product-grid-head {
 		padding: 1em;
