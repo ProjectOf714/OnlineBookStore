@@ -36,6 +36,52 @@
 					$('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
 				});
 			});
+			
+			$(function() {
+			    $('#txtFirstName').change(function() {
+			        if ($('#txtFirstName').val().length == 0) {
+			            $('#divCheckHint').text("please input the user name").css({
+			                "color": "red",
+			                "background-color": "yellow"
+			            });
+			        } else {
+			            $.ajax({
+			                url: 'UserCheck',
+			                data: {
+			                    UserName: $('#txtFirstName').val(),
+			                    UserName2: $('#txtLastName').val()
+			                },
+			                error: function() {
+			                    alert("error occured!!!");
+			                },
+			                success: function(data) {			                   
+			                    $('#divCheckHint').html(data).css({
+			                        "color": "red",
+			                        "background-color": "yellow"
+			                    });
+			                    $('#divCheckHint').append("<div>" + data + "</div>").css("color", "blue");
+			                }
+			            });
+			        }
+			    });
+
+			    $('#txtLastName').change(function() {
+			        if ($('#txtLastName').val().length == 0) {
+			            $('#divCheckHint2').html("The account is cant't be null").css({
+			                "color": "#ffoo11",
+			                "background": "blue"
+			            });
+			        } else {
+			            $.post("UserCheck", "UserName=" + $('#txtLastName').val(),
+			                function(data) {
+			                    $('#divCheckHint2').html(data).css({
+			                        "color": "red",
+			                        "background-color": "yellow"
+			                    });
+			                });
+			        }
+			    });
+			});
 		</script>
 		<!---//move-top-top---->
 	</head>
@@ -124,21 +170,24 @@
 										<h3>PERSONAL INFORMATION</h3>
 										<div>
 											<span>First Name<label>*</label></span>
-											<input type="text"> 
+											<input type="text" id="txtFirstName"> 
 										</div>
 										<div>
 											<span>Last Name<label>*</label></span>
-											<input type="text"> 
+											<input type="text" id="txtLastName"> 
 										</div>
 										<div>
-											<span>Email Address<label>*</label></span>
+											<span>Email Address</i><label>*</label></span>
 											<input type="text"> 
 										</div>
 										<div class="clear"> </div>
 											<a class="news-letter" href="#">
 												<label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i>Sign Up for Newsletter</label>
 											</a>
-										<div class="clear"> </div>
+										<div class="clear"></div>
+										<div id="divCheckHint2" class="hint"></div>
+										<br>
+										<div id ="divCheckHint" class="hint"> </div>
 								</div>
 								<div class="clear"> </div>
 								<div class="register-bottom-grid">

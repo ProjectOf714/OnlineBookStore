@@ -4,26 +4,21 @@
 package onlinebookstore.servlet;
 
 import java.io.IOException;
-import java.sql.ResultSet;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import onlinebookstore.database.*;
-import onlinebookstore.entity.*;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import onlinebookstore.dao.CategoryDao;
 
 /**
  * Servlet implementation class CategoryServlet
  */
-// @WebServlet("/ShowCategory")
-public class CategoryServlet extends HttpServlet {
+@WebServlet("/ShowCategory")
+public class CategoryServlet extends BaseServlet {
 	private static final long serialVersionUID = 1L;
-	static final Logger log = LogManager.getLogger(CategoryServlet.class);
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
@@ -32,29 +27,21 @@ public class CategoryServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		CategoryList categoryLst = (CategoryList) request.getSession(true)
+		CategoryDao categoryLst = (CategoryDao) request.getSession(true)
 				.getAttribute("categorylist");
 		if (categoryLst == null) {
-			categoryLst = new CategoryList();
-		}
-
-		String sql = "SELECT * FROM `category`;";
-		try {
-			DBConnect db = new DBConnect(sql);
-			ResultSet result = db.executeQuery();
-			while (result.next()) {
-				Category cat = new Category(result.getInt(1),
-						result.getString(2));
-				categoryLst.addCategory(cat);
+			try {
+				categoryLst = new CategoryDao();
+			} catch (Exception e) {
+				log.error("", e);
 			}
-		} catch (Exception e) {
-			log.error(e.toString());
-			e.printStackTrace();
+			categoryLst.RetrieveFromDB();
 		}
 
+		getServletContext().setAttribute("categorylist1", categoryLst);
+		request.getSession().setAttribute("categorylist", categoryLst);
 		categoryLst.getLstCategory().forEach(s -> log.debug(s.toString()));
 
-		request.getSession().setAttribute("categorylist", categoryLst);
 		getServletContext().getRequestDispatcher("/ListCategory.jsp").forward(
 				request, response);
 	}

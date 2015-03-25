@@ -1,32 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://java.sun.com/xml/ns/javaee"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
-	id="WebApp_ID" version="3.0">
-	<display-name>OnlineBookstore</display-name>
-	<welcome-file-list>
-		<welcome-file>CategoryList</welcome-file>
-		<welcome-file>index.html</welcome-file>
-		<welcome-file>index.htm</welcome-file>
-		<welcome-file>index.jsp</welcome-file>
-		<welcome-file>default.html</welcome-file>
-		<welcome-file>default.htm</welcome-file>
-		<welcome-file>default.jsp</welcome-file>
-	</welcome-file-list>
-	<context-param>
-		<param-name>log4j2-config-location</param-name>
-		<param-value>WEB-INF/log4j2.xml</param-value>
-	</context-param>
-	<listener>
-		<listener-class>onlinebookstore.util.Log4jContextListener</listener-class>
-	</listener>
-
-	<servlet>
-		<servlet-name>CategoryList</servlet-name>
-		<servlet-class>onlinebookstore.servlet.CategoryServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>CategoryList</servlet-name>
-		<url-pattern>/CategoryList</url-pattern>
-	</servlet-mapping>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>OnlineBookstore</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <context-param>
+    <param-name>log4j2-config-location</param-name>
+    <param-value>WEB-INF/log4j2.xml</param-value>
+  </context-param>
+  <listener>
+    <listener-class>onlinebookstore.util.Log4jContextListener</listener-class>
+  </listener>
+  <resource-ref>
+      <description>DB Connection Pool</description>
+      <res-ref-name>jdbc/OBS</res-ref-name>
+      <res-type>javax.sql.DataSource</res-type>
+      <res-auth>Container</res-auth>
+      <res-sharing-scope>Shareable</res-sharing-scope>
+   </resource-ref>
 </web-app>
