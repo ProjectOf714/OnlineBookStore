@@ -1,23 +1,24 @@
+
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Online Bookstore</title>
+		<title>OS X Yosemite: The Missing Manual (Missing Manuals)  | Details</title>
 		<link href="css/style.css" rel='stylesheet' type='text/css' />
-        <link rel="icon" type="image/x-icon" href="images/icon.jpg"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 		</script>
-		<!----webfonts---->	
+		<!----webfonts---->
+		
 		<!----//webfonts---->
-		<!----start-alert-scroller---->
 		<script src="js/jquery.min.js"></script>
+		<!----start-alert-scroller---->
 		<script type="text/javascript" src="js/jquery.easy-ticker.js"></script>
 		<script type="text/javascript">
 		$(document).ready(function(){
 			$('#demo').hide();
 			$('.vticker').easyTicker();
 		});
-		</script>
+		</script>	
 		<!----start-alert-scroller---->
 		<!-- start menu -->
 		<link href="css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
@@ -25,39 +26,6 @@
 		<script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
 		<script src="js/menu_jquery.js"></script>
 		<!-- //End menu -->
-		<!---slider---->
-		<link rel="stylesheet" href="css/slippry.css">
-		<script src="js/jquery-ui.js" type="text/javascript"></script>
-		<script src="js/scripts-f0e4e0c2.js" type="text/javascript"></script>
-		<script>
-			  jQuery('#jquery-demo').slippry({
-			  // general elements & wrapper
-			  slippryWrapper: '<div class="sy-box jquery-demo" />', // wrapper to wrap everything, including pager
-			  // options
-			  adaptiveHeight: false, // height of the sliders adapts to current slide
-			  useCSS: false, // true, false -> fallback to js if no browser support
-			  autoHover: false,
-			  transition: 'fade'
-			});
-		</script>
-		<!----start-pricerage-seletion---->
-		<script type="text/javascript" src="js/jquery-ui.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
-		<script type='text/javascript'>//<![CDATA[ 
-			$(window).load(function(){
-			 $( "#slider-range" ).slider({
-			            range: true,
-			            min: 0,
-			            max: 500,
-			            values: [ 100, 400 ],
-			            slide: function( event, ui ) {  $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
-			            }
-			 });
-			$( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) + " - $" + $( "#slider-range" ).slider( "values", 1 ) );
-			
-			});//]]>  
-		</script>
-		<!----//End-pricerage-seletion---->
 		<!---move-top-top---->
 		<script type="text/javascript" src="js/move-top.js"></script>
 		<script type="text/javascript" src="js/easing.js"></script>
@@ -70,6 +38,30 @@
 			});
 		</script>
 		<!---//move-top-top---->
+		<!-- Owl Carousel Assets -->
+		<link href="css/owl.carousel.css" rel="stylesheet">
+		<script src="js/jquery-1.9.1.min.js"></script> 
+		     <!-- Owl Carousel Assets -->
+		    <!-- Prettify -->
+		    <script src="js/owl.carousel.js"></script>
+		        <script>
+		    $(document).ready(function() {
+		
+		      $("#owl-demo").owlCarousel({
+		        items : 3,
+		        lazyLoad : true,
+		        autoPlay : true,
+		        navigation : true,
+			    navigationText : ["",""],
+			    rewindNav : false,
+			    scrollPerPage : false,
+			    pagination : false,
+    			paginationNumbers: false,
+		      });
+		
+		    });
+		    </script>
+		   <!-- //Owl Carousel Assets -->
 	</head>
 	<body>
 		<!---start-wrap---->
@@ -254,7 +246,7 @@
 												<div class="h_nav">
 													<h4>Bussiness & Money</h4>
 													<ul>
-														<li><a href="">Accounting</a></li>
+														<li><a href="Architecture-Products.html">Accounting</a></li>
 														<li><a href="">Biography & History</a></li>
 														<li><a href="">Business Culture</a></li>
 														<li><a href="">Economics</a></li>
@@ -934,91 +926,187 @@
 				</div>
 				<!----//End-bottom-header---->
 			<!---//End-header---->
-		<!----start-image-slider---->
-		<div class="img-slider">
-			<div class="wrap">
-			<ul id="jquery-demo">
-			  <li>
-			    <a href="#slide1">
-			      <img src="images/slide-1.jpg" alt="" />
-			    </a>
-			    <div class="slider-detils">
-			    	<h3>Hottest TV Show <label>Original Books</label></h3>
-			    	<span>Watching The TV, Reading The Book</span>
-			    	<a class="slide-btn" href="details.html"> Shop Now</a>
-			    </div>
-			  </li>
-			  <li>
-			    <a href="#slide2">
-			      <img src="images/slide-2.jpg"  alt="" />
-			    </a>
-			     <div class="slider-detils">
-			    	<h3>Take Textbooks Home<label>50% Off</label></h3>
-			    	<span>Welcome New Year, Welcome New Semister</span>
-			    	<a class="slide-btn" href="details.html"> Shop Now</a>
-			    </div>
-			  </li>
-			  <li>
-			    <a href="#slide3">
-			      <img src="images/slide-3.jpg" alt="" />
-			    </a>
-			     <div class="slider-detils">
-			    	<h3>Share You Reading Notes<label>80% Off</label></h3>
-			    	<span>You Share, You Get</span>
-			    	<a class="slide-btn" href="details.html"> Shop Now</a>
-			    </div>
-			  </li>
-			</ul>
-			</div>
-		</div>
-		<div class="clear"> </div>
-		<!----//End-image-slider---->
-		<!----start-price-rage--->	
-		<!----//End-price-rage--->
 		<!--- start-content---->
-		<div class="content">
-			<div class="wrap">
-				<div class="content-left">
-						<div class="content-left-top-grid">
-							<h3>Popular In Books</h3>
-							<div class="content-left-bottom-grids">
-								<div class="content-left-bottom-grid1">
-									<h5><a href="">&nbsp;Best Books of The Month</a></h5>
-								</div>
-								<div class="content-left-bottom-grid1">
-									<h5><a href="">&nbsp;Books Made into Movies</a></h5>
-									<span>&nbsp;Read it before you see it</span>
-								</div>
-                                <div class="content-left-bottom-grid1">
-									<h5><a href="">&nbsp;100 Books to Read in a Lifetime</a></h5>
-								</div>
-                                <div class="content-left-bottom-grid1">
-									<h5><a href="">&nbsp;Best Books of 2014</a></h5>
-								</div>
-                                <div class="content-left-bottom-grid1">
-									<h5><a href="">&nbsp;Award Winners</a></h5>
-								</div>
-							</div>
+		<div class="content details-page">
+			<!---start-product-details--->
+			<div class="product-details">
+				<div class="wrap">
+					<ul class="product-head">
+						<li><a href="#">Home</a> <span>::</span></li>
+						<li class="active-page"><a href="#">Product Page</a></li>
+						<div class="clear"> </div>
+					</ul>
+				<!----details-product-slider--->
+				<!-- Include the Etalage files -->
+					<link rel="stylesheet" href="css/etalage.css">
+					<script src="js/jquery.etalage.min.js"></script>
+				<!-- Include the Etalage files -->
+				<script>
+						jQuery(document).ready(function($){
+			
+							$('#etalage').etalage({
+								thumb_image_width: 300,
+								thumb_image_height: 400,
+								source_image_width: 900,
+								source_image_height: 1000,
+								show_hint: true,
+								click_callback: function(image_anchor, instance_id){
+									alert('Callback example:\nYou clicked on an image with the anchor: "'+image_anchor+'"\n(in Etalage instance: "'+instance_id+'")');
+								}
+							});
+							// This is for the dropdown list example:
+							$('.dropdownlist').change(function(){
+								etalage_show( $(this).find('option:selected').attr('class') );
+							});
+
+					});
+				</script>
+				<!----//details-product-slider--->
+				<div class="details-left">
+					<div class="details-left-slider">
+						<ul id="etalage">
+							<li>
+								<img class="etalage_thumb_image" src="images/product-slide/image1_thumb.jpg" />
+								<img class="etalage_source_image" src="images/product-slide/image1_large.jpg" />
+							</li>
+							<li>
+								<img class="etalage_thumb_image" src="images/product-slide/image2_thumb.jpg" />
+								<img class="etalage_source_image" src="images/product-slide/image2_large.jpg" />
+							</li>
+							
+						</ul>
+					</div>
+					<div class="details-left-info">
+						<div class="details-right-head">
+						<h1>OS X Yosemite: The Missing Manual (Missing Manuals) </h1>
+                        <ul class="pro-rate">
+							<li>Author:  David Pogue</li>
+						</ul>
+						<ul class="pro-rate">
+							<li><a class="product-rate" href="#"> <label> </label></a> <span>86 custome reviews</span></li>
+						</ul>
+                        
+                        
+						<p class="product-detail-info">With Yosemite, Apple has unleashed the most innovative version of OS X yet-and once again, David Pogue brings his expertise and humor to the #1 bestselling Mac book. Mac OS X 10.10 includes more innovations from the iPad and adds a variety of new features throughout the operating system. This updated edition covers it all with something new on practically every page.</p>
+                        
+						<div class="product-more-details">
+							<ul class="price-avl">
+								<li class="price"><span>$41.99</span><label>$26.51</label></li>
+								<li class="stock"><i>In stock (5123)</i></li>
+								<div class="clear"> </div>
+							</ul>
+							<ul class="prosuct-qty">
+								<span>Quantity:</span>
+								<select>
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+									<option>6</option>
+								</select>
+							</ul>
+							<input type="button" value="add to cart" />
 						</div>
-                        <br />
-                        <div class="content-left-bottom-grid">
-							<h3>More In Books</h3>
-							<div class="content-left-bottom-grids">
-								<div class="content-left-bottom-grid1">
-									<h5><a href="">&nbsp;100 Biographies & Memoirs to Read in a Lifetime</a></h5>
-								</div>
-								<div class="content-left-bottom-grid1">
-									<h5><a href="">&nbsp;100 Children's Books to Read in a Lifetime</a></h5>
-								</div>
-                                <div class="content-left-bottom-grid1">
-									<h5><a href="">&nbsp;Popular Books on Facebook</a></h5>
-								</div>
-							</div>
-						</div>
+					</div>
+					</div>
+					<div class="clear"> </div>
 				</div>
-				<div class="content-right">
-					<div class="product-grids">
-						<!--- start-rate---->
+				<div class="details-right">
+					<a href="WebDesign-Products.html">SEE MORE</a>
+				</div>
+				<div class="clear"> </div>
+			</div>
+			<!----product-rewies---->
+			<div class="product-reviwes">
+				<div class="wrap">
+				<!--vertical Tabs-script-->
+				<!---responsive-tabs---->
+					<script src="js/easyResponsiveTabs.js" type="text/javascript"></script>
+					<script type="text/javascript">
+						$(document).ready(function () {
+							 $('#horizontalTab').easyResponsiveTabs({
+									type: 'default', //Types: default, vertical, accordion           
+									width: 'auto', //auto or any width like 600px
+									fit: true,   // 100% fit in a container
+									closed: 'accordion', // Start closed if in accordion view
+									activate: function(event) { // Callback function if tab is switched
+									var $tab = $(this);
+									var $info = $('#tabInfo');
+									var $name = $('span', $info);
+										$name.text($tab.text());
+										$info.show();
+									}
+								});
+													
+							 $('#verticalTab').easyResponsiveTabs({
+									type: 'vertical',
+									width: 'auto',
+									fit: true
+								 });
+						 });
+					</script>
+				<!---//responsive-tabs---->
+				<!--//vertical Tabs-script-->
+				<!--vertical Tabs-->
+        		<div id="verticalTab">
+		            <ul class="resp-tabs-list">
+		                <li>Information</li>
+		                <li>Comments</li>
+		                <li>Deal Records</li>
+                        <li>Price Trends</li>
+		            </ul>
+		            <div class="resp-tabs-container vertical-tabs">
+		                <div>
+		                	<h3>Information</h3>
+		                    <h1>Product Details</h1>
+		               		<p>Series:Missing Manual</p>
+                            <p>Paperback: 876 pages</p>
+                            <p>Publisher: O'Reilly Media; 1 edition (January 2, 2015)</p>
+                            <p>Language: English</p>
+                            <p>ISBN-10: 1491947160</p>
+                            <p>ISBN-13: 978-1491947166</p>
+                            <p>Product Dimensions: 9.1 x 6.9 x 1.8 inches</p>
+                            <p>Shipping Weight: 2.8 pounds</p>
+                            <h1>About the author</h1>
+                            <p>David Pogue is the anchor columnist for Yahoo Tech, having been groomed for the position by 13 years as the tech columnist for the New York Times. He's also a monthly columnist for Scientific American, host of science shows on PBS's "NOVA," and two-time Emmy-winning correspondent for "CBS Sunday Morning." With over 3 million books in print, David is one of the world's bestselling how-to authors. He wrote or co-wrote seven books in the "for Dummies" series (including Macs, Magic, Opera, and Classical Music); in 1999, he launched his own series of complete, funny computer books called the Missing Manual series, which now includes 120 titles.</p>
+                            <h1>From the Publisher</h1>
+                            <strong>What's Inside 'OS X Yosemite: The Missing Manual'</strong>
+                            <p>OS X is an impressive technical achievement; many experts call it the best personal-computer operating system on earth.</p>
+                            <p>OS X Yosemite is the 10th major version of Apple&rsquo;s Unix-based operating system. It&rsquo;s got very little in common with the original Mac operating system, the one that saw Apple through the 1980s and 1990s. Apple dumped that in 2001, when CEO Steve Jobs decided it was time for a change. Apple had just spent too many years piling new features onto a software foundation originally poured in 1984. Programmers and customers complained of the &ldquo;spaghetti code&rdquo; the Mac OS had become. So underneath OS X&rsquo;s classy, translucent desktop is Unix, the industrial-strength, rock-solid OS that drives many a Web site and university. It&rsquo;s not new by any means; in fact, it&rsquo;s decades old and has been polished by generations of programmers.</p>
+                            <p>OS X Yosemite: The Missing Manual is divided into six parts, each containing several chapters:</p>
+    						<p>Part One: The OS X Desktop covers everything you see on the screen when you turn on an OS X computer: folders, windows, icons, the Dock, the Sidebar, Spotlight, Dashboard, Spaces, Mission Control, Launchpad, Time Machine, menus, scroll bars, the Trash, aliases, the a menu, and so on.</p>
+    						<p>Part Two: Programs in OS X is dedicated to the proposition that an operating system is little more than a launchpad for programs&mdash;the actual applications you use: email programs, Web browsers, word processors, graphics suites, and so on. These chapters describe how to work with applications in OS X&mdash;how to open them, switch among them, swap data between them, and use them to create and open files.</p>
+    						<p>Part Three: The Components of OS X is an item-by-item discussion of the software nuggets that make up this operating system&mdash;the 30-ish panels of System Preferences and the 50-some programs in your Applications and Utilities folders.</p>
+    						<p> Part Four: The Technologies of OS X treads in more advanced territory, like networking and file sharing. These chapters also cover the visual talents of OS X (fonts, printing, graphics) and its multimedia gifts (sound, speech, movies).</p>
+   							<p>Part Five: OS X Online covers all the Internet features of OS X, including the Mail email program and the Safari Web browser; Messages for instant messaging and audio or video chats; Internet sharing; Apple&rsquo;s free, online iCloud services; and connecting to and controlling your Mac from across the wires&mdash;FTP, SSH, VPN,and so on.</p>
+    						<p class="a-spacing-base">Part Six: Appendixes. This book&rsquo;s appendixes include guidance on installing this operating system; a troubleshooting handbook; a Windows-to-Mac dictionary (to help Windows refugees find the new locations of familiar features in OS X); and a thorough master list of all the keyboard shortcuts and trackpad/mouse gestures in Yosemite.</p>
+		                </div>
+                        
+		                <div>
+		                	<h3>Comments</h3>
+		                	<h4>There are no customer comments yet.</h4>
+		                </div>
+		                <div>
+		                	<h3>Deal Records</h3>
+		                	<h4>There are no deal records yet.</h4>
+		                </div>
+                        <div>
+		                	<h3>Price Trends</h3>
+		                	<h4>There are no price trends yet.</h4>
+		                </div>
+		            </div>
+       		</div>
+       		<div class="clear"> </div>
+       		<!--- start-similar-products--->
+       		<div class="similar-products">
+       			<div class="similar-products-left">
+       				<h3>SIMILAR PRODUCTS</h3>
+       				<p>What Other Items Do Customers Buy After Viewing This Item?</p>
+       			</div>
+       			<div class="similar-products-right">
+       				<!-- start content_slider -->
+       				<!--- start-rate---->
 							<script src="js/jstarbox.js"></script>
 							<link rel="stylesheet" href="css/jstarbox.css" type="text/css" media="screen" charset="utf-8" />
 							<script type="text/javascript">
@@ -1043,169 +1131,134 @@
 								});
 							</script>
 							<!---//End-rate---->
-							<!---caption-script---->
-							<!---//caption-script---->
-						<div onClick="location.href='details.html';" class="product-grid fade">
-							<div class="product-grid-head">
-								<div class="block">
-									<div class="starbox small ghosting"> </div> <span> (29)</span>
-								</div>
-							</div>
-							<div class="product-pic">
-								<a href=""><img src="images/product1.jpg" title="product-name" /></a>
-								<p>
-								<a href="">Dead Wake: The Last Crossing of the Lusitania</a>
-								<a href=""><small>Author: </small> Erik Larson </a>
-								</p>
-							</div>
-							<div class="product-info">
-								<div class="product-info-cust">
-									<a href="details.html">Details</a>
-								</div>
-								<div class="product-info-price">
-									<a href="details.html">$ 16.99</a>
-								</div>
-								<div class="clear"> </div>
-							</div>
-							<div class="more-product-info">
-								<span> </span>
-							</div>
-						</div>
-						<div onClick="location.href='details.html';"  class="product-grid fade">
-							<div class="product-grid-head">
-								<div class="block">
-									<div class="starbox small ghosting"> </div> <span> (23)</span>
-								</div>
-							</div>
-							<div class="product-pic">
-								<a href=""><img src="images/product2.jpg" title="product-name" /></a>
-								<p>
-								<a href="">Better Than Before: Mastering the Habits of Our Everyday Lifes</a>
-								<a href=""><small>Author: </small> Gretchen Rubin </a>
-							  </p>
-						  </div>
-							<div class="product-info">
-								<div class="product-info-cust">
-									<a href="details.html">Details</a>
-								</div>
-								<div class="product-info-price">
-									<a href="details.html">$ 15.60</a>
-								</div>
-								<div class="clear"> </div>
-							</div>
-							<div class="more-product-info">
-								<span> </span>
-							</div>
-						</div>
-						<div onClick="location.href='details.html';"  class="product-grid fade last-grid">
-							<div class="product-grid-head">
-								<div class="block">
-									<div class="starbox small ghosting"> </div> <span> (29)</span>
-								</div>
-							</div>
-							<div class="product-pic">
-								<a href=""><img src="images/product3.jpg" title="product-name" /></a>
-								<p>
-								<a href="">Go Set a Watchman: A Novel</a>
-								<a href=""><small>Author: </small> Harper Lee </a>
-								</p>
-							</div>
-							<div class="product-info">
-								<div class="product-info-cust">
-									<a href="details.html">Details</a>
-								</div>
-								<div class="product-info-price">
-									<a href="details.html">$ 16.79</a>
-								</div>
-								<div class="clear"> </div>
-							</div>
-							<div class="more-product-info">
-								<span> </span>
-							</div>
-						</div>
-						<div onClick="location.href='details.html';"  class="product-grid fade">
-							<div class="product-grid-head">
-								<ul class="grid-social">
-								<div class="block">
-									<div class="starbox small ghosting"> </div> <span> (11)</span>
-								</div>
-							</div>
-							<div class="product-pic">
-								<a href=""><img src="images/product4.jpg" title="product-name" /></a>
-								<p>
-								<a href="">Eat. Nourish. Glow.: 10 easy steps for losing weight, looking younger & feeling healthier</a>
-								<a href=""><small>Author: </small> Amelia Freer </a>
-								</p>
-							</div>
-							<div class="product-info">
-								<div class="product-info-cust">
-									<a href="details.html">Details</a>
-								</div>
-								<div class="product-info-price">
-									<a href="details.html">$ 24.99</a>
-								</div>
-								<div class="clear"> </div>
-							</div>
-							<div class="more-product-info">
-								<span> </span>
-							</div>
-						</div>
-						<div onClick="location.href='details.html';"  class="product-grid fade">
-							<div class="product-grid-head">
-								<div class="block">
-									<div class="starbox small ghosting"> </div> <span> (8)</span>
-								</div>
-							</div>
-							<div class="product-pic">
-								<a href=""><img src="images/product5.jpg" title="product-name" /></a>
-								<p>
-								<a href="">The Stranger</a>
-								<a href=""><small>Author: </small> Harlan Coben </a>
-								</p>
-							</div>
-							<div class="product-info">
-								<div class="product-info-cust">
-									<a href="details.html">Details</a>
-								</div>
-								<div class="product-info-price">
-									<a href="details.html">$ 16.77</a>
-								</div>
-								<div class="clear"> </div>
-							</div>
-							<div class="more-product-info">
-								<span> </span>
-							</div>
-						</div>
-						<div onClick="location.href='details.html';"  class="product-grid fade last-grid">
-							<div class="product-grid-head">
-								<div class="block">
-									<div class="starbox small ghosting"> </div> <span> (0)</span>
-								</div>
-							</div>
-							<div class="product-pic">
-								<a href=""><img src="images/product6.jpg" title="product-name" /></a>
-								<p>
-								<a href="">Make Me: A Jack Reacher Novel</a>
-								<a href=""><small>Author: </small> Lee Child </a>
-								</p>
-							</div>
-							<div class="product-info">
-								<div class="product-info-cust">
-									<a href="details.html">Details</a>
-								</div>
-								<div class="product-info-price">
-									<a href="details.html">$ 17.37</a>
-								</div>
-								<div class="clear"> </div>
-							</div>
-							<div class="more-product-info">
-								<span> </span>
-							</div>
-						</div>
-						<div class="clear"> </div>
-					</div>
-				</div>
-				<div class="clear"> </div>
+					       <div id="owl-demo" class="owl-carousel">
+				                <div class="item" onclick="location.href='details.html';">
+				                	<div class="product-grid fade sproduct-grid">
+										<div class="product-pic">
+											<a href="#"><img src="images/WebDesign-Product2.jpg" title="product-name" /></a>
+											<p>
+											<a href="#">HTML and CSS: Design and Build Websites</a>
+											<a href=""><small>Author: </small>Jon Duckett</a>
+											</p>
+										</div>
+										<div class="product-info">
+											<div class="product-info-cust">
+												<a href="details.html">Details</a>
+											</div>
+											<div class="product-info-price">
+												<a href="details.html">$ 17.39</a>
+											</div>
+											<div class="clear"> </div>
+										</div>
+										<div class="more-product-info">
+											<span> </span>
+										</div>
+									</div>
+				                </div>
+				                <div class="item" onclick="location.href='details.html';">
+				                	<div class="product-grid fade sproduct-grid">
+										<div class="product-pic">
+											<a href=""><img src="images/WebDesign-Product3.jpg" title="product-name" /></a>
+											<p>
+												<a href="">Growth Hacker Marketing: A Primer on the Future of PR, Marketing, and Advertising</a>
+												<a href=""><small>Author: </small>Ryan Holiday</a>
+											</p>
+										</div>
+										<div class="product-info">
+											<div class="product-info-cust">
+												<a href="details.html">Details</a>
+											</div>
+											<div class="product-info-price">
+												<a href="details.html">$ 8.75</a>
+											</div>
+											<div class="clear"> </div>
+										</div>
+										<div class="more-product-info">
+											<span> </span>
+										</div>
+									</div>
+				                </div>
+				                <div class="item" onclick="location.href='details.html';">
+				                	<div class="product-grid fade sproduct-grid">
+										<div class="product-pic">
+											<a href=""><img src="images/WebDesign-Product4.jpg" title="product-name" /></a>
+											<p>
+												<a href="">The Art of Social Media: Power Tips for Power Users</a>
+												<a href=""><small>Author: </small>Guy Kawasaki</a>
+											</p>
+										</div>
+										<div class="product-info">
+											<div class="product-info-cust">
+												<a href="details.html">Details</a>
+											</div>
+											<div class="product-info-price">
+												<a href="details.html">$ 19.23</a>
+											</div>
+											<div class="clear"> </div>
+										</div>
+										<div class="more-product-info">
+											<span> </span>
+										</div>
+									</div>
+				                </div>
+				                <div class="item" onclick="location.href='details.html';">
+				                	<div class="product-grid fade sproduct-grid">
+										<div class="product-pic">
+											<a href=""><img src="images/WebDesign-Product5.jpg" title="product-name" /></a>
+											<p>
+												<a href="">The Age of Cryptocurrency: How Bitcoin and Digital Money Are Challenging the Global Economic Order</a>
+												<a href=""><small>Arthor: </small>Michael J, Casey</a>
+											</p>
+										</div>
+										<div class="product-info">
+											<div class="product-info-cust">
+												<a href="details.html">Details</a>
+											</div>
+											<div class="product-info-price">
+												<a href="details.html">$ 19.46</a>
+											</div>
+											<div class="clear"> </div>
+										</div>
+										<div class="more-product-info">
+											<span> </span>
+										</div>
+									</div>
+				                </div>
+				                <div class="item" onclick="location.href='details.html';">
+				                	<div class="product-grid fade sproduct-grid">
+										<div class="product-pic">
+											<a href=""><img src="images/WebDesign-Product7.jpg" title="product-name" /></a>
+											<p>
+												<a href="">Don't Make Me Think, Revisited: A Common Sense Approach to Web Usability (3rd Edition)</a>
+												<a href=""><small>Author: </small>Steve Krug</a>
+											</p>
+										</div>
+										<div class="product-info">
+											<div class="product-info-cust">
+												<a href="details.html">Details</a>
+											</div>
+											<div class="product-info-price">
+												<a href="details.html">$ 30.02</a>
+											</div>
+										<div class="clear"> </div>
+									</div>
+										<div class="more-product-info">
+											<span> </span>
+										</div>
+									</div>
+				                </div>
+			              </div>
+				<!----//End-img-cursual---->
+       			</div>
+       			<div class="clear"> </div>
+       		</div>
+       		<!--- //End-similar-products--->
+			</div>
+			</div>
+			<div class="clear"> </div>
+			<!--//vertical Tabs-->
+			<!----//product-rewies---->
+			<!---//End-product-details--->
 			</div>
 		</div>
 		<!---- start-bottom-grids---->
