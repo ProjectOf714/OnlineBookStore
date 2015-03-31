@@ -36,6 +36,20 @@
 					$('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
 				});
 			});
+			
+			function validate(form) {
+				if ($('#UserName').val().length == 0) {
+					alert("Please input the user name.");
+					return false;
+				}
+				
+				if ( $('#Password').val().length == 0) {
+					alert("Please input the password .");
+					return false;
+				}
+				
+				return true;
+			}
 		</script>
 		<!---//move-top-top---->
 	</head>
@@ -124,16 +138,17 @@
 					<div class="login-right">
 						<h3>REGISTERED CUSTOMERS</h3>
 						<p>If you have an account with us, please log in.</p>
-						<form>
+						<form name="frmLogin" action="UserSvr" method="post"> 
 							<div>
-								<span>Email Address<label>*</label></span>
-								<input type="text"> 
+								<span>UserName<label>*</label></span>
+								<input type="text" id="UserName" name="UserName" />
 							</div>
 							<div>
 								<span>Password<label>*</label></span>
-								<input type="text"> 
+								<input type='password' id="Password" name="Password">
 							</div>
-							<input type="submit" value="Login" />
+							<input type="hidden" name="Action" value="Login">
+							<input type="submit" value="Login" onclick="return validate(this.form)" />
 						</form>
 					</div>
 					<div class="clear"> </div>

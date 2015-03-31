@@ -1,23 +1,27 @@
 CREATE SCHEMA if not exists `onlinebookstore` ;
 
+SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE if exists `onlinebookstore`.`userinfo`;
 DROP TABLE if exists `onlinebookstore`.`books`;
 DROP TABLE if exists `onlinebookstore`.`category`;
 DROP TABLE if exists `onlinebookstore`.`subcategory`;
 DROP TABLE if exists `onlinebookstore`.`shoppingcart`;
 DROP TABLE if exists `onlinebookstore`.`purchasedorders`;
+SET FOREIGN_KEY_CHECKS = 1;
 
 CREATE TABLE if not exists `userinfo` (
   `UserID` int(11) NOT NULL AUTO_INCREMENT,
   `Username` nvarchar(50) DEFAULT NULL,
   `Password` nvarchar(50) DEFAULT NULL,
-  `UserRole` int DEFAULT NULL,  
+  `UserRole` int DEFAULT NULL,
+  `Email` nvarchar(45) DEFAULT NULL,
   `Address` nvarchar(45) DEFAULT NULL,
+  `Newsletter` int default 0,
   PRIMARY KEY (`UserID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 CREATE TABLE if not exists `books` (
-  `ISBN` int(11) NOT NULL AUTO_INCREMENT,
+  `ISBN` int(11) NOT NULL,
   `SubCategoryID` int(11) not NULL,
   `Title` nvarchar(500) DEFAULT NULL,
   `Author` nvarchar(45) DEFAULT NULL,

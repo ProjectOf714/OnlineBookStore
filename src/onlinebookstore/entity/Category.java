@@ -3,9 +3,19 @@
  */
 package onlinebookstore.entity;
 
-public class Category {
+import java.io.Serializable;
+
+public class Category implements Serializable {
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = 2596202700457364883L;
 	private int categoryID;
 	private String categoryName;
+
+	public Category() {
+		super();
+	}
 
 	public Category(int categoryID, String categoryName) {
 		super();
@@ -20,7 +30,6 @@ public class Category {
 		return categoryID;
 	}
 
-	
 	/**
 	 * @return the categoryName
 	 */
@@ -28,6 +37,21 @@ public class Category {
 		return categoryName;
 	}
 
+	/**
+	 * @param categoryID
+	 *            the categoryID to set
+	 */
+	public void setCategoryID(int categoryID) {
+		this.categoryID = categoryID;
+	}
+
+	/**
+	 * @param categoryName
+	 *            the categoryName to set
+	 */
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
+	}
 
 	@Override
 	public String toString() {

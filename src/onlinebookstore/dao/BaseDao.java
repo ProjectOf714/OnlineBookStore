@@ -10,7 +10,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class BaseDao {
-	protected DBConnect dbConn;
 	protected DataSource pool;
 	protected static final Logger log = LogManager.getLogger(BaseDao.class);
 
@@ -26,10 +25,8 @@ public class BaseDao {
 			pool = (DataSource) ctx.lookup("java:comp/env/jdbc/OBS");
 			if (pool == null)
 				throw new Exception("Unknown DataSource 'jdbc/OBS'");
-			dbConn = new DBConnect(pool);
 		} catch (Exception ex) {
 			log.error("InitDatabaseConnectionPool", ex);
 		}
 	}
-
 }

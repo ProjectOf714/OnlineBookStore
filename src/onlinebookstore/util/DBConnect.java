@@ -1,7 +1,7 @@
 /*
  *
  */
-package onlinebookstore.dao;
+package onlinebookstore.util;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -119,7 +119,9 @@ public class DBConnect {
 		if (prepstmt != null) {
 			try {
 				ResultSet rs = executeQuery();
-				obj = rs.getObject(1);
+				if (rs.next()) {
+					obj = rs.getObject(1);
+				}
 			} catch (SQLException e) {
 				log.error("", e);
 			}
@@ -157,11 +159,28 @@ public class DBConnect {
 
 		try {
 			ResultSet rs = stmt.executeQuery(sql);
-			obj = rs.getObject(1);
+			if (rs.next()) {
+				obj = rs.getObject(1);
+			}
 		} catch (SQLException e) {
 			log.error("", e);
 		}
 
 		return obj;
+	}
+
+	public int executeUpdateWithTrans(String sql) throws SQLException {
+		if (stmt == null) {
+			stmt = conn.createStatement();
+		}
+
+		int result = 0;
+		conn.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);
+		conn.setAutoCommit(false);
+		result = stmt.executeUpdate(sql);
+		stmt.close();
+		conn.commit();
+
+		return result;
 	}
 }

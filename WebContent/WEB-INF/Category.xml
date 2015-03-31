@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Categorys>
+  <Category>	
+    <name>Arts &amp; Photography</name>
+    <subcategorys>
+      <subcategory>
+        <name>Architecture</name>
+      </subcategory>
+      <subcategory>
+        <name>Bussiness of Art</name>
+      </subcategory>
+    </subcategorys>
+  </Category>
+  <Category>
+    <name>Audible AudioBooks</name>
+    <subcategorys>
+      <subcategory>
+        <name>Fiction &amp; Literature</name>
+      </subcategory>
+      <subcategory>
+        <name>Nonfiction</name>
+      </subcategory>
+    </subcategorys>
+  </Category>
+</Categorys>

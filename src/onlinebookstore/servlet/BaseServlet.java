@@ -1,5 +1,5 @@
 /*
- * 
+ *
  */
 package onlinebookstore.servlet;
 
@@ -7,10 +7,12 @@ import java.io.IOException;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 import org.apache.logging.log4j.LogManager;
@@ -50,16 +52,17 @@ public class BaseServlet extends HttpServlet {
 		}
 	}
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	@Override
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	}
-
+	//
+	// /**
+	// * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	// * response)
+	// */
+	// @Override
+	// protected void doGet(HttpServletRequest request,
+	// HttpServletResponse response) throws ServletException, IOException {
+	// // TODO Auto-generated method stub
+	// }
+	//
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
@@ -68,6 +71,14 @@ public class BaseServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		HttpSession session = request.getSession(false);
+		RequestDispatcher dispatcher;
+
+		// if session does not exist, forward to index.html
+		if (session == null) {
+			dispatcher = request.getRequestDispatcher("/index.html");
+			dispatcher.forward(request, response);
+		}
 	}
 
 }

@@ -1,9 +1,22 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE HTML>
 <html>
 <head>
 <title>JSP List Category Records</title>
 </head>
 <body>
+	<header>
+		<h1>The most important heading on this page</h1>
+		<p>With some supplementary information</p>
+	</header>
+	<nav>
+		<ul>
+			<li><a href="#html5">HTML5</a></li>
+			<li><a href="#css3">CSS3</a></li>
+			<li><a href="#jquery">jQuery</a></li>
+			<ul>
+	</nav>
+
 	<FORM action="ShowCategory" method="get">
 		<INPUT type="submit" name="Submit" value="Show">
 	</FORM>
@@ -33,7 +46,7 @@
 			<tr>
 				<th>ID</th>
 				<th>Name</th>
-			</tr>			
+			</tr>
 			<c:forEach items="${categorylist.lstCategory}" var="cat">
 				<tr>
 					<td><c:out value="${cat.categoryID}" /></td>

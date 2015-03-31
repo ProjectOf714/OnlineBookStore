@@ -6,11 +6,13 @@ package onlinebookstore.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import onlinebookstore.dao.UserDao;
 import onlinebookstore.entity.UserInfo;
@@ -41,26 +43,64 @@ public class UserServlet extends BaseServlet {
 		PrintWriter out = response.getWriter();
 		String action = request.getParameter("Action");
 		String strUserName = request.getParameter("UserName");
+		String strEmail = request.getParameter("Email");
 		if (action.equals("CheckUserName")) {
 			UserDao ud = new UserDao();
 			if (ud.CheckUserName(strUserName)) {
-				// Return 1 stands for exists.
-				out.print(1);
+				out.print("<b>Sorry,the user is exist</b>");
 			} else {
-				out.print(0);
+				out.print("This name you can use");
+			}
+		} else if (action.equals("CheckEmail")) {
+			UserDao ud = new UserDao();
+			if (ud.CheckEmail(strEmail)) {
+				// Return 1 stands for exists.
+				out.print("<b>Sorry,the email is exist</b>");
+			} else {
+				out.print("This email you can use");
 			}
 		} else if (action.equals("Login")) {
 			UserDao ud = new UserDao();
-			String strUserPwd = request.getParameter("UserName");
+			String strUserPwd = request.getParameter("Password");
 			UserInfo ui = ud.Login(strUserName, strUserPwd);
 			if (ui.getStatus() == 1) {
-				// Return 1 stands for exists.
-				out.print(1);
+				HttpSession session = request.getSession(true);
+				session.setAttribute("CurrentUserInfo", ui);
+				RequestDispatcher dispatcher = request
+						.getRequestDispatcher("/index.html");
+				dispatcher.forward(request, response);
 			} else {
 				out.print(0);
 			}
 
 			request.getSession().setAttribute("LoginUserInfo", ui);
+		} else if (action.equals("Register")) {
+			String[] item = new String[] { "UserName", "Address", "Email",
+					"Newsletter", "Password" };
+			StringBuilder sb = new StringBuilder();
+			for (String strItem : item) {
+				sb.append(String.format("%s:%s", strItem,
+						request.getParameter(strItem)));
+			}
+
+			log.debug(sb.toString());
+			UserInfo ui = new UserInfo();
+			ui.setUserName(request.getParameter("UserName"));
+			ui.setAddress(request.getParameter("Address"));
+			ui.setEmail(request.getParameter("Email"));
+			ui.setPassword(request.getParameter("Password"));
+			if (request.getParameter("Newsletter") != null
+					&& request.getParameter("Newsletter") != "")
+				ui.setNewsLetter(Integer.parseInt(request
+						.getParameter("Newsletter")));
+			UserDao ud = new UserDao();
+			if (ud.Register(ui)) {
+				RequestDispatcher dispatcher = request
+						.getRequestDispatcher("/login.html");
+				dispatcher.forward(request, response);
+			} else {
+				out.print("<br /><b>Register failed, please try again.</b>");
+			}
 		}
 
 		// if ("iamcrzay".equals(strUserName)) {
