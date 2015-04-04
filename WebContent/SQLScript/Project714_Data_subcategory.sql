@@ -1,5 +1,5 @@
 delete from subcategory where CategoryID>0;
-delete from category where CategoryID>10;
+delete from category where CategoryID>0;
 INSERT INTO category(CategoryID,CategoryName) VALUES(1,'Arts & Photography');
 INSERT INTO subcategory(CategoryID,SubCategoryName)
 VALUES(1,'Architecture'),

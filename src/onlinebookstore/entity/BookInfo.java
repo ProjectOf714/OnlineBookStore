@@ -355,4 +355,26 @@ public class BookInfo implements Serializable {
 		this.image2Thumb = image2Thumb;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "BookInfo [iSBN=" + iSBN + ", subCategoryID=" + subCategoryID
+				+ ", title=" + title + ", author=" + author + ", language="
+				+ language + ", price=" + price + ", paperback=" + paperback
+				+ ", publisher=" + publisher + ", productDimensions="
+				+ productDimensions + ", shippingWeight=" + shippingWeight
+				+ ", rating=" + rating + ", stockQuantity=" + stockQuantity
+				+ ", description_P1=" + description_P1 + ", description_P2="
+				+ description_P2 + ", description_P3=" + description_P3
+				+ ", description_P4=" + description_P4 + ", description_P5="
+				+ description_P5 + ", productImage=" + productImage
+				+ ", image1Large=" + image1Large + ", image1Thumb="
+				+ image1Thumb + ", image2Large=" + image2Large
+				+ ", image2Thumb=" + image2Thumb + "]";
+	}
+
 }

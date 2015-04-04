@@ -28,7 +28,7 @@ CREATE TABLE if not exists `books` (
   `Language` varchar(45) DEFAULT NULL,
   `Price` float DEFAULT NULL,
   `Paperback` varchar(45) DEFAULT NULL,
-  `Publisher` varchar(45) DEFAULT NULL,
+  `Publisher` varchar(100) DEFAULT NULL,
   `ProductDimensions` varchar(45) DEFAULT NULL,
   `ShippingWeight` varchar(45) DEFAULT NULL,
   `Rating` varchar(45) DEFAULT NULL,

@@ -26,10 +26,17 @@ public class CategoryDao extends BaseDao {
 
 	public CategoryDao() {
 		super();
-		RetrieveFromDB();
+
 	}
 
-	private void RetrieveFromDB() {
+	public CategoryDao(Boolean initFromDB) {
+		super();
+		if (initFromDB) {
+			RetrieveFromDB();
+		}
+	}
+
+	public void RetrieveFromDB() {
 		String sql = "SELECT * FROM category;";
 		try {
 			DBConnect dbConn = new DBConnect(pool);

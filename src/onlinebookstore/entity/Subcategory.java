@@ -14,6 +14,10 @@ public class Subcategory implements Serializable {
 	private int categoryID;
 	private String subCategoryName;
 
+	public Subcategory() {
+		super();
+	}
+
 	/**
 	 * @param subCategoryID
 	 * @param categoryID
@@ -34,6 +38,14 @@ public class Subcategory implements Serializable {
 	}
 
 	/**
+	 * @param subCategoryID
+	 *            the subCategoryID to set
+	 */
+	public void setSubCategoryID(int subCategoryID) {
+		this.subCategoryID = subCategoryID;
+	}
+
+	/**
 	 * @return the categoryID
 	 */
 	public int getCategoryID() {
@@ -41,10 +53,26 @@ public class Subcategory implements Serializable {
 	}
 
 	/**
+	 * @param categoryID
+	 *            the categoryID to set
+	 */
+	public void setCategoryID(int categoryID) {
+		this.categoryID = categoryID;
+	}
+
+	/**
 	 * @return the subCategoryName
 	 */
 	public String getSubCategoryName() {
 		return subCategoryName;
+	}
+
+	/**
+	 * @param subCategoryName
+	 *            the subCategoryName to set
+	 */
+	public void setSubCategoryName(String subCategoryName) {
+		this.subCategoryName = subCategoryName;
 	}
 
 	/*
