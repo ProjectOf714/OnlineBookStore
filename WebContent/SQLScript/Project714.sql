@@ -11,37 +11,51 @@ SET FOREIGN_KEY_CHECKS = 1;
 
 CREATE TABLE if not exists `userinfo` (
   `UserID` int(11) NOT NULL AUTO_INCREMENT,
-  `Username` nvarchar(50) DEFAULT NULL,
-  `Password` nvarchar(50) DEFAULT NULL,
+  `Username` varchar(50) DEFAULT NULL,
+  `Password` varchar(50) DEFAULT NULL,
   `UserRole` int DEFAULT NULL,
-  `Email` nvarchar(45) DEFAULT NULL,
-  `Address` nvarchar(45) DEFAULT NULL,
+  `Email` varchar(45) DEFAULT NULL,
+  `Address` varchar(45) DEFAULT NULL,
   `Newsletter` int default 0,
   PRIMARY KEY (`UserID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 CREATE TABLE if not exists `books` (
   `ISBN` int(11) NOT NULL,
-  `SubCategoryID` int(11) not NULL,
-  `Title` nvarchar(500) DEFAULT NULL,
-  `Author` nvarchar(45) DEFAULT NULL,
+  `SubCategoryID` int(11) not NULL,  
+  `Title` varchar(500) DEFAULT NULL,
+  `Author` varchar(45) DEFAULT NULL,
+  `Language` varchar(45) DEFAULT NULL,
   `Price` float DEFAULT NULL,
-  `Rating` nvarchar(45) DEFAULT NULL,
+  `Paperback` varchar(45) DEFAULT NULL,
+  `Publisher` varchar(45) DEFAULT NULL,
+  `ProductDimensions` varchar(45) DEFAULT NULL,
+  `ShippingWeight` varchar(45) DEFAULT NULL,
+  `Rating` varchar(45) DEFAULT NULL,
   `StockQuantity` int(11) DEFAULT NULL,
-  `Description` varchar(45) DEFAULT NULL,
+  `Description_P1` varchar(1000) DEFAULT NULL,
+  `Description_P2` varchar(1000) DEFAULT NULL,
+  `Description_P3` varchar(1000) DEFAULT NULL,
+  `Description_P4` varchar(1000) DEFAULT NULL,
+  `Description_P5` varchar(1000) DEFAULT NULL,
+  `ProductImage` varchar(100) DEFAULT NULL,
+  `Image1Large` varchar(100) DEFAULT NULL,
+  `Image1Thumb` varchar(100) DEFAULT NULL,
+  `Image2Large` varchar(100) DEFAULT NULL,
+  `Image2Thumb` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`ISBN`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 CREATE TABLE if not exists `category` (
   `CategoryID` int(11) NOT NULL AUTO_INCREMENT,
-  `CategoryName` nvarchar(50) DEFAULT NULL,
+  `CategoryName` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`CategoryID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 CREATE TABLE  if not exists `subcategory` (
   `SubCategoryID` int(11) NOT NULL AUTO_INCREMENT,
   `CategoryID` int(11) NOT NULL,
-  `SubCategoryName` nvarchar(50) DEFAULT NULL,
+  `SubCategoryName` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`SubCategoryID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 

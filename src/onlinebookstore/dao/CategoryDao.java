@@ -15,26 +15,31 @@ import java.util.List;
 import onlinebookstore.entity.Category;
 import onlinebookstore.entity.Subcategory;
 import onlinebookstore.util.DBConnect;
+import onlinebookstore.util.EntityHelper;
 
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
 public class CategoryDao extends BaseDao {
+	private List<Category> lstCategory = new ArrayList<Category>();
+	private Dictionary<Category, List<Subcategory>> dicCateoory = new Hashtable<Category, List<Subcategory>>();
 
 	public CategoryDao() {
 		super();
+		RetrieveFromDB();
 	}
 
-	private List<Category> lstCategory = new ArrayList<Category>();
-
-	public void RetrieveFromDB() {
+	private void RetrieveFromDB() {
 		String sql = "SELECT * FROM category;";
 		try {
 			DBConnect dbConn = new DBConnect(pool);
 			ResultSet rset = dbConn.executeQuery(sql);
-			while (rset.next()) {
-				Category cat = new Category(rset.getInt(1), rset.getString(2));
-				lstCategory.add(cat);
+			lstCategory = EntityHelper.getListFromRS(Category.class, rset);
+			Iterator<Category> iterator = lstCategory.iterator();
+			while (iterator.hasNext()) {
+				Category catItem = iterator.next();
+				dicCateoory.put(catItem,
+						getSubCategory(catItem.getCategoryID()));
 			}
 
 			dbConn.close();
@@ -62,11 +67,7 @@ public class CategoryDao extends BaseDao {
 			dbConn.prepareStatement(sql);
 			dbConn.setInt(1, categoryID);
 			ResultSet rset = dbConn.executeQuery();
-			while (rset.next()) {
-				lstSubCat.add(new Subcategory(rset.getInt(1), rset.getInt(2),
-						rset.getString(3)));
-			}
-
+			lstSubCat = EntityHelper.getListFromRS(Subcategory.class, rset);
 			dbConn.close();
 		} catch (SQLException e) {
 			log.error("", e);
@@ -77,7 +78,29 @@ public class CategoryDao extends BaseDao {
 		return lstSubCat;
 	}
 
-	public List<Category> read(String xmlFileName) {
+	public List<Subcategory> getSubCategory() {
+		List<Subcategory> lstSubCat = new ArrayList<Subcategory>();
+
+		String sql = "select * from subcategory;";
+		try {
+			DBConnect dbConn = new DBConnect(pool);
+			ResultSet rset = dbConn.executeQuery(sql);
+			lstSubCat = EntityHelper.getListFromRS(Subcategory.class, rset);
+			dbConn.close();
+		} catch (SQLException e) {
+			log.error("", e);
+		} catch (Exception e) {
+			log.error(e.toString());
+		}
+
+		return lstSubCat;
+	}
+
+	public Dictionary<Category, List<Subcategory>> getDicCateoory() {
+		return dicCateoory;
+	}
+
+	public List<Category> readFromXML(String xmlFileName) {
 		List<Category> lstCat = new LinkedList<Category>();
 		try {
 			int currID = 1;
@@ -149,4 +172,5 @@ public class CategoryDao extends BaseDao {
 	private String elementToString(Element row, String column) {
 		return row.element(column).getText();
 	}
+
 }

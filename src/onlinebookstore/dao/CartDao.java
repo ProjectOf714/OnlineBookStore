@@ -6,6 +6,7 @@ package onlinebookstore.dao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import onlinebookstore.entity.BookInfo;
@@ -15,13 +16,13 @@ import onlinebookstore.util.DBConnect;
 
 public class CartDao extends BaseDao {
 
+	private List<ShoppingCart> lstCart = new ArrayList<ShoppingCart>();
+
 	public CartDao() {
 		super();
 	}
 
-	private List<ShoppingCart> lstCart = new ArrayList<ShoppingCart>();
-
-	public void RetrieveByUserID(UserInfo userInfo) {
+	public List<ShoppingCart> RetrieveByUserID(UserInfo userInfo) {
 		String sql = "select * from shoppingcart where UserID= ?;";
 		try {
 			DBConnect dbConn = new DBConnect(pool);
@@ -43,16 +44,27 @@ public class CartDao extends BaseDao {
 		} catch (Exception e) {
 			log.error(e.toString());
 		}
+
+		return lstCart;
 	}
 
 	public void SaveToDB(ShoppingCart cart) {
-		String sql = "INSERT INTO shoppingcart(UserID,ISBN,Quantity)VALUES(?,?,?);";
 		try {
 			DBConnect dbConn = new DBConnect(pool);
+			String sqlCheck = "select count(1) from shoppingcart where UserID = ? and ISBN=?;";
+			dbConn.prepareStatement(sqlCheck);
+			dbConn.setInt(1, cart.getUserID());
+			dbConn.setInt(2, cart.getISBN());
+			boolean checkRslt = Integer.parseInt(dbConn.executeScalar()
+					.toString()) == 1;
+			String sql = "INSERT INTO shoppingcart(Quantity,UserID,ISBN)VALUES(?,?,?);";
+			if (checkRslt)
+				sql = "Update shoppingcart set Quantity=? where where UserID = ? and ISBN=?;";
+
 			dbConn.prepareStatement(sql);
-			dbConn.setInt(1, cart.getUserInfo().getUserID());
-			dbConn.setInt(2, cart.getBookItem().getIsbn());
-			dbConn.setInt(3, cart.getQuantity());
+			dbConn.setInt(1, cart.getQuantity());
+			dbConn.setInt(2, cart.getUserID());
+			dbConn.setInt(3, cart.getISBN());
 			dbConn.executeUpdate();
 			dbConn.close();
 		} catch (SQLException e) {
@@ -60,5 +72,19 @@ public class CartDao extends BaseDao {
 		} catch (Exception e) {
 			log.error(e.toString());
 		}
+	}
+
+	// Update the quantity for the given id
+	public boolean update(int isbn, int newQty) {
+		Iterator<ShoppingCart> iter = lstCart.iterator();
+		while (iter.hasNext()) {
+			ShoppingCart item = iter.next();
+			if (item.getISBN() == isbn) {
+				// id found, increase qtyOrdered
+				item.setQuantity(newQty);
+				return true;
+			}
+		}
+		return false;
 	}
 }

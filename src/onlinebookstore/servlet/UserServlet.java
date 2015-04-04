@@ -85,13 +85,13 @@ public class UserServlet extends BaseServlet {
 
 			log.debug(sb.toString());
 			UserInfo ui = new UserInfo();
-			ui.setUserName(request.getParameter("UserName"));
+			ui.setUsername(request.getParameter("UserName"));
 			ui.setAddress(request.getParameter("Address"));
 			ui.setEmail(request.getParameter("Email"));
 			ui.setPassword(request.getParameter("Password"));
 			if (request.getParameter("Newsletter") != null
 					&& request.getParameter("Newsletter") != "")
-				ui.setNewsLetter(Integer.parseInt(request
+				ui.setNewsletter(Integer.parseInt(request
 						.getParameter("Newsletter")));
 			UserDao ud = new UserDao();
 			if (ud.Register(ui)) {
@@ -103,11 +103,6 @@ public class UserServlet extends BaseServlet {
 			}
 		}
 
-		// if ("iamcrzay".equals(strUserName)) {
-		// out.print("<br /><b>Sorry,the user is exist</b>");
-		// } else {
-		// out.print("<i><b>Congratulation,this accont you can use!!!!</b></i><a class=\"learn-more\" href=\"#\">learn more</a>");
-		// }
 		out.close();
 		// TODO Return to the check
 	}

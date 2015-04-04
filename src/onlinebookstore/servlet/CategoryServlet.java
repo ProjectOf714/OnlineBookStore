@@ -8,11 +8,13 @@ import java.util.Dictionary;
 import java.util.Enumeration;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import onlinebookstore.dao.CategoryDao;
 import onlinebookstore.entity.Category;
@@ -48,11 +50,9 @@ public class CategoryServlet extends BaseServlet {
 					List<Subcategory> subCate = tmpDic.get(currCate);
 					subCate.forEach(s -> log.debug(s.toString()));
 				}
-
 			} catch (Exception e) {
 				log.error("", e);
 			}
-			categoryLst.RetrieveFromDB();
 		}
 
 		getServletContext().setAttribute("categorylist1", categoryLst);
@@ -70,7 +70,15 @@ public class CategoryServlet extends BaseServlet {
 	@Override
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		HttpSession session = request.getSession(false);
+		RequestDispatcher dispatcher;
+
+		// if session does not exist, forward to index.html
+		if (session == null) {
+			dispatcher = request.getRequestDispatcher("/index.html");
+			dispatcher.forward(request, response);
+		} else
+			doGet(request, response);
 	}
 
 }

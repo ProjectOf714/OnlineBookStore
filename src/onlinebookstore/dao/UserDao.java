@@ -5,10 +5,12 @@ package onlinebookstore.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 import onlinebookstore.entity.UserInfo;
 import onlinebookstore.util.DBConnect;
 import onlinebookstore.util.Encrypt;
+import onlinebookstore.util.EntityHelper;
 
 public class UserDao extends BaseDao {
 
@@ -63,14 +65,12 @@ public class UserDao extends BaseDao {
 				dbConn.setString(1, strUserName);
 				dbConn.setString(2, Encrypt.EncryptByMD5(strUserPwd));
 				ResultSet rset = dbConn.executeQuery();
-				if (rset.next()) {
-					user = new UserInfo(rset.getInt("UserID"),
-							rset.getString("Username"),
-							rset.getString("Password"),
-							rset.getString("Address"), rset.getString("Email"),
-							rset.getInt("UserRole"), rset.getInt("Newsletter"));
+				List<UserInfo> lstUsr = EntityHelper.getListFromRS(
+						UserInfo.class, rset, true);
+				if (!lstUsr.isEmpty()) {
+					user = lstUsr.get(0);
+					user.setStatus(1);
 				}
-
 				dbConn.close();
 			} catch (SQLException e) {
 				log.error("", e);
@@ -84,12 +84,12 @@ public class UserDao extends BaseDao {
 
 	public boolean Register(UserInfo puser) {
 		boolean result = false;
-		if (!CheckUserName(puser.getUserName())) {
+		if (!CheckUserName(puser.getUsername())) {
 			String sql = "INSERT INTO `userinfo`(`Username`,`Password`,`UserRole`,`Address`,Email, Newsletter)VALUES(?,?,1,?,?,?);";
 			try {
 				DBConnect dbConn = new DBConnect(pool);
 				dbConn.prepareStatement(sql);
-				dbConn.setString(1, puser.getUserName());
+				dbConn.setString(1, puser.getUsername());
 				dbConn.setString(2, Encrypt.EncryptByMD5(puser.getPassword()));
 				dbConn.setString(3, puser.getAddress());
 				dbConn.setString(4, puser.getEmail());

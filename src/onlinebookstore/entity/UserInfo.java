@@ -11,94 +11,18 @@ public class UserInfo implements Serializable {
 	 */
 	private static final long serialVersionUID = -3016286917871450522L;
 	private int userID;
-	private String userName;
+	private String username;
 	private String password;
 	private int userRole;
 	private String address;
 	private String email;
 	private int status;
-	private int newsLetter;
+	private int newsletter;
 
 	public UserInfo() {
 		status = -1;
 		userID = -1;
 		userRole = 1;
-	}
-
-	public UserInfo(String strUserName, String strPassword, String strAddress,
-			String strEmail, int iNewsletter) {
-		super();
-		status = 0;
-		userID = -1;
-		userRole = 1;
-		userName = strUserName;
-		password = strPassword;
-		address = strAddress;
-		email = strEmail;
-		newsLetter = iNewsletter;
-
-	}
-
-	public UserInfo(int iUserID, String strUserName, String strPassword,
-			String strAddress, String strEmail, int iUserRole, int iNewsletter) {
-		super();
-		status = 1;
-		userRole = iUserRole;
-		userID = iUserID;
-		userName = strUserName;
-		password = strPassword;
-		address = strAddress;
-		email = strEmail;
-		newsLetter = iNewsletter;
-	}
-
-	/**
-	 * @return the userID
-	 */
-	public int getUserID() {
-		return userID;
-	}
-
-	/**
-	 * @return the userName
-	 */
-	public String getUserName() {
-		return userName;
-	}
-
-	/**
-	 * @return the password, encrypt use MD5
-	 */
-	public String getPassword() {
-		return password;
-	}
-
-	/**
-	 * @return the userRole
-	 */
-	public int getUserRole() {
-		return userRole;
-	}
-
-	/**
-	 * @return the address
-	 */
-	public String getAddress() {
-		return address;
-	}
-
-	/**
-	 * @return the email
-	 */
-	public String getEmail() {
-		return email;
-	}
-
-	/**
-	 * @return the newsletter
-	 */
-	public int getNewsletter() {
-		return newsLetter;
 	}
 
 	/**
@@ -110,11 +34,49 @@ public class UserInfo implements Serializable {
 	}
 
 	/**
-	 * @param userName
-	 *            the userName to set
+	 * @param status
+	 *            : -1 stands for invalid. 0 stands for new. 1 stands for
+	 *            LoginOk
 	 */
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
+	/**
+	 * @return the userID
+	 */
+	public int getUserID() {
+		return userID;
+	}
+
+	/**
+	 * @param userID
+	 *            the userID to set
+	 */
+	public void setUserID(int userID) {
+		this.userID = userID;
+	}
+
+	/**
+	 * @return the username
+	 */
+	public String getUsername() {
+		return username;
+	}
+
+	/**
+	 * @param username
+	 *            the username to set
+	 */
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	/**
+	 * @return the password
+	 */
+	public String getPassword() {
+		return password;
 	}
 
 	/**
@@ -126,11 +88,40 @@ public class UserInfo implements Serializable {
 	}
 
 	/**
+	 * @return the userRole
+	 */
+	public int getUserRole() {
+		return userRole;
+	}
+
+	/**
+	 * @param userRole
+	 *            the userRole to set
+	 */
+	public void setUserRole(int userRole) {
+		this.userRole = userRole;
+	}
+
+	/**
+	 * @return the address
+	 */
+	public String getAddress() {
+		return address;
+	}
+
+	/**
 	 * @param address
 	 *            the address to set
 	 */
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	/**
+	 * @return the email
+	 */
+	public String getEmail() {
+		return email;
 	}
 
 	/**
@@ -142,10 +133,18 @@ public class UserInfo implements Serializable {
 	}
 
 	/**
-	 * @param newsLetter
-	 *            the newsLetter to set
+	 * @return the newsletter
 	 */
-	public void setNewsLetter(int newsLetter) {
-		this.newsLetter = newsLetter;
+	public int getNewsletter() {
+		return newsletter;
 	}
+
+	/**
+	 * @param newsletter
+	 *            the newsletter to set
+	 */
+	public void setNewsletter(int newsletter) {
+		this.newsletter = newsletter;
+	}
+
 }

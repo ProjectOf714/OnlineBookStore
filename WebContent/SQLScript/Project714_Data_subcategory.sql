@@ -179,4 +179,5 @@ VALUES
   (9,'Operating Systems'),
   (9,'Programming'),
   (9,'Security & Encrption'),
-  (9,'Software');
+  (9,'Software'),
+  (9,'Web Development & Design');

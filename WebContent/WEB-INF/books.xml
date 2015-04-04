@@ -3,17 +3,8 @@
 <BOOK id="01">
     <ISBN-10>1491947160</ISBN-10>
 	<ISBN-13>978-1491947166</ISBN-13>
-    <Category>Web Design</Category>	
-	<Image>
-		<ProductImage>WebDesign-Product1.jpg</ProductImage>
-		<DetailImage>
-			<Image1Large>Product1_image1_large.jpg</Image1Large>
-			<Image1Thumb>Product1_image1_thumb.jpg</Image1Thumb>
-			<Image2Large>Product1_image2_large.jpg</Image2Large>
-			<Image2Thumb>Product1_image2_thumb.jpg</Image2Thumb>
-		</DetailImage>
-	</Image>
-    <Title>OS X Yosemite: The Missing Manual (Missing Manuals)</Title>
+    <Category>Web Development &amp; Design</Category>	
+	<Title>OS X Yosemite: The Missing Manual (Missing Manuals)</Title>
     <Author>David Pogue</Author>
 	<Language>English</Language>
     <Price>26.51</Price>
@@ -22,28 +13,23 @@
 	<ProductDimensions>9.1 x 6.9 x 1.8 inches</ProductDimensions>
 	<ShippingWeight>2.8 pounds</ShippingWeight>
     <Rating>88</Rating>
-    <Description>
-		<Paragraph1>With Yosemite, Apple has unleashed the most innovative version of OS X yet—and once again, David Pogue brings his expertise and humor to the #1 bestselling Mac book. Mac OS X 10.10 includes more innovations from the iPad and adds a variety of new features throughout the operating system. This updated edition covers it all with something new on practically every page.</Paragraph1>
-		<Paragraph2>Get the scoop on Yosemite’s big-ticket changes</Paragraph2>
-		<Paragraph3>Learn enhancements to existing applications, such as Safari and Mail</Paragraph3>
-		<Paragraph4>Take advantage of shortcuts and undocumented tricks</Paragraph4>
-		<Paragraph5>Use power user tips for networking, file sharing, and building your own services</Paragraph5>
-	</Description>
+    
+		<Description_P1>With Yosemite, Apple has unleashed the most innovative version of OS X yet—and once again, David Pogue brings his expertise and humor to the #1 bestselling Mac book. Mac OS X 10.10 includes more innovations from the iPad and adds a variety of new features throughout the operating system. This updated edition covers it all with something new on practically every page.</Description_P1>
+		<Description_P2>Get the scoop on Yosemite’s big-ticket changes</Description_P2>
+		<Description_P3>Learn enhancements to existing applications, such as Safari and Mail</Description_P3>
+		<Description_P4>Take advantage of shortcuts and undocumented tricks</Description_P4>
+		<Description_P5>Use power user tips for networking, file sharing, and building your own services</Description_P5>
+		<ProductImage>WebDesign-Product1.jpg</ProductImage>
+			<Image1Large>Product1_image1_large.jpg</Image1Large>
+			<Image1Thumb>Product1_image1_thumb.jpg</Image1Thumb>
+			<Image2Large>Product1_image2_large.jpg</Image2Large>
+			<Image2Thumb>Product1_image2_thumb.jpg</Image2Thumb>
   </BOOK>
   
   <BOOK id="02">
-    <ISBN-10>I1118008189</ISBN-10>
+    <ISBN-10>1118008189</ISBN-10>
 	<ISBN-13>978-1118008188</ISBN-13>
-    <Category>Web Design</Category>	
-	<Image>
-		<ProductImage>WebDesign-Product2.jpg</ProductImage>
-		<DetailImage>
-			<Image1Large>Product2_image1_large.jpg</Image1Large>
-			<Image1Thumb>Product2_image1_thumb.jpg</Image1Thumb>
-			<Image2Large>Product2_image2_large.jpg</Image2Large>
-			<Image2Thumb>Product2_image2_thumb.jpg</Image2Thumb>
-		</DetailImage>
-	</Image>
+    <Category>Web Development &amp; Design</Category>		
     <Title>HTML and CSS: Design and Build Websites</Title>
     <Author>Jon Duckett</Author>
 	<Language>English</Language>
@@ -53,26 +39,22 @@
 	<ProductDimensions>7.4 x 1 x 9.2 inches</ProductDimensions>
 	<ShippingWeight>2.7 pounds</ShippingWeight>
     <Rating>646</Rating>
-    <Description>
-		<Paragraph1>A full-color introduction to the basics of HTML and CSS from the publishers of Wrox! </Paragraph1>
-		<Paragraph2>Every day, more and more people want to learn some HTML and CSS. Joining the professional web designers and programmers are new audiences who need to know a little bit of code at work (update a content management system or e-commerce store) and those who want to make their personal blogs more attractive. Many books teaching HTML and CSS are dry and only written for those who want to become programmers, which is why this book takes an entirely new approach. * Introduces HTML and CSS in a way that makes them accessible to everyone--hobbyists, students, and professionals--and it's full-color throughout * Utilizes information graphics and lifestyle photography to explain the topics in a simple way that is engaging * Boasts a unique structure that allows you to progress through the chapters from beginning to end or just dip into topics of particular interest at your leisure.</Paragraph2>
-		<Paragraph3>This educational book is one that you will enjoy picking up, reading, then referring back to. It will make you wish other technical topics were presented in such a simple, attractive and engaging way! This book is also available as part of a set in hardcover - Web Design with HTML, CSS, JavaScript and jQuery, 9781119038634; and in softcover - Web Design with HTML, CSS, JavaScript and jQuery, 9781118907443.</Paragraph3>
-	</Description>
+		<Description_P1>A full-color introduction to the basics of HTML and CSS from the publishers of Wrox! </Description_P1>
+		<Description_P2>Every day, more and more people want to learn some HTML and CSS. Joining the professional web designers and programmers are new audiences who need to know a little bit of code at work (update a content management system or e-commerce store) and those who want to make their personal blogs more attractive. Many books teaching HTML and CSS are dry and only written for those who want to become programmers, which is why this book takes an entirely new approach. * Introduces HTML and CSS in a way that makes them accessible to everyone--hobbyists, students, and professionals--and it's full-color throughout * Utilizes information graphics and lifestyle photography to explain the topics in a simple way that is engaging * Boasts a unique structure that allows you to progress through the chapters from beginning to end or just dip into topics of particular interest at your leisure.</Description_P2>
+		<Description_P3>This educational book is one that you will enjoy picking up, reading, then referring back to. It will make you wish other technical topics were presented in such a simple, attractive and engaging way! This book is also available as part of a set in hardcover - Web Design with HTML, CSS, JavaScript and jQuery, 9781119038634; and in softcover - Web Design with HTML, CSS, JavaScript and jQuery, 9781118907443.</Description_P3>
+	
+		<ProductImage>WebDesign-Product2.jpg</ProductImage>
+			<Image1Large>Product2_image1_large.jpg</Image1Large>
+			<Image1Thumb>Product2_image1_thumb.jpg</Image1Thumb>
+			<Image2Large>Product2_image2_large.jpg</Image2Large>
+			<Image2Thumb>Product2_image2_thumb.jpg</Image2Thumb>
+	
   </BOOK>
   
    <BOOK  id="03">
     <ISBN-10>1591847389</ISBN-10>
 	<ISBN-13>978-1591847380</ISBN-13>
-    <Category>Web Design</Category>	
-	<Image>
-		<ProductImage>WebDesign-Product3.jpg</ProductImage>
-		<DetailImage>
-			<Image1Large>Product3_image1_large.jpg</Image1Large>
-			<Image1Thumb>Product3_image1_thumb.jpg</Image1Thumb>
-			<Image2Large>Product3_image2_large.jpg</Image2Large>
-			<Image2Thumb>Product3_image2_thumb.jpg</Image2Thumb>
-		</DetailImage>
-	</Image>
+    <Category>Web Development &amp; Design</Category>
     <Title>Growth Hacker Marketing: A Primer on the Future of PR, Marketing, and Advertising</Title>
     <Author>Ryan Holiday</Author>
 	<Language>English</Language>
@@ -82,22 +64,21 @@
 	<ProductDimensions>5 x 0.4 x 7.7 inches</ProductDimensions>
 	<ShippingWeight>4.2 ounces</ShippingWeight>
     <Rating>419</Rating>
-    <Description>
-		<Paragraph1>A new generation of megabrands like Facebook, Dropbox, Airbnb, and Twitter haven’t spent a dime on traditional marketing. No press releases, no TV commercials, no billboards. Instead, they rely on a new strategy—growth hacking—to reach many more people despite modest marketing budgets. Growth hackers have thrown out the old playbook and replaced it with tools that are testable, trackable, and scalable. They believe that products and businesses should be modified repeatedly until they’re primed to generate explosive reactions.</Paragraph1>
-		<Paragraph2>Bestselling author Ryan Holiday, the acclaimed marketing guru for American Apparel and many bestselling authors and multiplatinum musicians, explains the new rules and provides valuable examples and case studies for aspiring growth hackers. Whether you work for a tiny start-up or a Fortune 500 giant, if you’re responsible for building awareness and buzz for a product or service, this is your road map.</Paragraph2>
-	</Description>
-  </BOOK>
+		<Description_P1>A new generation of megabrands like Facebook, Dropbox, Airbnb, and Twitter haven’t spent a dime on traditional marketing. No press releases, no TV commercials, no billboards. Instead, they rely on a new strategy—growth hacking—to reach many more people despite modest marketing budgets. Growth hackers have thrown out the old playbook and replaced it with tools that are testable, trackable, and scalable. They believe that products and businesses should be modified repeatedly until they’re primed to generate explosive reactions.</Description_P1>
+		<Description_P2>Bestselling author Ryan Holiday, the acclaimed marketing guru for American Apparel and many bestselling authors and multiplatinum musicians, explains the new rules and provides valuable examples and case studies for aspiring growth hackers. Whether you work for a tiny start-up or a Fortune 500 giant, if you’re responsible for building awareness and buzz for a product or service, this is your road map.</Description_P2>
+	<ProductImage>WebDesign-Product3.jpg</ProductImage>
+			<Image1Large>Product3_image1_large.jpg</Image1Large>
+			<Image1Thumb>Product3_image1_thumb.jpg</Image1Thumb>
+			<Image2Large>Product3_image2_large.jpg</Image2Large>
+			<Image2Thumb>Product3_image2_thumb.jpg</Image2Thumb>
+	  </BOOK>
   
   <BOOK  id="04">
     <ISBN-10>1591848075</ISBN-10>
 	<ISBN-13>978-1591848073</ISBN-13>
-    <Category>Web Design</Category>	
+    <Category>Web Development &amp; Design</Category>	
 	<Image>
-		<ProductImage>WebDesign-Product4.jpg</ProductImage>
-		<DetailImage>
-			<Image1Large>Product4_image1_large.jpg</Image1Large>
-			<Image1Thumb>Product4_image1_thumb.jpg</Image1Thumb>
-		</DetailImage>
+		
 	</Image>
     <Title>The Art of Social Media: Power Tips for Power Users</Title>
     <Author>Guy Kawasaki</Author>
@@ -108,27 +89,21 @@
 	<ProductDimensions>5.2 x 0.8 x 7.2 inches</ProductDimensions>
 	<ShippingWeight>9.6 ounces</ShippingWeight>
     <Rating>284</Rating>
-    <Description>
-		<Paragraph1>By now it's clear that whether you're promoting a business, a product, or yourself, social media is near the top of what determines your success or failure. And there are countless pundits, authors, and consultants eager to advise you.</Paragraph1>
-		<Paragraph2>But there’s no one quite like Guy Kawasaki, the legendary former chief evangelist for Apple and one of the pioneers of business blogging, tweeting, Facebooking, Tumbling, and much, much more. Now Guy has teamed up with Peg Fitzpatrick, who he says is the best social-media person he’s ever met, to offer The Art of Social Media—the one essential guide you need to get the most bang for your time, effort, and money.</Paragraph2>
-		<Paragraph3>With over one hundred practical tips, tricks, and insights, Guy and Peg present a bottom-up strategy to produce a focused, thorough, and compelling presence on the most popular social-media platforms. They guide you through steps to build your foundation, amass your digital assets, optimize your profile, attract more followers, and effectively integrate social media and blogging.</Paragraph3>
-		<Paragraph4>For beginners overwhelmed by too many choices as well as seasoned professionals eager to improve their game, The Art of Social Media is full of tactics that have been proven to work in the real world. Or as Guy puts it, “great stuff, no fluff.”</Paragraph4>
-	</Description>
+    
+		<Description_P1>By now it's clear that whether you're promoting a business, a product, or yourself, social media is near the top of what determines your success or failure. And there are countless pundits, authors, and consultants eager to advise you.</Description_P1>
+		<Description_P2>But there’s no one quite like Guy Kawasaki, the legendary former chief evangelist for Apple and one of the pioneers of business blogging, tweeting, Facebooking, Tumbling, and much, much more. Now Guy has teamed up with Peg Fitzpatrick, who he says is the best social-media person he’s ever met, to offer The Art of Social Media—the one essential guide you need to get the most bang for your time, effort, and money.</Description_P2>
+		<Description_P3>With over one hundred practical tips, tricks, and insights, Guy and Peg present a bottom-up strategy to produce a focused, thorough, and compelling presence on the most popular social-media platforms. They guide you through steps to build your foundation, amass your digital assets, optimize your profile, attract more followers, and effectively integrate social media and blogging.</Description_P3>
+		<Description_P4>For beginners overwhelmed by too many choices as well as seasoned professionals eager to improve their game, The Art of Social Media is full of tactics that have been proven to work in the real world. Or as Guy puts it, “great stuff, no fluff.”</Description_P4>
+	<ProductImage>WebDesign-Product4.jpg</ProductImage>
+		
+			<Image1Large>Product4_image1_large.jpg</Image1Large>
+			<Image1Thumb>Product4_image1_thumb.jpg</Image1Thumb>
   </BOOK>
   
   <BOOK  id="05">
     <ISBN-10>1250065631</ISBN-10>
 	<ISBN-13>978-1250065636</ISBN-13>
-    <Category>Web Design</Category>	
-	<Image>
-		<ProductImage>WebDesign-Product5.jpg</ProductImage>
-		<DetailImage>
-			<Image1Large>Product5_image1_large.jpg</Image1Large>
-			<Image1Thumb>Product5_image1_thumb.jpg</Image1Thumb>
-			<Image2Large>Product5_image2_large.jpg</Image2Large>
-			<Image2Thumb>Product5_image2_thumb.jpg</Image2Thumb>
-		</DetailImage>
-	</Image>
+    <Category>Web Development &amp; Design</Category>	
     <Title>The Age of Cryptocurrency: How Bitcoin and Digital Money Are Challenging the Global Economic Order</Title>
     <Author>Paul Vigna</Author>
 	<Language>English</Language>
@@ -138,11 +113,16 @@
 	<ProductDimensions>5.2 x 0.8 x 7.2 inches</ProductDimensions>
 	<ShippingWeight>1.2 pounds</ShippingWeight>
     <Rating>27</Rating>
-    <Description>
-		<Paragraph1>Bitcoin became a buzzword overnight. A cyber-enigma with an enthusiastic following, it pops up in headlines and fuels endless media debate. You can apparently use it to buy anything from coffee to cars, yet few people seem to truly understand what it is. This raises the question: Why should anyone care about bitcoin?</Paragraph1>
-		<Paragraph2>In The Age of Cryptocurrency, Wall Street journalists Paul Vigna and Michael J. Casey deliver the definitive answer to this question. Cybermoney is poised to launch a revolution, one that could reinvent traditional financial and social structures while bringing the world's billions of "unbanked" individuals into a new global economy. Cryptocurrency holds the promise of a financial system without a middleman, one owned by the people who use it and one safeguarded from the devastation of a 2008-type crash.</Paragraph2>
-		<Paragraph3>But bitcoin, the most famous of the cybermonies, carries a reputation for instability, wild fluctuation, and illicit business; some fear it has the power to eliminate jobs and to upend the concept of a nation-state. It implies, above all, monumental and wide-reaching change--for better and for worse. But it is here to stay, and you ignore it at your peril.</Paragraph3>
-		<Paragraph4>Vigna and Casey demystify cryptocurrency--its origins, its function, and what you need to know to navigate a cyber-economy. The digital currency world will look very different from the paper currency world; The Age of Cryptocurrency will teach you how to be ready.</Paragraph4>
-	</Description>
+   	<Description_P1>Bitcoin became a buzzword overnight. A cyber-enigma with an enthusiastic following, it pops up in headlines and fuels endless media debate. You can apparently use it to buy anything from coffee to cars, yet few people seem to truly understand what it is. This raises the question: Why should anyone care about bitcoin?</Description_P1>
+		<Description_P2>In The Age of Cryptocurrency, Wall Street journalists Paul Vigna and Michael J. Casey deliver the definitive answer to this question. Cybermoney is poised to launch a revolution, one that could reinvent traditional financial and social structures while bringing the world's billions of "unbanked" individuals into a new global economy. Cryptocurrency holds the promise of a financial system without a middleman, one owned by the people who use it and one safeguarded from the devastation of a 2008-type crash.</Description_P2>
+		<Description_P3>But bitcoin, the most famous of the cybermonies, carries a reputation for instability, wild fluctuation, and illicit business; some fear it has the power to eliminate jobs and to upend the concept of a nation-state. It implies, above all, monumental and wide-reaching change--for better and for worse. But it is here to stay, and you ignore it at your peril.</Description_P3>
+		<Description_P4>Vigna and Casey demystify cryptocurrency--its origins, its function, and what you need to know to navigate a cyber-economy. The digital currency world will look very different from the paper currency world; The Age of Cryptocurrency will teach you how to be ready.</Description_P4>
+	
+	<ProductImage>WebDesign-Product5.jpg</ProductImage>
+		
+			<Image1Large>Product5_image1_large.jpg</Image1Large>
+			<Image1Thumb>Product5_image1_thumb.jpg</Image1Thumb>
+			<Image2Large>Product5_image2_large.jpg</Image2Large>
+			<Image2Thumb>Product5_image2_thumb.jpg</Image2Thumb>
   </BOOK>
 </BOOKS>
