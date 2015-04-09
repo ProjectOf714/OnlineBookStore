@@ -54,12 +54,11 @@ public class EntityHelper {
 					Method m = t.getClass().getMethod(setMethodName, beanType);
 
 					m.invoke(t, value);
-
-					if (firstOnly)
-						break;
 				}
 
 				lists.add(t);
+				if (firstOnly)
+					break;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

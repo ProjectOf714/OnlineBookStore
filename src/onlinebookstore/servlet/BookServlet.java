@@ -40,8 +40,11 @@ public class BookServlet extends BaseServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 
 		try {
+			String xmlFileNameRelativeWebPath = "/WEB-INF/books.xml";
+			String xmlFileName = getServletContext().getRealPath(
+					xmlFileNameRelativeWebPath);
+
 			BookDao bd = new BookDao();
-			String xmlFileName = "C:\\Users\\VIVEY\\Documents\\baiduyunpan\\ws_UMAC\\OnlineBookstore\\WebContent\\WEB-INF\\books.xml";
 			List<BookInfo> tmplist = bd.parseFromXML(xmlFileName);
 			tmplist.forEach(s -> log.debug(s.toString()));
 			Iterator<BookInfo> iter = tmplist.iterator();

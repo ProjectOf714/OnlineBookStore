@@ -26,7 +26,6 @@ public class CategoryDao extends BaseDao {
 
 	public CategoryDao() {
 		super();
-
 	}
 
 	public CategoryDao(Boolean initFromDB) {

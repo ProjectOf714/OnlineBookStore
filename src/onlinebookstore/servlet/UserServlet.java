@@ -6,7 +6,6 @@ package onlinebookstore.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -40,18 +39,21 @@ public class UserServlet extends BaseServlet {
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=utf-8");
-		PrintWriter out = response.getWriter();
+
 		String action = request.getParameter("Action");
 		String strUserName = request.getParameter("UserName");
 		String strEmail = request.getParameter("Email");
 		if (action.equals("CheckUserName")) {
+			PrintWriter out = response.getWriter();
 			UserDao ud = new UserDao();
 			if (ud.CheckUserName(strUserName)) {
 				out.print("<b>Sorry,the user is exist</b>");
 			} else {
 				out.print("This name you can use");
 			}
+			out.close();
 		} else if (action.equals("CheckEmail")) {
+			PrintWriter out = response.getWriter();
 			UserDao ud = new UserDao();
 			if (ud.CheckEmail(strEmail)) {
 				// Return 1 stands for exists.
@@ -59,6 +61,7 @@ public class UserServlet extends BaseServlet {
 			} else {
 				out.print("This email you can use");
 			}
+			out.close();
 		} else if (action.equals("Login")) {
 			UserDao ud = new UserDao();
 			String strUserPwd = request.getParameter("Password");
@@ -66,14 +69,21 @@ public class UserServlet extends BaseServlet {
 			if (ui.getStatus() == 1) {
 				HttpSession session = request.getSession(true);
 				session.setAttribute("CurrentUserInfo", ui);
-				RequestDispatcher dispatcher = request
-						.getRequestDispatcher("/index.html");
-				dispatcher.forward(request, response);
+				// RequestDispatcher dispatcher = request
+				// .getRequestDispatcher("/index.jsp");
+				// dispatcher.forward(request, response);
+				response.sendRedirect("/index.jsp");
 			} else {
-				out.print(0);
+				PrintWriter out = response.getWriter();
+				out.println("<!DOCTYPE html>");
+				out.println("<html>");
+				out.println("<head><meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>");
+				out.println("<title>Login</title></head><body>");
+				out.println("<p><b>Login failed, please try again.</b></p>");
+				out.println("<p><a href='login.jsp'>Back to Login Menu</a></p>");
+				out.println("</body></html>");
+				out.close();
 			}
-
-			request.getSession().setAttribute("LoginUserInfo", ui);
 		} else if (action.equals("Register")) {
 			String[] item = new String[] { "UserName", "Address", "Email",
 					"Newsletter", "Password" };
@@ -95,15 +105,23 @@ public class UserServlet extends BaseServlet {
 						.getParameter("Newsletter")));
 			UserDao ud = new UserDao();
 			if (ud.Register(ui)) {
-				RequestDispatcher dispatcher = request
-						.getRequestDispatcher("/login.html");
-				dispatcher.forward(request, response);
+				// RequestDispatcher dispatcher = request
+				// .getRequestDispatcher("/login.jsp");
+				// dispatcher.forward(request, response);
+				response.sendRedirect("/index.jsp");
 			} else {
-				out.print("<br /><b>Register failed, please try again.</b>");
+				PrintWriter out = response.getWriter();
+				out.println("<!DOCTYPE html>");
+				out.println("<html>");
+				out.println("<head><meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>");
+				out.println("<title>Login</title></head><body>");
+				out.println("<p><b>Register failed, please try again.</b></p>");
+				out.println("<p><a href='register.jsp'>Back to Register Menu</a></p>");
+				out.println("</body></html>");
+				out.close();
 			}
 		}
 
-		out.close();
 		// TODO Return to the check
 	}
 

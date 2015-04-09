@@ -45,4 +45,8 @@ public class BaseServlet extends HttpServlet {
 			log.error("InitDatabaseConnectionPool", ex);
 		}
 	}
+
+	protected String getRealPathByRelativeWebPath(String relativeWebPath) {
+		return getServletContext().getRealPath(relativeWebPath);
+	}
 }

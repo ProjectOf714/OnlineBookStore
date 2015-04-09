@@ -1,158 +1,69 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ 
+   page language="java"
+	import="onlinebookstore.dao.*,onlinebookstore.entity.*, java.util.*"
+	session="true"%>
 <!DOCTYPE HTML>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Menu-Online Bookstore</title>
-<link href="css/style.css" rel='stylesheet' type='text/css' />
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<!-- start menu -->
-<link href="css/megamenu.css" rel="stylesheet" type="text/css"
-	media="all" />
-<script type="text/javascript" src="js/megamenu.js"></script>
-<script>
-	$(document).ready(function() {
-		$(".megamenu").megamenu();
-	});
-</script>
-<script src="js/menu_jquery.js"></script>
-<!-- //End menu -->
 </head>
 <body>
 	<div class="header-bottom">
 		<div class="wrap">
 			<!-- start header menu -->
 			<ul class="megamenu skyblue">
+				<%-- begin JSP scriptlet to create list of category --%>
+				<%
+					CategoryDao cateDao = new CategoryDao(true);
+					// obtain an Iterator to the set of keys in the List
+					Iterator<Category> itCate = cateDao.getLstCategory().iterator();
+					Category currCate;
+					boolean isRoot = false;
+					// use the Iterator to get each Category
+					while (itCate.hasNext()) {
+						currCate = (Category) itCate.next();
+
+						if (currCate.getCategoryName().startsWith("A")
+								|| currCate.getCategoryName().startsWith("B")) {
+							if (!isRoot) {
+				%>
 				<li class="grid"><a class="color2" href="#">A, B</a>
 					<div class="megapanel">
 						<div class="row">
+							<%
+								isRoot = true;
+										} //end of is Root
+							%>
 							<div class="col1">
 								<div class="h_nav">
-									<h4>Arts & Photography</h4>
+									<h4><%=currCate.getCategoryName()%></h4>
 									<ul>
-										<li><a href="Architecture-Products.html">Architecture</a></li>
-										<li><a href="">Bussiness of Art</a></li>
-										<li><a href="">Collections, Catalogs & Exhibitions</a></li>
-										<li><a href="">Decorative Arts & Design</a></li>
-										<li><a href="">Drawing</a></li>
-										<li><a href="">Fashion</a></li>
-										<li><a href="">Graphic Design</a></li>
-										<li><a href="">History & Criticism</a></li>
-										<li><a href="">Individual Artists</a></li>
-										<li><a href="">Musics</a></li>
-										<li><a href="">Other Media</a></li>
-										<li><a href="">Painting</a></li>
-										<li><a href="">Performing Arts</a></li>
-										<li><a href="">Photography & Video</a></li>
-										<li><a href="">Religious</a></li>
-										<li><a href="">Sculpture</a></li>
-										<li><a href="">Study & Teaching</a></li>
-										<li><a href="">Vehicle Pictorials</a></li>
+										<%
+											Iterator<Subcategory> subIterator = cateDao.getSubCategory(
+															currCate.getCategoryID()).iterator();
+													while (subIterator.hasNext()) {
+														Subcategory currSub = (Subcategory) subIterator.next();
+														if (currSub.getSubCategoryName().equals("Architecture")) {
+										%>
+										<li><a href="Architecture-Products.html"><%=currSub.getSubCategoryName()%></a></li>
+										<%
+											} else {
+										%>
+										<li><a href=""><%=currSub.getSubCategoryName()%></a></li>
+										<%
+											} //end of else
+													}//end of while subIterator.hasNext()
+										%>
 									</ul>
 								</div>
 							</div>
-							<div class="col1">
-								<div class="h_nav">
-									<h4>Audible AudioBooks</h4>
-									<ul>
-										<li><a href="">Fiction & Literature</a></li>
-										<li><a href="">Nonfiction</a></li>
-										<li><a href="">Arts & Entairment</a></li>
-										<li><a href="">Biographies & Memoirs</a></li>
-										<li><a href="">Business & Investing</a></li>
-										<li><a href="">Children's Books</a></li>
-										<li><a href="">Fantasy</a></li>
-										<li><a href="">Health, Mind & Body</a></li>
-										<li><a href="">History</a></li>
-										<li><a href="">Humor</a></li>
-										<li><a href="">Language Instructuib</a></li>
-										<li><a href="">Mysteries & Thrillers</a></li>
-										<li><a href="">Politics & Current Events</a></li>
-										<li><a href="">Religion & Spirituality</a></li>
-										<li><a href="">Romance</a></li>
-										<li><a href="">Science</a></li>
-										<li><a href="">Science Fiction</a></li>
-										<li><a href="">Teens</a></li>
-									</ul>
-								</div>
-							</div>
-							<div class="col1">
-								<div class="h_nav">
-									<h4>Biographies</h4>
-									<ul>
-										<li><a href="">Arts & Literature</a></li>
-										<li><a href="">Ethnic & National</a></li>
-										<li><a href="">Historical</a></li>
-										<li><a href="">Leaders & Notable People Memories</a></li>
-										<li><a href="">Professionals & Academics</a></li>
-										<li><a href="">Reference & Collections</a></li>
-										<li><a href="">Regional Canada</a></li>
-										<li><a href="">Regional U.S.</a></li>
-										<li><a href="">Speific Groups</a></li>
-										<li><a href="">Sports & Outdoors</a></li>
-										<li><a href="">Travelers & Explores</a></li>
-										<li><a href="">True Crime</a></li>
-									</ul>
-								</div>
-							</div>
-							<div class="col1">
-								<div class="h_nav">
-									<h4>Books on CD</h4>
-									<ul>
-										<li><a href="">Biographies & Memories</a></li>
-										<li><a href="">Business</a></li>
-										<li><a href="">Children's Fiction</a></li>
-										<li><a href="">Computer and Internet</a></li>
-										<li><a href="">Cooking Food and Wine</a></li>
-										<li><a href="">General</a></li>
-										<li><a href="">Health, Mind % Body</a></li>
-										<li><a href="">Hisotry</a></li>
-										<li><a href="">Horror</a></li>
-										<li><a href="">Humor</a></li>
-										<li><a href="">Languages</a></li>
-										<li><a href="">Literature & Fictions</a></li>
-										<li><a href="">Music</a></li>
-										<li><a href="">Myster & Thrillers</a></li>
-										<li><a href="">Nonfiction</a></li>
-										<li><a href="">Parenting & Families</a></li>
-										<li><a href="">Poetry & Drama</a></li>
-										<li><a href="">Radio Shows</a></li>
-										<li><a href="">Reference</a></li>
-										<li><a href="">Religion & Spiraituality</a></li>
-										<li><a href="">Romance</a></li>
-										<li><a href="">Science Fiction & Fantasy</a></li>
-										<li><a href="">Science Fiction & Fantasy</a></li>
-									</ul>
-								</div>
-							</div>
-							<div class="col1">
-								<div class="h_nav">
-									<h4>Bussiness & Money</h4>
-									<ul>
-										<li><a href="">Accounting</a></li>
-										<li><a href="">Biography & History</a></li>
-										<li><a href="">Business Culture</a></li>
-										<li><a href="">Economics</a></li>
-										<li><a href="">Education & Reference</a></li>
-										<li><a href="">Finance</a></li>
-										<li><a href="">Human Resources</a></li>
-										<li><a href="">Industries</a></li>
-										<li><a href="">Insurance</a></li>
-										<li><a href="">International</a></li>
-										<li><a href="">Investing</a></li>
-										<li><a href="">Job Hunting & Carrers</a></li>
-										<li><a href="">Management & Leadership</a></li>
-										<li><a href="">Marketing & Sales</a></li>
-										<li><a href="">Personal Finance</a></li>
-										<li><a href="">Processes & Infrastructure</a></li>
-										<li><a href="">Real Estate</a></li>
-										<li><a href="">Skills</a></li>
-										<li><a href="">Small BUsiness & Entrepreneurship</a></li>
-										<li><a href="">Taxation</a></li>
-									</ul>
-								</div>
-							</div>
+							<%
+								}//end of if getCategoryName A,B
+
+								}// itCate.hasNext()
+							%>
 							<div class="col1 men">
 								<div class="sports-pic">
 									<img src="images/reading1.jpg" title="" />
@@ -160,6 +71,7 @@
 							</div>
 						</div>
 					</div></li>
+				<%-- end JSP scriptlet to create list of category --%>
 				<li class="active grid"><a class="color4" href="#">C</a>
 					<div class="megapanel">
 						<div class="row">

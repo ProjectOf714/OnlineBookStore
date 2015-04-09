@@ -38,8 +38,15 @@ public class CategoryServlet extends BaseServlet {
 				.getAttribute("categorylist");
 		if (categoryLst == null) {
 			try {
+				String xmlFileNameRelativeWebPath = "/WEB-INF/Category.xml";
+				String xmlFileName = getServletContext().getRealPath(
+						xmlFileNameRelativeWebPath);
+				System.out.println("Current:" + xmlFileName);
+				System.out
+						.println("getRealPathByRelativeWebPath:"
+								+ getRealPathByRelativeWebPath(xmlFileNameRelativeWebPath));
+
 				categoryLst = new CategoryDao();
-				String xmlFileName = "C:\\Users\\VIVEY\\OneDrive\\ws_UMAC\\OnlineBookstore\\WebContent\\WEB-INF\\Category.xml";
 				Dictionary<Category, List<Subcategory>> tmpDic = categoryLst
 						.parseFromXML(xmlFileName);
 
