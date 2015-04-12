@@ -7,11 +7,13 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import onlinebookstore.dao.BookDao;
 import onlinebookstore.entity.BookInfo;
@@ -38,44 +40,36 @@ public class BookServlet extends BaseServlet {
 	@Override
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-
+		String action = request.getParameter("Action");
+		action = "ImportFromXML";
 		try {
-			String xmlFileNameRelativeWebPath = "/WEB-INF/books.xml";
-			String xmlFileName = getServletContext().getRealPath(
-					xmlFileNameRelativeWebPath);
+			if (action.equals("ImportFromXML")) {
+				String xmlFileNameRelativeWebPath = "/WEB-INF/books.xml";
+				String xmlFileName = getServletContext().getRealPath(
+						xmlFileNameRelativeWebPath);
 
-			BookDao bd = new BookDao();
-			List<BookInfo> tmplist = bd.parseFromXML(xmlFileName);
-			tmplist.forEach(s -> log.debug(s.toString()));
-			Iterator<BookInfo> iter = tmplist.iterator();
-			while (iter.hasNext()) {
-				BookInfo item = iter.next();
-				bd.Add(item);
+				BookDao bd = new BookDao();
+				List<BookInfo> tmplist = bd.parseFromXML(xmlFileName);
+				tmplist.forEach(s -> log.debug(s.toString()));
+				Iterator<BookInfo> iter = tmplist.iterator();
+				while (iter.hasNext()) {
+					BookInfo item = iter.next();
+					bd.DeleteByISBN(item.getISBN());
+					bd.Add(item);
+				}
 			}
 		} catch (Exception e) {
 			log.error("", e);
 		}
 
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	@Override
-	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
-
-		// HttpSession session = request.getSession(false);
-		//
-		// // RequestDispatcher to forward client to bookstore home
-		// // page if no session exists or no books are selected
-		// RequestDispatcher dispatcher = request
-		// .getRequestDispatcher("/index.html");
-		//
-		// // if session does not exist, forward to index.html
-		// if (session == null)
-		// dispatcher.forward(request, response);
+		// RequestDispatcher to forward client to bookstore home
+		// page if no session exists or no books are selected
+		RequestDispatcher dispatcher = request
+				.getRequestDispatcher("/index.jsp");
+		HttpSession session = request.getSession(false);
+		// // if session does not exist, forward to index.jsp
+		if (session == null)
+			dispatcher.forward(request, response);
 		//
 		// // get books from session object
 		// List<BookBean> titles = (List<BookBean>)
@@ -99,9 +93,38 @@ public class BookServlet extends BaseServlet {
 		// }
 		// }
 		//
-		// // if book is not in list, forward to index.html
+		// // if book is not in list, forward to index.jsp
 		// if (book == null)
 		// dispatcher.forward(request, response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	@Override
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		String action = request.getParameter("Action");
+		try {
+			if (action.equals("ImportFromXML")) {
+				String xmlFileNameRelativeWebPath = "/WEB-INF/books.xml";
+				String xmlFileName = getServletContext().getRealPath(
+						xmlFileNameRelativeWebPath);
+
+				BookDao bd = new BookDao();
+				List<BookInfo> tmplist = bd.parseFromXML(xmlFileName);
+				tmplist.forEach(s -> log.debug(s.toString()));
+				Iterator<BookInfo> iter = tmplist.iterator();
+				while (iter.hasNext()) {
+					BookInfo item = iter.next();
+					bd.Add(item);
+				}
+			}
+		} catch (Exception e) {
+			log.error("", e);
+		}
+
 	}
 
 }
