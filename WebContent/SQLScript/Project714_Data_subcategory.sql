@@ -1,5 +1,7 @@
-delete from subcategory where CategoryID>0;
-delete from category where CategoryID>0;
+SET foreign_key_checks=0;
+TRUNCATE TABLE subcategory;
+TRUNCATE TABLE category;
+SET foreign_key_checks=1;
 INSERT INTO category(CategoryID,CategoryName) VALUES(1,'Arts & Photography');
 INSERT INTO subcategory(CategoryID,SubCategoryName)VALUES(1,'Architecture'),
 (1,'Bussiness of Art'),
@@ -58,7 +60,7 @@ INSERT INTO subcategory(CategoryID,SubCategoryName)VALUES(4,'Biographies & Memor
 (4,'Computer and Internet'),
 (4,'Cooking Food and Wine'),
 (4,'General'),
-(4,'Health, Mind % Body'),
+(4,'Health, Mind & Body'),
 (4,'Hisotry'),
 (4,'Horror'),
 (4,'Humor'),
@@ -73,7 +75,6 @@ INSERT INTO subcategory(CategoryID,SubCategoryName)VALUES(4,'Biographies & Memor
 (4,'Reference'),
 (4,'Religion & Spiraituality'),
 (4,'Romance'),
-(4,'Science Fiction & Fantasy'),
 (4,'Science Fiction & Fantasy');
 INSERT INTO category(CategoryID,CategoryName) VALUES(5,'Bussiness & Money');
 INSERT INTO subcategory(CategoryID,SubCategoryName)VALUES(5,'Accounting'),
@@ -96,30 +97,48 @@ INSERT INTO subcategory(CategoryID,SubCategoryName)VALUES(5,'Accounting'),
 (5,'Skills'),
 (5,'Small BUsiness & Entrepreneurship'),
 (5,'Taxation');
+INSERT INTO category(CategoryID,CategoryName) VALUES(6,'Computer & Technology');
+INSERT INTO subcategory(CategoryID,SubCategoryName)VALUES(6,'Business Technology'),
+(6,'Certification'),
+(6,'Computer Science'),
+(6,'Database & Big Data'),
+(6,'Digital Audio, Video & Photography'),
+(6,'Games & Strategy Guides'),
+(6,'Graphics & Design'),
+(6,'Hardware & DIY'),
+(6,'History & Culture'),
+(6,'Intertional & Social Media'),
+(6,'Mobile Phones, Tablets & E-Readers'),
+(6,'Networking & Cloud Computing'),
+(6,'Operating Systems'),
+(6,'Programming'),
+(6,'Security & Encrption'),
+(6,'Software'),
+(6,'Web Development & Design');
 /*
-INSERT INTO category(CategoryID,CategoryName) VALUES(6,'Children''s Books');
-INSERT INTO subcategory(CategoryID,SubCategoryName)VALUES(6,'Action & Adventure'),
-(6,'Activities, Crafts & Games'),
-(6,'Animals'),
-(6,'Arts, Music & Photography'),
-(6,'Biographies'),
-(6,'Cars, Trains & Things to do'),
-(6,'Children Cookbooks'),
-(6,'Classics'),
-(6,'Comics & Graphic Novels'),
-(6,'Computer & Technology'),
-(6,'Early Learning'),
-(6,'Education & Reference'),
-(6,'Fairy Tales, Folk Tales & Myths'),
-(6,'Geography & Culture'),
-(6,'Growing Up & Facts of Life'),
-(6,'History'),
-(6,'Literature & Fiction'),
-(6,'Mysteries & Detectives'),
-(6,'Religions'),
-(6,'Science Fiction & Fantasy'),
-(6,'Science, Nature & How it works'),
-(6,'Sports & Outdoors');
+INSERT INTO category(CategoryID,CategoryName) VALUES(9,'Children''s Books');
+INSERT INTO subcategory(CategoryID,SubCategoryName)VALUES(9,'Action & Adventure'),
+(9,'Activities, Crafts & Games'),
+(9,'Animals'),
+(9,'Arts, Music & Photography'),
+(9,'Biographies'),
+(9,'Cars, Trains & Things to do'),
+(9,'Children Cookbooks'),
+(9,'Classics'),
+(9,'Comics & Graphic Novels'),
+(9,'Computer & Technology'),
+(9,'Early Learning'),
+(9,'Education & Reference'),
+(9,'Fairy Tales, Folk Tales & Myths'),
+(9,'Geography & Culture'),
+(9,'Growing Up & Facts of Life'),
+(9,'History'),
+(9,'Literature & Fiction'),
+(9,'Mysteries & Detectives'),
+(9,'Religions'),
+(9,'Science Fiction & Fantasy'),
+(9,'Science, Nature & How it works'),
+(9,'Sports & Outdoors');
 INSERT INTO category(CategoryID,CategoryName) VALUES(7,'Christian Books & Bibles');
 INSERT INTO subcategory(CategoryID,SubCategoryName)VALUES(7,'Bibles'),
 (7,'Bibles Covers'),
@@ -153,24 +172,7 @@ INSERT INTO subcategory(CategoryID,SubCategoryName)VALUES(8,'Action & Adventure 
 (8,'Romance Manga'),
 (8,'Science Fiction Graphic Novels'),
 (8,'Superheroes');
-INSERT INTO category(CategoryID,CategoryName) VALUES(9,'Computer & Technology');
-INSERT INTO subcategory(CategoryID,SubCategoryName)VALUES(9,'Business Technology'),
-(9,'Certification'),
-(9,'Computer Science'),
-(9,'Database & Big Data'),
-(9,'Digital Audio, Video & Photography'),
-(9,'Games & Strategy Guides'),
-(9,'Graphics & Design'),
-(9,'Hardware & DIY'),
-(9,'History & Culture'),
-(9,'Intertional & Social Media'),
-(9,'Mobile Phones, Tablets & E-Readers'),
-(9,'Networking & Cloud Computing'),
-(9,'Operating Systems'),
-(9,'Programming'),
-(9,'Security & Encrption'),
-(9,'Software'),
-(9,'Web De');
+
 INSERT INTO category(CategoryID,CategoryName) VALUES(10,'Cood Books, Food & Wine');
 INSERT INTO subcategory(CategoryID,SubCategoryName)VALUES(10,'Asian Cooking'),
 (10,'Baking'),

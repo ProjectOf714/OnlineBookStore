@@ -31,7 +31,7 @@ CREATE TABLE if not exists `books` (
   `Publisher` varchar(100) DEFAULT NULL,
   `ProductDimensions` varchar(45) DEFAULT NULL,
   `ShippingWeight` varchar(45) DEFAULT NULL,
-  `Rating` varchar(45) DEFAULT NULL,
+  `Rating` int(11) DEFAULT NULL,
   `StockQuantity` int(11) DEFAULT NULL,
   `Description_P1` varchar(1000) DEFAULT NULL,
   `Description_P2` varchar(1000) DEFAULT NULL,
