@@ -3,56 +3,33 @@
 <%@ page language="java"
 	import="onlinebookstore.dao.*,onlinebookstore.entity.*, java.util.*"
 	session="true"%>
+<%
+	List<ShoppingCart> lstCart= new ArrayList<ShoppingCart>();
+	CartDao cdSession = (CartDao) session.getAttribute("cart");
+	if (cdSession != null) {
+		lstCart = cdSession.getLstCart();
+	}
+%>
 <!DOCTYPE HTML>
 <html>
 <head>
 <title>Cart | Online Bookstore</title>
-<link href="css/style.css" rel='stylesheet' type='text/css' />
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href="css/jquery-ui.css" rel="stylesheet" type="text/css">
+<link href="css/slippry.css" rel="stylesheet" type="text/css">
 <script src="js/jquery.min.js"></script>
-<!----start-alert-scroller---->
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script src="js/jquery-ui.js" type="text/javascript"></script>
+<script src="js/scripts-f0e4e0c2.js" type="text/javascript"></script>
 <script type="text/javascript" src="js/jquery.easy-ticker.js"></script>
-<script type="text/javascript">
-	$(document).ready(function() {
-		$('#demo').hide();
-		$('.vticker').easyTicker();
-	});
-</script>
-<!----start-alert-scroller---->
-<!-- start menu -->
-<link href="css/megamenu.css" rel="stylesheet" type="text/css"
-	media="all" />
-<script type="text/javascript" src="js/megamenu.js"></script>
-<script>
-	$(document).ready(function() {
-		$(".megamenu").megamenu();
-	});
-</script>
-<script src="js/menu_jquery.js"></script>
-<!-- //End menu -->
-<!---move-top-top---->
-<script type="text/javascript" src="js/move-top.js"></script>
-<script type="text/javascript" src="js/easing.js"></script>
-<script type="text/javascript">
-	jQuery(document).ready(function($) {
-		$(".scroll").click(function(event) {
-			event.preventDefault();
-			$('html,body').animate({
-				scrollTop : $(this.hash).offset().top
-			}, 1200);
-		});
-	});
-</script>
-<!---//move-top-top---->
 <!-- Owl Carousel Assets -->
 <link href="css/owl.carousel.css" rel="stylesheet">
-<script src="js/jquery-1.9.1.min.js"></script>
 <!-- Owl Carousel Assets -->
 <!-- Prettify -->
 <script src="js/owl.carousel.js"></script>
 <script>
-	$(document).ready(function() {
-
+	$(function() {
 		$("#owl-demo").owlCarousel({
 			items : 3,
 			lazyLoad : true,
@@ -65,9 +42,33 @@
 			paginationNumbers : false,
 		});
 
+		$('#etalage')
+				.etalage(
+						{
+							thumb_image_width : 300,
+							thumb_image_height : 400,
+							source_image_width : 900,
+							source_image_height : 1000,
+							show_hint : true,
+							click_callback : function(image_anchor, instance_id) {
+								alert('Callback example:\nYou clicked on an image with the anchor: "'
+										+ image_anchor
+										+ '"\n(in Etalage instance: "'
+										+ instance_id + '")');
+							}
+						});
+		// This is for the dropdown list example:
+		$('.dropdownlist').change(function() {
+			etalage_show($(this).find('option:selected').attr('class'));
+		});
+
 	});
 </script>
 <!-- //Owl Carousel Assets -->
+<!-- Include the Etalage files -->
+<link rel="stylesheet" href="css/etalage.css" type='text/css'>
+<script src="js/jquery.etalage.min.js"></script>
+<!-- Include the Etalage files -->
 </head>
 <body>
 	<!---start-wrap---->
@@ -82,62 +83,18 @@
 				<ul class="product-head">
 					<li><a href="index.jsp">Home</a> <span>::</span></li>
 					<li class="active-page"><a href="#">Cart Page</a></li>
-					<div class="clear"></div>
+					<!-- 					<div class="clear"></div> -->
 				</ul>
-				<!----details-product-slider--->
-				<!-- Include the Etalage files -->
-				<link rel="stylesheet" href="css/etalage.css">
-				<script src="js/jquery.etalage.min.js"></script>
-				<!-- Include the Etalage files -->
-				<script>
-					jQuery(document)
-							.ready(
-									function($) {
-										$('#etalage')
-												.etalage(
-														{
-															thumb_image_width : 300,
-															thumb_image_height : 400,
-															source_image_width : 900,
-															source_image_height : 1000,
-															show_hint : true,
-															click_callback : function(
-																	image_anchor,
-																	instance_id) {
-																alert('Callback example:\nYou clicked on an image with the anchor: "'
-																		+ image_anchor
-																		+ '"\n(in Etalage instance: "'
-																		+ instance_id
-																		+ '")');
-															}
-														});
-										// This is for the dropdown list example:
-										$('.dropdownlist').change(
-												function() {
-													etalage_show($(this).find(
-															'option:selected')
-															.attr('class'));
-												});
-
-									});
-				</script>
-				<!----//details-product-slider--->
 				<div class="details-left">
 					<div class="mainContainer sixteen container">
 						<!--Content Block-->
+
 						<section class="content-wrapper">
 							<div class="content-container container">
 								<div class="col-1-layout">
 									<ul class="shopping-cart-table">
 										<%
-											List<ShoppingCart> lstCart= new ArrayList<ShoppingCart>();
-																										
-																																																													CartDao cdSession = (CartDao) session.getAttribute("cart");
-																																																												if (cdSession != null) {
-																																																											lstCart = cdSession.getLstCart();
-																																																												}
-																																																												
-																																																												for (ShoppingCart cart : lstCart) {
+											for (ShoppingCart cart : lstCart) {
 										%>
 										<li>
 											<div class="img-box">
@@ -174,12 +131,12 @@
 											}//end for
 										%>
 									</ul>
-									<div class="show-option-block">
-										<a href="#" title="Show Options">Show Options</a>
-									</div>
-									<div class="update-shopping-cart">
-										<button class="colors-btn">Update Shopping Cart</button>
-									</div>
+									<!-- 									<div class="show-option-block"> -->
+									<!-- 										<a href="#" title="Show Options">Show Options</a> -->
+									<!-- 									</div> -->
+									<!-- 									<div class="update-shopping-cart"> -->
+									<!-- 										<button class="colors-btn">Update Shopping Cart</button> -->
+									<!-- 									</div> -->
 									<div class="shopping-cart-collaterals">
 										<div class="cart-box">
 											<div class="box-title">Discount Codes</div>
@@ -194,7 +151,7 @@
 										<div class="cart-box">
 											<div class="box-title">Estimate Shipping and Tax</div>
 											<div class="box-content">
-												<p>Enter your destnation to get a shipping estimate</p>
+												<p>Enter your destination to get a shipping estimate</p>
 												<ul>
 													<li><label>Country<em>*</em></label> <select>
 															<option>China</option>
@@ -275,11 +232,12 @@
 				<!---//End-product-details--->
 			</div>
 		</div>
-		<!--- //End-content---->
-		<!---start-footer---->
-		<jsp:include page="footer.jsp" flush="true" />
-		<!---//End-footer---->
-		<!---//End-wrap---->
+	</div>
+	<!--- //End-content---->
+	<!---start-footer---->
+	<jsp:include page="footer.jsp" flush="true" />
+	<!---//End-footer---->
+	<!---//End-wrap---->
 </body>
 </html>
 

@@ -185,9 +185,8 @@
 									<input type="hidden" name="isbn"
 										value="<%=currentBook.getISBN()%>"> <input
 										type="hidden" name="action" value="add"> <input
-										type="submit" name="btnAddCart" value="add to cart" />
+										type="submit" name="btnAddCart" value="add to cart"  />
 								</form>
-
 							</div>
 						</div>
 					</div>
@@ -422,10 +421,10 @@
 										</div>
 										<div class="product-info">
 											<div class="product-info-cust">
-												<a href="details.jsp?isbn=<%=book.getISBN()%>.html">Details</a>
+												<a href="details.jsp?isbn=<%=book.getISBN()%>">Details</a>
 											</div>
 											<div class="product-info-price">
-												<a href="details.jsp?isbn=<%=book.getISBN()%>.html">$ <%=book.getPrice()%></a>
+												<a href="details.jsp?isbn=<%=book.getISBN()%>">$ <%=book.getPrice()%></a>
 											</div>
 											<div class="clear"></div>
 										</div>

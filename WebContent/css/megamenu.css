@@ -12,46 +12,46 @@ transition: all 0.3s ease-in-out;
 font-weight: 400;
 text-transform: uppercase;
 }
-.men{
+.main{
 	position:relative;
 }
-.men-pic{
+.main-pic{
 	position: absolute;
 	bottom: -24em;
 	border: none;
 	right: -28em;
 }
-.women{
+.art{
 	position:relative;
 }
-.women-pic{
+.art-pic{
 	position: absolute;
 	bottom: -26em;
 	border: none;
 	right: -3em;
 }
-.kids{
+.book{
 	position:relative;
 }
-.kids-pic{
+.book-pic{
 	position: absolute;
 	bottom: -25em;
 	border: none;
 	right: -39em;
 }
-.sports{
+.bussiness{
 	position:relative;
 }
-.sports-pic{
+.bussiness-pic{
 	position: absolute;
 	bottom: -28em;
 	border: none;
 	right: -27em;
 }
-.nike{
+.tech{
 	position:relative;
 }
-.nike-pic{
+.tech-pic{
 	position: absolute;
 	bottom: -26em;
 	border: none;
@@ -200,44 +200,44 @@ skyblue .megapanel img:hover,.skyblue form.contact input[type="text"]:focus,.sky
 	color:#F06B6B;
 }
 @media only screen and (max-width: 1280px) and (min-width: 1024px) {
-	.men-pic {
+	.main-pic {
 		right: -25em;
 	}
-	.kids-pic {
+	.book-pic {
 		right: -35em;
 	}
-	.sports-pic {
+	.bussiness-pic {
 		right: -25em;
 	}
-	.nike-pic {
+	.tech-pic {
 		right: -15em;
 	}
 }
 @media only screen and (max-width: 1024px) and (min-width: 768px) {
-	.men-pic {
+	.main-pic {
 		right: -20em;
 	}
-	.kids-pic {
+	.book-pic {
 		right: -29em;
 	}
-	.sports-pic {
+	.bussiness-pic {
 		right: -20em;
 	}
-	.nike-pic {
+	.tech-pic {
 		right: -12em;
 	}
 }
 @media only screen and (max-width: 768px) and (min-width: 640px) {
-	.men-pic {
+	.main-pic {
 		display:none;
 	}
-	.kids-pic {
+	.book-pic {
 		display:none;
 	}
-	.sports-pic {
+	.bussiness-pic {
 		display:none;
 	}
-	.nike-pic {
+	.tech-pic {
 		display:none;
 	}
 	.megamenu>li>.megapanel {
@@ -245,16 +245,16 @@ skyblue .megapanel img:hover,.skyblue form.contact input[type="text"]:focus,.sky
 	}
 }
 @media only screen and (max-width: 640px) and (min-width: 480px) {
-	.men-pic {
+	.main-pic {
 		display:none;
 	}
-	.kids-pic {
+	.book-pic {
 		display:none;
 	}
-	.sports-pic {
+	.bussiness-pic {
 		display:none;
 	}
-	.nike-pic {
+	.tech-pic {
 		display:none;
 	}
 	.megamenu>li>.megapanel {
@@ -263,16 +263,16 @@ skyblue .megapanel img:hover,.skyblue form.contact input[type="text"]:focus,.sky
 	
 }
 @media only screen and (max-width: 480px) and (min-width: 320px) {
-	.men-pic {
+	.main-pic {
 		display:none;
 	}
-	.kids-pic {
+	.book-pic {
 		display:none;
 	}
-	.sports-pic {
+	.bussiness-pic {
 		display:none;
 	}
-	.nike-pic {
+	.tech-pic {
 		display:none;
 	}
 	.megamenu>li.showhide {
@@ -294,16 +294,16 @@ skyblue .megapanel img:hover,.skyblue form.contact input[type="text"]:focus,.sky
 	}
 }
 @media only screen and (max-width: 320px) and (min-width: 240px) {
-	.men-pic {
+	.main-pic {
 		display:none;
 	}
-	.kids-pic {
+	.book-pic {
 		display:none;
 	}
-	.sports-pic {
+	.bussiness-pic {
 		display:none;
 	}
-	.nike-pic {
+	.tech-pic {
 		display:none;
 	}
 	.megamenu>li.showhide {

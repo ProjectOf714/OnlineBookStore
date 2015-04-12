@@ -4,6 +4,19 @@
 <html>
 <head>
 <title>Footer - Online Bookstore</title>
+<!---move-top-top---->
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(".scroll").click(function(event) {
+			event.preventDefault();
+			$('html,body').animate({
+				scrollTop : $(this.hash).offset().top
+			}, 1200);
+		});
+	});
+</script>
+<!---//move-top-top---->
 </head>
 <body>
 	<!---- start-bottom-grids---->
@@ -68,9 +81,9 @@
 					<li><a href="">Group 1</a> <span> </span></li>
 					<li><a href="">LiuYan (Mb45445)</a> <span> </span></li>
 					<li><a href="">WangWei (Mb45444)</a> <span> </span></li>
-					<li><a href="">Privacy & Cookie Policy</a></li>
-					<div class="clear"></div>
+					<li><a href="">Privacy &amp; Cookie Policy</a></li>
 				</ul>
+				<div class="clear"></div>
 			</div>
 			<div class="footer-right">
 				<script type="text/javascript">

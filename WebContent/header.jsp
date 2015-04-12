@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ page language="java"
 	import="onlinebookstore.dao.*,onlinebookstore.entity.*, java.util.*"
 	session="true"%>
@@ -7,7 +7,13 @@
 <html>
 <head>
 <title>Header - Online Bookstore</title>
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<link rel="icon" type="image/x-icon" href="images/icon.jpg" />
 <script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$('.vticker').easyTicker();	
+	});
+	
 	function submitSearch(myfield, e) {
 		var keycode;
 		if (window.event)
@@ -16,13 +22,14 @@
 			keycode = e.which;
 		else
 			return true;
-
+	
 		if (keycode == 13) {
 			myfield.form.submit();
 			return false;
 		} else
 			return true;
 	}
+
 	<!---cart-tonggle-script---->
 	$(function() {
 		var $cart = $('#cart');
@@ -39,7 +46,8 @@
 				$cart.slideUp("slow");
 			}
 		});
-	});<!---//cart-tonggle-script---->
+	});
+	<!---//cart-tonggle-script---->
 </script>
 </head>
 <body>
@@ -51,11 +59,13 @@
 					<ul>
 						<li><a class="cart" href="#"><span id="clickme"> </span></a></li>
 						<!---start-cart-bag---->
-						<!---start-cart-bag---->
 						<div id="cart">
 							<%
-								List<ShoppingCart> lstCart = (List<ShoppingCart>) session
-										.getAttribute("cart");
+								List<ShoppingCart> lstCart = new ArrayList<ShoppingCart>();
+								CartDao cdSession = (CartDao) session.getAttribute("cart");
+								if (cdSession != null) {
+									lstCart = cdSession.getLstCart();
+								}
 								if (lstCart == null || lstCart.isEmpty()) {
 									out.println("Your Cart is Empty <span>(0)</span>");
 								} else {
@@ -66,11 +76,10 @@
 								}//end of lstCart
 							%>
 						</div>
-						<!---end-cart-bag---->
-						<!---start-cart-bag---->
 						<li><a class="info" href="#"><span> </span></a></li>
 					</ul>
 				</div>
+				<!---end-cart-bag---->
 				<div class="top-header-center">
 					<div class="top-header-center-alert-left">
 						<h3>FREE DELIVERY</h3>

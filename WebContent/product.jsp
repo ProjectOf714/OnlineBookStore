@@ -3,9 +3,6 @@
 <%@ page language="java"
 	import="onlinebookstore.dao.*,onlinebookstore.entity.*, java.util.*"
 	session="true"%>
-<!DOCTYPE HTML>
-<html>
-<head>
 <%
 	//Set CategoryDao to session
 	CategoryDao cateDao = (CategoryDao) session
@@ -15,6 +12,8 @@
 		session.setAttribute("categorylist", cateDao);
 	}
 
+	String cateName ="";
+	String subCatename="";
 	Object cateID = request.getAttribute("choosedCategoryID");
 	Object subCateID = request.getAttribute("choosedSubCategoryID");
 	if (cateID == null)  {
@@ -31,50 +30,26 @@
 		choosedCategoryID = Integer.valueOf(cateID
 		.toString());
 		choosedSubCategoryID =Integer.valueOf(subCateID.toString());
-		String cateName = cateDao.GetCateName(choosedCategoryID);
-		String subCatename = cateDao.GetSubCateName(
-		choosedCategoryID,
-		choosedSubCategoryID);
+		cateName = cateDao.GetCateName(choosedCategoryID);
+		subCatename = cateDao.GetSubCateName(choosedCategoryID,	choosedSubCategoryID);
+	}
 %>
+<!DOCTYPE HTML>
+<html>
+<head>
 <title><%=cateName%> | <%=subCatename%> | Products</title>
-<%
-	} else {
-%>
-<title>Products</title>
-<%
-	} // end if
-%>
-
-<link rel="icon" type="image/x-icon" href="images/icon.jpg" />
-<link href="css/style.css" rel='stylesheet' type='text/css' />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!----start-alert-scroller---->
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href="css/jquery-ui.css" rel="stylesheet" type="text/css">
 <script src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.js"></script>
+<script type="text/javascript" src="js/scripts-f0e4e0c2.js"></script>
 <script type="text/javascript" src="js/jquery.easy-ticker.js"></script>
-<script type="text/javascript">
-	$(document).ready(function() {
-		$('#demo').hide();
-		$('.vticker').easyTicker();
-	});
-</script>
-<!----start-alert-scroller---->
-<!-- start menu -->
-<link href="css/megamenu.css" rel="stylesheet" type="text/css"
-	media="all" />
-<script type="text/javascript" src="js/megamenu.js"></script>
-<script>
-	$(document).ready(function() {
-		$(".megamenu").megamenu();
-	});
-</script>
-<script src="js/menu_jquery.js"></script>
-<!-- //End menu -->
 <!---slider---->
-<link rel="stylesheet" href="css/slippry.css">
-<script src="js/jquery-ui.js" type="text/javascript"></script>
-<script src="js/scripts-f0e4e0c2.js" type="text/javascript"></script>
+<link href="css/slippry.css" rel="stylesheet" type="text/css">
 <script>
-	jQuery('#jquery-demo').slippry({
+	$('#jquery-demo').slippry({
 		// general elements & wrapper
 		slippryWrapper : '<div class="sy-box jquery-demo" />', // wrapper to wrap everything, including pager
 		// options
@@ -84,22 +59,8 @@
 		transition : 'fade'
 	});
 </script>
-<!---move-top-top---->
-<script type="text/javascript" src="js/move-top.js"></script>
-<script type="text/javascript" src="js/easing.js"></script>
-<script type="text/javascript">
-	jQuery(document).ready(function($) {
-		$(".scroll").click(function(event) {
-			event.preventDefault();
-			$('html,body').animate({
-				scrollTop : $(this.hash).offset().top
-			}, 1200);
-		});
-	});
-</script>
-<!---//move-top-top---->
 <!--- start-rate---->
-<script src="js/jstarbox.js"></script>
+<script type="text/javascript" src="js/jstarbox.js"></script>
 <link rel="stylesheet" href="css/jstarbox.css" type="text/css"
 	media="screen" />
 <script type="text/javascript">
@@ -212,7 +173,7 @@
 						int index = 1;
 
 						for (BookInfo book : lstBook) {
-							if (index % 3==0) {
+							if (index % 3 == 0) {
 					%>
 					<div class="product-grid fade last-grid"
 						onclick="location.href='details.jsp?isbn=<%=book.getISBN()%>';">
@@ -242,10 +203,10 @@
 							</div>
 							<div class="product-info">
 								<div class="product-info-cust">
-									<a href="details.jsp?isbn=<%=book.getISBN()%>.html">Details</a>
+									<a href="details.jsp?isbn=<%=book.getISBN()%>">Details</a>
 								</div>
 								<div class="product-info-price">
-									<a href="details.jsp?isbn=<%=book.getISBN()%>.html">$ <%=book.getPrice()%></a>
+									<a href="details.jsp?isbn=<%=book.getISBN()%>">$ <%=book.getPrice()%></a>
 								</div>
 								<div class="clear"></div>
 							</div>

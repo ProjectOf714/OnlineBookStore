@@ -8,6 +8,16 @@
 <html>
 <head>
 <title>Menu-Online Bookstore</title>
+<!-- start menu -->
+<link href="css/megamenu.css" rel="stylesheet" type="text/css"
+	media="all" />
+<script type="text/javascript" src="js/megamenu.js"></script>
+<script>
+	$(document).ready(function() {
+		$(".megamenu").megamenu();
+	});
+</script>
+<!-- //End menu -->
 </head>
 <body>
 	<div class="header-bottom">
@@ -76,8 +86,8 @@
 
 								}// itCate.hasNext()
 							%>
-							<div class="col1 men">
-								<div class="sports-pic">
+							<div class="col1 main">
+								<div class="bussiness-pic">
 									<img src="images/reading1.jpg" title="" />
 								</div>
 							</div>
@@ -93,7 +103,7 @@
 							%>
 							<div class="col1">
 								<div class="h_nav">
-									<h4>Computer & Technology</h4>
+									<h4>Computer &amp; Technology</h4>
 									<ul>
 										<%
 											Iterator<Subcategory> subIterator = cateDao.getSubCategory(
@@ -119,67 +129,68 @@
 								<div class="h_nav">
 									<h4>Children's Books</h4>
 									<ul>
-										<li><a href="">Action & Adventure</a></li>
-										<li><a href="">Activities, Crafts & Games</a></li>
+										<li><a href="">Action &amp; Adventure</a></li>
+										<li><a href="">Activities, Crafts &amp; Games</a></li>
 										<li><a href="">Animals</a></li>
-										<li><a href="">Arts, Music & Photography</a></li>
+										<li><a href="">Arts, Music &amp; Photography</a></li>
 										<li><a href="">Biographies</a></li>
-										<li><a href="">Cars, Trains & Things to do</a></li>
+										<li><a href="">Cars, Trains &amp; Things to do</a></li>
 										<li><a href="">Children Cookbooks</a></li>
 										<li><a href="">Classics</a></li>
-										<li><a href="">Comics & Graphic Novels</a></li>
-										<li><a href="">Computer & Technology</a></li>
+										<li><a href="">Comics &amp; Graphic Novels</a></li>
+										<li><a href="">Computer &amp; Technology</a></li>
 										<li><a href="">Early Learning</a></li>
-										<li><a href="">Education & Reference</a></li>
-										<li><a href="">Fairy Tales, Folk Tales & Myths</a></li>
-										<li><a href="">Geography & Culture</a></li>
-										<li><a href="">Growing Up & Facts of Life</a></li>
+										<li><a href="">Education &amp; Reference</a></li>
+										<li><a href="">Fairy Tales, Folk Tales &amp; Myths</a></li>
+										<li><a href="">Geography &amp; Culture</a></li>
+										<li><a href="">Growing Up &amp; Facts of Life</a></li>
 										<li><a href="">History</a></li>
-										<li><a href="">Literature & Fiction</a></li>
-										<li><a href="">Mysteries & Detectives</a></li>
+										<li><a href="">Literature &amp; Fiction</a></li>
+										<li><a href="">Mysteries &amp; Detectives</a></li>
 										<li><a href="">Religions</a></li>
-										<li><a href="">Science Fiction & Fantasy</a></li>
-										<li><a href="">Science, Nature & How it works</a></li>
-										<li><a href="">Sports & Outdoors</a></li>
+										<li><a href="">Science Fiction &amp; Fantasy</a></li>
+										<li><a href="">Science, Nature &amp; How it works</a></li>
+										<li><a href="">Sports &amp; Outdoors</a></li>
 									</ul>
 								</div>
 							</div>
 							<div class="col1">
 								<div class="h_nav">
-									<h4>Christian Books & Bibles</h4>
+									<h4>Christian Books &amp; Bibles</h4>
 									<ul>
 										<li><a href="">Bibles</a></li>
 										<li><a href="">Bibles Covers</a></li>
-										<li><a href="">Bible Study & Reference</a></li>
+										<li><a href="">Bible Study &amp; Reference</a></li>
 										<li><a href="">Biographics</a></li>
 										<li><a href="">Catholicism</a></li>
-										<li><a href="">Children's & Teens</a></li>
+										<li><a href="">Children's &amp; Teens</a></li>
 										<li><a href="">Christian Living</a></li>
-										<li><a href="">Churches & Church Leadership</a></li>
+										<li><a href="">Churches &amp; Church Leadership</a></li>
 										<li><a href="">Education</a></li>
 										<li><a href="">History</a></li>
-										<li><a href="">Literature & Fiction</a></li>
-										<li><a href="">Mistory & Evangelism</a></li>
+										<li><a href="">Literature &amp; Fiction</a></li>
+										<li><a href="">Mistory &amp; Evangelism</a></li>
 										<li><a href="">Protestantism</a></li>
 										<li><a href="">Romance</a></li>
 										<li><a href="">Theology</a></li>
-										<li><a href="">Worship & Devotion</a></li>
+										<li><a href="">Worship &amp; Devotion</a></li>
 									</ul>
 								</div>
 							</div>
 							<div class="col1">
 								<div class="h_nav">
-									<h4>Comics & Graphies</h4>
+									<h4>Comics &amp; Graphies</h4>
 									<ul>
-										<li><a href="">Action & Adventure Manga</a></li>
+										<li><a href="">Action &amp; Adventure Manga</a></li>
 										<li><a href="">Art of Comics and Manga</a></li>
-										<li><a href="">Biographies & History Graphic Novel</a></li>
+										<li><a href="">Biographies &amp; History Graphic
+												Novel</a></li>
 										<li><a href="">Comic Books</a></li>
 										<li><a href="">Comic Strips</a></li>
 										<li><a href="">Fantasy Graphic Novels</a></li>
 										<li><a href="">Graphic Novels</a></li>
-										<li><a href="">History & Price Guides</a></li>
-										<li><a href="">How To Create Comics & Manga</a></li>
+										<li><a href="">History &amp; Price Guides</a></li>
+										<li><a href="">How To Create Comics &amp; Manga</a></li>
 										<li><a href="">Manga</a></li>
 										<li><a href="">Media Tie-In Graphic Novels</a></li>
 										<li><a href="">Publishers</a></li>
@@ -191,48 +202,48 @@
 							</div>
 							<div class="col1">
 								<div class="h_nav">
-									<h4>Cood Books, Food & Wine</h4>
+									<h4>Cood Books, Food &amp; Wine</h4>
 									<ul>
 										<li><a href="">Asian Cooking</a></li>
 										<li><a href="">Baking</a></li>
-										<li><a href="">Beverage & Wine</a></li>
-										<li><a href="">Canning & Preserving</a></li>
-										<li><a href="">Celetrities & TV shows</a></li>
-										<li><a href="">Cooking Education & Reference</a></li>
+										<li><a href="">Beverage &amp; Wine</a></li>
+										<li><a href="">Canning &amp; Preserving</a></li>
+										<li><a href="">Celetrities &amp; TV shows</a></li>
+										<li><a href="">Cooking Education &amp; Reference</a></li>
 										<li><a href="">Cooking Methods</a></li>
 										<li><a href="">Cooking by Ingredient</a></li>
 										<li><a href="">Desserts</a></li>
-										<li><a href="">Entertaining & Holidays</a></li>
+										<li><a href="">Entertaining &amp; Holidays</a></li>
 										<li><a href="">Italian Cooking</a></li>
 										<li><a href="">Kitchen Appliances</a></li>
-										<li><a href="">Main Courses & Side Dishes</a></li>
+										<li><a href="">Main Courses &amp; Side Dishes</a></li>
 										<li><a href="">Outdoor Cooking</a></li>
 										<li><a href="">Prefessional Cooking</a></li>
-										<li><a href="">Quick & Easy</a></li>
-										<li><a href="">Regional & Intertional</a></li>
+										<li><a href="">Quick &amp; Easy</a></li>
+										<li><a href="">Regional &amp; Intertional</a></li>
 										<li><a href="">Special Diet</a></li>
 										<li><a href="">U.S. Cooking</a></li>
-										<li><a href="">Vegetarian & Vegan</a></li>
+										<li><a href="">Vegetarian &amp; Vegan</a></li>
 									</ul>
 								</div>
 							</div>
 							<div class="col1">
 								<div class="h_nav">
-									<h4>Crafts, Hobbies & Home</h4>
+									<h4>Crafts, Hobbies &amp; Home</h4>
 									<ul>
-										<li><a href="">Antiques & Collections</a></li>
-										<li><a href="">Crafts & Hobbies</a></li>
+										<li><a href="">Antiques &amp; Collections</a></li>
+										<li><a href="">Crafts &amp; Hobbies</a></li>
 										<li><a href="">Entertaing</a></li>
-										<li><a href="">Gardening & Landscape Design</a></li>
-										<li><a href="">Home Improvement & Design</a></li>
-										<li><a href="">Pets & Animal Care</a></li>
+										<li><a href="">Gardening &amp; Landscape Design</a></li>
+										<li><a href="">Home Improvement &amp; Design</a></li>
+										<li><a href="">Pets &amp; Animal Care</a></li>
 										<li><a href="">Sustainable Living</a></li>
 										<li><a href="">Weddings</a></li>
 									</ul>
 								</div>
 							</div>
-							<div class="col1 men">
-								<div class="sports-pic">
+							<div class="col1 main">
+								<div class="bussiness-pic">
 									<img src="images/reading2.jpg" title="" />
 								</div>
 							</div>
@@ -243,17 +254,17 @@
 						<div class="row">
 							<div class="col1">
 								<div class="h_nav">
-									<h4>Education & Teaching</h4>
+									<h4>Education &amp; Teaching</h4>
 									<ul>
-										<li><a href="">Higher & Continuing</a></li>
+										<li><a href="">Higher &amp; Continuing</a></li>
 										<li><a href="">Education</a></li>
-										<li><a href="">Schools & Teaching</a></li>
-										<li><a href="">Studing & Working</a></li>
+										<li><a href="">Schools &amp; Teaching</a></li>
+										<li><a href="">Studing &amp; Working</a></li>
 										<li><a href="">Test Preparation</a></li>
 									</ul>
 								</div>
 								<div class="h_nav">
-									<h4>Engineering & Transportation</h4>
+									<h4>Engineering &amp; Transportation</h4>
 									<ul>
 										<li><a href="">Automative</a></li>
 										<li><a href="">Engineering</a></li>
@@ -263,22 +274,22 @@
 							</div>
 							<div class="col1">
 								<div class="h_nav">
-									<h4>Health, Fitness & Dieting</h4>
+									<h4>Health, Fitness &amp; Dieting</h4>
 									<ul>
-										<li><a href="">Addiction & Recovery</a></li>
+										<li><a href="">Addiction &amp; Recovery</a></li>
 										<li><a href="">Aging</a></li>
 										<li><a href="">Alternative Medician</a></li>
-										<li><a href="">Beauty, Grooming & Style</a></li>
+										<li><a href="">Beauty, Grooming &amp; Style</a></li>
 										<li><a href="">Children's Health</a></li>
-										<li><a href="">Diets & Weight Loss</a></li>
-										<li><a href="">Diseases & Physical Ailments</a></li>
-										<li><a href="">Exercise & Fitness</a></li>
+										<li><a href="">Diets &amp; Weight Loss</a></li>
+										<li><a href="">Diseases &amp; Physical Ailments</a></li>
+										<li><a href="">Exercise &amp; Fitness</a></li>
 										<li><a href="">Men's Health</a></li>
 										<li><a href="">Mental Health</a></li>
 										<li><a href="">Nutrition</a></li>
-										<li><a href="">Psychology & Counseling</a></li>
+										<li><a href="">Psychology &amp; Counseling</a></li>
 										<li><a href="">Reference</a></li>
-										<li><a href="">Safety & First Aid</a></li>
+										<li><a href="">Safety &amp; First Aid</a></li>
 										<li><a href="">Sexual Health</a></li>
 										<li><a href="">Teen Health</a></li>
 										<li><a href="">Women's Health</a></li>
@@ -291,9 +302,9 @@
 									<ul>
 										<li><a href="">Africa</a></li>
 										<li><a href="">Americas</a></li>
-										<li><a href="">Arctic & Antarctica</a></li>
+										<li><a href="">Arctic &amp; Antarctica</a></li>
 										<li><a href="">Asia</a></li>
-										<li><a href="">Australia & Oceania</a></li>
+										<li><a href="">Australia &amp; Oceania</a></li>
 										<li><a href="">Europe</a></li>
 										<li><a href="">Middle East</a></li>
 										<li><a href="">Russia</a></li>
@@ -301,29 +312,29 @@
 										<li><a href="">World</a></li>
 										<li><a href="">Acient Civilizations</a></li>
 										<li><a href="">Military</a></li>
-										<li><a href="">Historical Study & Educational
+										<li><a href="">Historical Study &amp; Educational
 												Resources</a></li>
 									</ul>
 								</div>
 							</div>
 							<div class="col1">
 								<div class="h_nav">
-									<h4>Humor & Entertainment</h4>
+									<h4>Humor &amp; Entertainment</h4>
 									<ul>
 										<li><a href="">Humor</a></li>
 										<li><a href="">Movies</a></li>
 										<li><a href="">Performing Arts</a></li>
 										<li><a href="">Pop Culture</a></li>
-										<li><a href="">Puzzles & Games</a></li>
+										<li><a href="">Puzzles &amp; Games</a></li>
 										<li><a href="">Radio</a></li>
-										<li><a href="">Sheet Music & Scores</a></li>
+										<li><a href="">Sheet Music &amp; Scores</a></li>
 										<li><a href="">Television</a></li>
-										<li><a href="">Trivia & Fun Facts</a></li>
+										<li><a href="">Trivia &amp; Fun Facts</a></li>
 									</ul>
 								</div>
 							</div>
-							<div class="col1 men">
-								<div class="sports-pic">
+							<div class="col1 main">
+								<div class="bussiness-pic">
 									<img src="images/reading3.jpg" title="" />
 								</div>
 							</div>
@@ -342,21 +353,23 @@
 										<li><a href="">Constitutional Law</a></li>
 										<li><a href="">Criminal Law</a></li>
 										<li><a href="">Dictionaries Law</a></li>
-										<li><a href="">Environmental & Natural Resource Law</a></li>
+										<li><a href="">Environmental &amp; Natural Resource
+												Law</a></li>
 										<li><a href="">Estating Planning</a></li>
-										<li><a href="">Ethics & Professional Responsibility</a></li>
+										<li><a href="">Ethics &amp; Professional
+												Responsibility</a></li>
 										<li><a href="">Family Law</a></li>
-										<li><a href="">Foreign & International Law</a></li>
-										<li><a href="">Health & Medical Law</a></li>
+										<li><a href="">Foreign &amp; International Law</a></li>
+										<li><a href="">Health &amp; Medical Law</a></li>
 										<li><a href="">Intellectual Property</a></li>
 										<li><a href="">Law Practive</a></li>
 										<li><a href="">Legal Education</a></li>
 										<li><a href="">Legal History</a></li>
 										<li><a href="">Legal Self-Help</a></li>
-										<li><a href="">Legal THeory & Systems</a></li>
-										<li><a href="">Media & the Law</a></li>
+										<li><a href="">Legal THeory &amp; Systems</a></li>
+										<li><a href="">Media &amp; the Law</a></li>
 										<li><a href="">Phiosophy</a></li>
-										<li><a href="">Rules & Procedures</a></li>
+										<li><a href="">Rules &amp; Procedures</a></li>
 										<li><a href="">Specialties</a></li>
 										<li><a href="">Tax Law</a></li>
 									</ul>
@@ -364,25 +377,25 @@
 							</div>
 							<div class="col1">
 								<div class="h_nav">
-									<h4>Literature & Fiction</h4>
+									<h4>Literature &amp; Fiction</h4>
 									<ul>
-										<li><a href="">Action & Adventure</a></li>
+										<li><a href="">Action &amp; Adventure</a></li>
 										<li><a href="">African American</a></li>
-										<li><a href="">Ancient & Medieval Literature</a></li>
-										<li><a href="">British & Irish</a></li>
+										<li><a href="">Ancient &amp; Medieval Literature</a></li>
+										<li><a href="">British &amp; Irish</a></li>
 										<li><a href="">Classics</a></li>
 										<li><a href="">Contemporary</a></li>
 										<li><a href="">Erotica</a></li>
-										<li><a href="">Essays & Correspondence</a></li>
+										<li><a href="">Essays &amp; Correspondence</a></li>
 										<li><a href="">Foreign Language Fiction</a></li>
 										<li><a href="">Genre Fiction</a></li>
 										<li><a href="">Historical Fiction</a></li>
-										<li><a href="">History & Criticism</a></li>
-										<li><a href="">Humor & Satire</a></li>
+										<li><a href="">History &amp; Criticism</a></li>
+										<li><a href="">Humor &amp; Satire</a></li>
 										<li><a href="">Literary</a></li>
-										<li><a href="">Mythology & Folk Toles</a></li>
+										<li><a href="">Mythology &amp; Folk Toles</a></li>
 										<li><a href="">Poetry</a></li>
-										<li><a href="">Short Stories & Anthologies</a></li>
+										<li><a href="">Short Stories &amp; Anthologies</a></li>
 										<li><a href="">United States</a></li>
 										<li><a href="">Woman's Fiction</a></li>
 										<li><a href="">World Literature</a></li>
@@ -393,7 +406,8 @@
 								<div class="h_nav">
 									<h4>Medical Books</h4>
 									<ul>
-										<li><a href="">Administration & Medicine Economics</a></li>
+										<li><a href="">Administration &amp; Medicine
+												Economics</a></li>
 										<li><a href="">Allied Health Professions</a></li>
 										<li><a href="">Basic Sciences</a></li>
 										<li><a href="">Dentisty</a></li>
@@ -410,15 +424,15 @@
 							</div>
 							<div class="col1">
 								<div class="h_nav">
-									<h4>Mystery, Thriller & Suspense</h4>
+									<h4>Mystery, Thriller &amp; Suspense</h4>
 									<ul>
 										<li><a href="">Mystery</a></li>
-										<li><a href="">Thrillers & Suspense Writibg</a></li>
+										<li><a href="">Thrillers &amp; Suspense Writibg</a></li>
 									</ul>
 								</div>
 							</div>
-							<div class="col1 kids">
-								<div class="sports-pic">
+							<div class="col1 book">
+								<div class="bussiness-pic">
 									<img src="images/reading4.jpg" title="" />
 								</div>
 							</div>
@@ -429,30 +443,30 @@
 						<div class="row">
 							<div class="col1">
 								<div class="h_nav">
-									<h4>Parenting & Relationships</h4>
+									<h4>Parenting &amp; Relationships</h4>
 									<ul>
 										<li><a href="">Adoption</a></li>
 										<li><a href="">Aging Parents</a></li>
-										<li><a href="">Babysiting, Day Care & Child Care</a></li>
+										<li><a href="">Babysiting, Day Care &amp; Child Care</a></li>
 										<li><a href="">Familities</a></li>
 										<li><a href="">Family Health</a></li>
 										<li><a href="">Family Relations</a></li>
 										<li><a href="">Fertility</a></li>
 										<li><a href="">Humor</a></li>
-										<li><a href="">Marriage & Adult Relationships</a></li>
+										<li><a href="">Marriage &amp; Adult Relationships</a></li>
 										<li><a href="">Parenting</a></li>
-										<li><a href="">Pregnancy & Childbirth</a></li>
+										<li><a href="">Pregnancy &amp; Childbirth</a></li>
 										<li><a href="">Reference</a></li>
 										<li><a href="">Special Needs</a></li>
 									</ul>
 								</div>
 								<div class="h_nav">
-									<h4>Politics & Social Sciences</h4>
+									<h4>Politics &amp; Social Sciences</h4>
 									<ul>
 										<li><a href="">Anthropology</a></li>
 										<li><a href="">Archaeology</a></li>
 										<li><a href="">Philosophy</a></li>
-										<li><a href="">Politics & Government</a></li>
+										<li><a href="">Politics &amp; Government</a></li>
 										<li><a href="">Social Sciences</a></li>
 										<li><a href="">Sociology</a></li>
 										<li><a href="">Woman's Study</a></li>
@@ -463,22 +477,23 @@
 								<div class="h_nav">
 									<h4>Reference</h4>
 									<ul>
-										<li><a href="">Almances & Yearbooks</a></li>
-										<li><a href="">Atlases & Maps</a></li>
+										<li><a href="">Almances &amp; Yearbooks</a></li>
+										<li><a href="">Atlases &amp; Maps</a></li>
 										<li><a href="">Carreers</a></li>
-										<li><a href="">Catalogs & Directories</a></li>
+										<li><a href="">Catalogs &amp; Directories</a></li>
 										<li><a href="">Consumer Guides</a></li>
-										<li><a href="">Dictionaries & Theasuruses</a></li>
-										<li><a href="">Encyclopedias & Subject Guides</a></li>
+										<li><a href="">Dictionaries &amp; Theasuruses</a></li>
+										<li><a href="">Encyclopedias &amp; Subject Guides</a></li>
 										<li><a href="">English as a Second Language</a></li>
 										<li><a href="">Etiquette</a></li>
-										<li><a href="">Foreign Language Study & Reference</a></li>
+										<li><a href="">Foreign Language Study &amp; Reference</a></li>
 										<li><a href="">Genealogy</a></li>
 										<li><a href="">Quotations</a></li>
-										<li><a href="">Survival & Emergency Preparedness</a></li>
+										<li><a href="">Survival &amp; Emergency Preparedness</a></li>
 										<li><a href="">Test Preparation</a></li>
-										<li><a href="">Words, Language & Grammar</a></li>
-										<li><a href="">Writing Research & Publishing Guides</a></li>
+										<li><a href="">Words, Language &amp; Grammar</a></li>
+										<li><a href="">Writing Research &amp; Publishing
+												Guides</a></li>
 									</ul>
 								</div>
 							</div>
@@ -489,7 +504,7 @@
 										<li><a href="">Agnosticism</a></li>
 										<li><a href="">Atheism</a></li>
 										<li><a href="">Buddhism</a></li>
-										<li><a href="">Christian Books & Bibles</a></li>
+										<li><a href="">Christian Books &amp; Bibles</a></li>
 										<li><a href="">Earch-Based Religions</a></li>
 										<li><a href="">Fiction</a></li>
 										<li><a href="">Hinduism</a></li>
@@ -497,7 +512,8 @@
 										<li><a href="">Judaism</a></li>
 										<li><a href="">New Age</a></li>
 										<li><a href="">Occult</a></li>
-										<li><a href="">Other Eastern Religions & Sacred Texts</a></li>
+										<li><a href="">Other Eastern Religions &amp; Sacred
+												Texts</a></li>
 										<li><a href="">Religious Art</a></li>
 										<li><a href="">Religious Studies</a></li>
 										<li><a href="">Spirituality</a></li>
@@ -521,7 +537,7 @@
 										<li><a href="">Lesbian Romance</a></li>
 										<li><a href="">Military</a></li>
 										<li><a href="">Multicultural</a></li>
-										<li><a href="">New Adult & College</a></li>
+										<li><a href="">New Adult &amp; College</a></li>
 										<li><a href="">Paranormal</a></li>
 										<li><a href="">Pegency</a></li>
 										<li><a href="">Romantic Comedy</a></li>
@@ -535,8 +551,8 @@
 									</ul>
 								</div>
 							</div>
-							<div class="col1 nike">
-								<div class="nike-pic">
+							<div class="col1 tech">
+								<div class="tech-pic">
 									<img src="images/reading5.png" title="" />
 								</div>
 							</div>
@@ -547,22 +563,22 @@
 						<div class="row">
 							<div class="col1">
 								<div class="h_nav">
-									<h4>Science & Math</h4>
+									<h4>Science &amp; Math</h4>
 									<ul>
 										<li><a href="">Agricultural Science</a></li>
 										<li><a href="">Archaeology</a></li>
-										<li><a href="">Astronomy & Space Science</a></li>
+										<li><a href="">Astronomy &amp; Space Science</a></li>
 										<li><a href="">Behavioral Science</a></li>
 										<li><a href="">Chemistry</a></li>
 										<li><a href="">Earth Science</a></li>
 										<li><a href="">Environment</a></li>
-										<li><a href="">Essays & Commentary</a></li>
+										<li><a href="">Essays &amp; Commentary</a></li>
 										<li><a href="">Evolution</a></li>
-										<li><a href="">Experiments< Instruments &
+										<li><a href="">Experiments Instruments &amp;
 												Measurements</a></li>
-										<li><a href="">History & Philosogy</a></li>
+										<li><a href="">History &amp; Philosogy</a></li>
 										<li><a href="">Mathematics</a></li>
-										<li><a href="">Nature & Ecology</a></li>
+										<li><a href="">Nature &amp; Ecology</a></li>
 										<li><a href="">Physis</a></li>
 										<li><a href="">Reference</a></li>
 										<li><a href="">Research</a></li>
@@ -573,7 +589,7 @@
 							</div>
 							<div class="col1">
 								<div class="h_nav">
-									<h4>Science Fiction & Fantasy</h4>
+									<h4>Science Fiction &amp; Fantasy</h4>
 									<ul>
 										<li><a href="">Fantasy</a></li>
 										<li><a href="">Gaming</a></li>
@@ -588,9 +604,9 @@
 									<ul>
 										<li><a href="">Abuse</a></li>
 										<li><a href="">Anger Management</a></li>
-										<li><a href="">Communication & Social Skills</a></li>
+										<li><a href="">Communication &amp; Social Skills</a></li>
 										<li><a href="">Creativity</a></li>
-										<li><a href="">Death & Grief</a></li>
+										<li><a href="">Death &amp; Grief</a></li>
 										<li><a href="">Dreams</a></li>
 										<li><a href="">Eating Disorders</a></li>
 										<li><a href="">Emotions</a></li>
@@ -615,7 +631,7 @@
 							</div>
 							<div class="col1">
 								<div class="h_nav">
-									<h4>Sports & Outdoors</h4>
+									<h4>Sports &amp; Outdoors</h4>
 									<ul>
 										<li><a href="">Baseball</a></li>
 										<li><a href="">Basketball</a></li>
@@ -625,9 +641,9 @@
 										<li><a href="">Field Guides</a></li>
 										<li><a href="">Football (American)</a></li>
 										<li><a href="">Golf</a></li>
-										<li><a href="">Hiking & Camping</a></li>
+										<li><a href="">Hiking &amp; Camping</a></li>
 										<li><a href="">Hockey</a></li>
-										<li><a href="">Hunting & Fishing</a></li>
+										<li><a href="">Hunting &amp; Fishing</a></li>
 										<li><a href="">Individual Sports</a></li>
 										<li><a href="">Miscellaneous</a></li>
 										<li><a href="">Mountaineering</a></li>
@@ -645,8 +661,8 @@
 									</ul>
 								</div>
 							</div>
-							<div class="col1 nike">
-								<div class="nike-pic">
+							<div class="col1 tech">
+								<div class="tech-pic">
 									<img src="images/reading6.jpg" title="" />
 								</div>
 							</div>
@@ -659,19 +675,19 @@
 								<div class="h_nav">
 									<h4>Teens</h4>
 									<ul>
-										<li><a href="">Art, Music & Photography</a></li>
+										<li><a href="">Art, Music &amp; Photography</a></li>
 										<li><a href="">Biographies</a></li>
-										<li><a href="">Education & Reference</a></li>
+										<li><a href="">Education &amp; Reference</a></li>
 										<li><a href="">Historical Fiction</a></li>
-										<li><a href="">Hobbies & Thrills</a></li>
-										<li><a href="">Literature & Fiction</a></li>
-										<li><a href="">Mysteries & Thrills</a></li>
+										<li><a href="">Hobbies &amp; Thrills</a></li>
+										<li><a href="">Literature &amp; Fiction</a></li>
+										<li><a href="">Mysteries &amp; Thrills</a></li>
 										<li><a href="">Personal Health</a></li>
-										<li><a href="">Religion & Spirituality</a></li>
+										<li><a href="">Religion &amp; Spirituality</a></li>
 										<li><a href="">Romance</a></li>
-										<li><a href="">Science Fiction & Fantasy</a></li>
+										<li><a href="">Science Fiction &amp; Fantasy</a></li>
 										<li><a href="">Social Issues</a></li>
-										<li><a href="">Sports & Outdoors</a></li>
+										<li><a href="">Sports &amp; Outdoors</a></li>
 									</ul>
 								</div>
 							</div>
@@ -679,19 +695,19 @@
 								<div class="h_nav">
 									<h4>Textbooks</h4>
 									<ul>
-										<li><a href="">Business & Finance</a></li>
-										<li><a href="">Communication & Journalism</a></li>
+										<li><a href="">Business &amp; Finance</a></li>
+										<li><a href="">Communication &amp; Journalism</a></li>
 										<li><a href="">Computer Science</a></li>
 										<li><a href="">Education</a></li>
 										<li><a href="">Engineering</a></li>
 										<li><a href="">Humanities</a></li>
 										<li><a href="">Law</a></li>
-										<li><a href="">Medicine & Health</a></li>
+										<li><a href="">Medicine &amp; Health</a></li>
 										<li><a href="">Sciences</a></li>
 										<li><a href="">Reference</a></li>
-										<li><a href="">Science & Mathematics</a></li>
+										<li><a href="">Science &amp; Mathematics</a></li>
 										<li><a href="">Social Sciences</a></li>
-										<li><a href="">Test Prep & Study Guides</a></li>
+										<li><a href="">Test Prep &amp; Study Guides</a></li>
 									</ul>
 								</div>
 							</div>
@@ -700,14 +716,14 @@
 									<h4>Travels</h4>
 									<ul>
 										<li><a href="">Adventure Travel</a></li>
-										<li><a href="">Food, Lodging & Transportation</a></li>
+										<li><a href="">Food, Lodging &amp; Transportation</a></li>
 										<li><a href="">Pictorial</a></li>
 										<li><a href="">Reference</a></li>
 										<li><a href="">Specialty Travel</a></li>
 										<li><a href="">Travel Writing</a></li>
 										<li><a href="">Africa</a></li>
 										<li><a href="">Asia</a></li>
-										<li><a href="">Australia & South Pacific</a></li>
+										<li><a href="">Australia &amp; South Pacific</a></li>
 										<li><a href="">Canada</a></li>
 										<li><a href="">Caribbean</a></li>
 										<li><a href="">Central America</a></li>
@@ -720,8 +736,8 @@
 									</ul>
 								</div>
 							</div>
-							<div class="col1 nike">
-								<div class="nike-pic">
+							<div class="col1 tech">
+								<div class="tech-pic">
 									<img src="images/reading7.jpg" title="" />
 								</div>
 							</div>
