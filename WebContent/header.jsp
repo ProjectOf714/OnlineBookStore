@@ -1,13 +1,46 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ 
-   page language="java"
+<%@ page language="java"
 	import="onlinebookstore.dao.*,onlinebookstore.entity.*, java.util.*"
 	session="true"%>
 <!DOCTYPE HTML>
 <html>
 <head>
 <title>Header - Online Bookstore</title>
+<script type="text/javascript">
+	function submitSearch(myfield, e) {
+		var keycode;
+		if (window.event)
+			keycode = window.event.keyCode;
+		else if (e)
+			keycode = e.which;
+		else
+			return true;
+
+		if (keycode == 13) {
+			myfield.form.submit();
+			return false;
+		} else
+			return true;
+	}
+	<!---cart-tonggle-script---->
+	$(function() {
+		var $cart = $('#cart');
+		$('#clickme').click(function(e) {
+			e.stopPropagation();
+			if ($cart.is(":hidden")) {
+				$cart.slideDown("slow");
+			} else {
+				$cart.slideUp("slow");
+			}
+		});
+		$(document.body).click(function() {
+			if ($cart.not(":hidden")) {
+				$cart.slideUp("slow");
+			}
+		});
+	});<!---//cart-tonggle-script---->
+</script>
 </head>
 <body>
 	<!---start-header---->
@@ -16,31 +49,24 @@
 			<div class="wrap">
 				<div class="top-header-left">
 					<ul>
-						<!---cart-tonggle-script---->
-						<script type="text/javascript">
-							$(function() {
-								var $cart = $('#cart');
-								$('#clickme').click(function(e) {
-									e.stopPropagation();
-									if ($cart.is(":hidden")) {
-										$cart.slideDown("slow");
-									} else {
-										$cart.slideUp("slow");
-									}
-								});
-								$(document.body).click(function() {
-									if ($cart.not(":hidden")) {
-										$cart.slideUp("slow");
-									}
-								});
-							});
-						</script>
-						<!---//cart-tonggle-script---->
 						<li><a class="cart" href="#"><span id="clickme"> </span></a></li>
 						<!---start-cart-bag---->
+						<!---start-cart-bag---->
 						<div id="cart">
-							Your Cart is Empty <span>(0)</span>
+							<%
+								List<ShoppingCart> lstCart = (List<ShoppingCart>) session
+										.getAttribute("cart");
+								if (lstCart == null || lstCart.isEmpty()) {
+									out.println("Your Cart is Empty <span>(0)</span>");
+								} else {
+									out.println(String
+											.format("Your have %d books in the cart.<a class=\"cart\" href=\"cart.jsp\">view</a>",
+													lstCart.size()));
+
+								}//end of lstCart
+							%>
 						</div>
+						<!---end-cart-bag---->
 						<!---start-cart-bag---->
 						<li><a class="info" href="#"><span> </span></a></li>
 					</ul>
@@ -66,7 +92,7 @@
 									.getAttribute("CurrentUserInfo");
 							if (currentUser == null || currentUser.getUsername() == null) {
 						%>
-						<li><a href="login.html">Login</a><span> </span></li>
+						<li><a href="login.jsp">Login</a><span> </span></li>
 						<li><a href="register.jsp">Join</a></li>
 						<%
 							} else {
@@ -91,7 +117,7 @@
 					</form>
 				</div>
 				<div class="mid-grid-right">
-					<a class="logo" href="index.html"><span> </span></a>
+					<a class="logo" href="index.jsp"><span> </span></a>
 				</div>
 				<div class="clear"></div>
 			</div>
