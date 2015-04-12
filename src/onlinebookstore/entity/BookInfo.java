@@ -15,14 +15,35 @@ public class BookInfo implements Serializable {
 	private String title, author, language;
 	private float price;
 	private String paperback, publisher, productDimensions;
-	private String shippingWeight, rating;
-	private int stockQuantity;
+	private String shippingWeight;
+	private int rating, stockQuantity;
 	private String description_P1, description_P2, description_P3;
 	private String description_P4, description_P5;
 	private String productImage, image1Large, image1Thumb;
 	private String image2Large, image2Thumb;
 
 	public BookInfo() {
+		iSBN = 0;
+		subCategoryID = 0;
+		title = "";
+		author = "";
+		language = "";
+		paperback = "";
+		publisher = "";
+		productDimensions = "";
+		shippingWeight = "";
+		rating = 0;
+		description_P1 = "";
+		description_P2 = "";
+		description_P3 = "";
+		description_P4 = "";
+		description_P5 = "";
+		productImage = "";
+		image1Large = "";
+		image1Thumb = "";
+		image2Large = "";
+		image2Thumb = "";
+		stockQuantity = 0;
 	}
 
 	/**
@@ -178,7 +199,7 @@ public class BookInfo implements Serializable {
 	/**
 	 * @return the rating
 	 */
-	public String getRating() {
+	public int getRating() {
 		return rating;
 	}
 
@@ -186,7 +207,7 @@ public class BookInfo implements Serializable {
 	 * @param rating
 	 *            the rating to set
 	 */
-	public void setRating(String rating) {
+	public void setRating(int rating) {
 		this.rating = rating;
 	}
 

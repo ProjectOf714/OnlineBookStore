@@ -72,7 +72,7 @@ public class UserServlet extends BaseServlet {
 				// RequestDispatcher dispatcher = request
 				// .getRequestDispatcher("/index.jsp");
 				// dispatcher.forward(request, response);
-				response.sendRedirect("/index.jsp");
+				response.sendRedirect("index.jsp");
 			} else {
 				PrintWriter out = response.getWriter();
 				out.println("<!DOCTYPE html>");
@@ -108,7 +108,7 @@ public class UserServlet extends BaseServlet {
 				// RequestDispatcher dispatcher = request
 				// .getRequestDispatcher("/login.jsp");
 				// dispatcher.forward(request, response);
-				response.sendRedirect("/index.jsp");
+				response.sendRedirect("index.jsp");
 			} else {
 				PrintWriter out = response.getWriter();
 				out.println("<!DOCTYPE html>");

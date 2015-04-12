@@ -11,6 +11,7 @@ import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 
 import onlinebookstore.entity.Category;
 import onlinebookstore.entity.Subcategory;
@@ -22,7 +23,7 @@ import org.dom4j.io.SAXReader;
 
 public class CategoryDao extends BaseDao {
 	private List<Category> lstCategory = new ArrayList<Category>();
-	private Dictionary<Category, List<Subcategory>> dicCateoory = new Hashtable<Category, List<Subcategory>>();
+	private List<Subcategory> lstSubCateoory = new ArrayList<Subcategory>();
 
 	public CategoryDao() {
 		super();
@@ -36,18 +37,15 @@ public class CategoryDao extends BaseDao {
 	}
 
 	public void RetrieveFromDB() {
-		String sql = "SELECT * FROM category;";
+		String sqlCate = "SELECT * FROM category;";
+		String sqlSubCate = "SELECT * FROM subcategory;";
 		try {
 			DBConnect dbConn = new DBConnect(pool);
-			ResultSet rset = dbConn.executeQuery(sql);
+			ResultSet rset = dbConn.executeQuery(sqlCate);
 			lstCategory = EntityHelper.getListFromRS(Category.class, rset);
-			Iterator<Category> iterator = lstCategory.iterator();
-			while (iterator.hasNext()) {
-				Category catItem = iterator.next();
-				dicCateoory.put(catItem,
-						getSubCategory(catItem.getCategoryID()));
-			}
-
+			ResultSet rsetSubCate = dbConn.executeQuery(sqlSubCate);
+			lstSubCateoory = EntityHelper.getListFromRS(Subcategory.class,
+					rsetSubCate);
 			dbConn.close();
 		} catch (SQLException ex) {
 			log.error(ex.toString());
@@ -56,12 +54,38 @@ public class CategoryDao extends BaseDao {
 		}
 	}
 
-	public void addCategory(Category categoryIns) {
-		lstCategory.add(categoryIns);
+	public String GetCateName(int cateID) {
+		String cateName = "";
+		Optional<Category> findItem = lstCategory.stream()
+				.filter(ss -> ss.getCategoryID() == cateID).findFirst();
+		if (findItem.isPresent())
+			cateName = findItem.get().getCategoryName();
+		return cateName;
 	}
 
+	public String GetSubCateName(int cateID, int subCateID) {
+		String cateName = "";
+		Optional<Subcategory> findItem = lstSubCateoory
+				.stream()
+				.filter(ss -> ss.getCategoryID() == cateID
+						&& ss.getSubCategoryID() == subCateID).findFirst();
+		if (findItem.isPresent())
+			cateName = findItem.get().getSubCategoryName();
+		return cateName;
+	}
+
+	/**
+	 * @return the lstCategory
+	 */
 	public List<Category> getLstCategory() {
 		return lstCategory;
+	}
+
+	/**
+	 * @return the lstSubCateoory
+	 */
+	public List<Subcategory> getLstSubCateoory() {
+		return lstSubCateoory;
 	}
 
 	public List<Subcategory> getSubCategory(int categoryID) {
@@ -82,28 +106,6 @@ public class CategoryDao extends BaseDao {
 		}
 
 		return lstSubCat;
-	}
-
-	public List<Subcategory> getSubCategory() {
-		List<Subcategory> lstSubCat = new ArrayList<Subcategory>();
-
-		String sql = "select * from subcategory;";
-		try {
-			DBConnect dbConn = new DBConnect(pool);
-			ResultSet rset = dbConn.executeQuery(sql);
-			lstSubCat = EntityHelper.getListFromRS(Subcategory.class, rset);
-			dbConn.close();
-		} catch (SQLException e) {
-			log.error("", e);
-		} catch (Exception e) {
-			log.error(e.toString());
-		}
-
-		return lstSubCat;
-	}
-
-	public Dictionary<Category, List<Subcategory>> getDicCateoory() {
-		return dicCateoory;
 	}
 
 	public List<Category> readFromXML(String xmlFileName) {

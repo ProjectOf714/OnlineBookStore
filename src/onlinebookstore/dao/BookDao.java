@@ -19,16 +19,60 @@ import onlinebookstore.util.EntityHelper;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
+/**
+ * The Class BookDao.
+ */
 public class BookDao extends BaseDao {
+	private List<BookInfo> lstBookInfo = new ArrayList<BookInfo>();
 
+	/**
+	 * Instantiates a new book dao.
+	 */
 	public BookDao() {
 		super();
 	}
 
+	/**
+	 * @return the lstBookInfo
+	 */
+	public List<BookInfo> getLstBookInfo() {
+		return lstBookInfo;
+	}
+
+	/**
+	 * Gets the book by subcategory.
+	 *
+	 * @param subcategoryID
+	 *            the subcategory id
+	 * @return the book by subcategory
+	 */
 	public List<BookInfo> getBookBySubcategory(int subcategoryID) {
+		return getBookBySubcategory(subcategoryID, "");
+	}
+
+	/**
+	 * Gets the book by subcategory.
+	 *
+	 * @param subcategoryID
+	 *            the subcategory id
+	 * @param sortItem
+	 *            the sort item
+	 * @return the book by subcategory
+	 */
+	public List<BookInfo> getBookBySubcategory(int subcategoryID,
+			String sortItem) {
 		List<BookInfo> lstResult = new ArrayList<BookInfo>();
 
 		String sql = "select * from books where SubCategoryID = ?;";
+		if (sortItem != null && sortItem != "") {
+			if (sortItem.equals("PriceASC"))
+				sql += " order by Price ASC";
+			else if (sortItem.equals("PriceDESC"))
+				sql += " order by Price DESC";
+			else if (sortItem.equals("Popular"))
+				sql += " order by Rating DESC";
+		}
+
 		try {
 			DBConnect dbConn = new DBConnect(pool);
 			dbConn.prepareStatement(sql);
@@ -45,17 +89,22 @@ public class BookDao extends BaseDao {
 		return lstResult;
 	}
 
-	public List<BookInfo> getBookByKeyword(String strKeyword) {
-		List<BookInfo> lstResult = new ArrayList<BookInfo>();
-
-		String sql = "select * from books where Title like ? or Description like ?;";
+	/**
+	 * Gets the book by keyword.
+	 *
+	 * @param strKeyword
+	 *            the str keyword
+	 */
+	public void getBookByKeyword(String strKeyword) {
+		lstBookInfo.clear();
+		String sql = "select * from books where Title like ? or Author like ?;";
 		try {
 			DBConnect dbConn = new DBConnect(pool);
 			dbConn.prepareStatement(sql);
 			dbConn.setString(1, "%" + strKeyword + "%");
 			dbConn.setString(2, "%" + strKeyword + "%");
 			ResultSet rset = dbConn.executeQuery();
-			lstResult = EntityHelper.getListFromRS(BookInfo.class, rset);
+			lstBookInfo = EntityHelper.getListFromRS(BookInfo.class, rset);
 
 			dbConn.close();
 		} catch (SQLException e) {
@@ -63,10 +112,32 @@ public class BookDao extends BaseDao {
 		} catch (Exception e) {
 			log.error(e.toString());
 		}
-
-		return lstResult;
 	}
 
+	public void getBookByRate() {
+		lstBookInfo.clear();
+
+		String sql = "select * from books order by rating desc limit 0,6;";
+
+		try {
+			DBConnect dbConn = new DBConnect(pool);
+			ResultSet rset = dbConn.executeQuery(sql);
+			lstBookInfo = EntityHelper.getListFromRS(BookInfo.class, rset);
+			dbConn.close();
+		} catch (SQLException e) {
+			log.error("", e);
+		} catch (Exception e) {
+			log.error(e.toString());
+		}
+	}
+
+	/**
+	 * Gets the book by isbn.
+	 *
+	 * @param isbn
+	 *            the isbn
+	 * @return the book by isbn
+	 */
 	public BookInfo getBookByISBN(int isbn) {
 		BookInfo bookResult = null;
 
@@ -92,9 +163,18 @@ public class BookDao extends BaseDao {
 		return bookResult;
 	}
 
+	/**
+	 * Adds the.
+	 *
+	 * @param bi
+	 *            the bi
+	 * @return true, if successful
+	 */
 	public boolean Add(BookInfo bi) {
 		boolean result = false;
 
+		// delete before insert
+		DeleteByISBN(bi.getISBN());
 		String sql = "INSERT INTO books"
 				+ " (ISBN,SubCategoryID,Title,Author,Language,"
 				+ " Price,Paperback,Publisher,ProductDimensions,"
@@ -118,7 +198,7 @@ public class BookDao extends BaseDao {
 			dbConn.setString(9, bi.getProductDimensions());
 
 			dbConn.setString(10, bi.getShippingWeight());
-			dbConn.setString(11, bi.getRating());
+			dbConn.setInt(11, bi.getRating());
 
 			dbConn.setString(12, bi.getDescription_P1());
 			dbConn.setString(13, bi.getDescription_P2());
@@ -143,12 +223,45 @@ public class BookDao extends BaseDao {
 		return result;
 	}
 
+	/**
+	 * Delete by isbn.
+	 *
+	 * @param isbn
+	 *            the isbn
+	 * @return true, if successful
+	 */
+	public boolean DeleteByISBN(int isbn) {
+		boolean result = false;
+
+		String sql = "delete from books where ISBN = ?;";
+		try {
+			DBConnect dbConn = new DBConnect(pool);
+			dbConn.prepareStatement(sql);
+			dbConn.setInt(1, isbn);
+			result = dbConn.executeUpdate() == 1;
+			dbConn.close();
+		} catch (SQLException e) {
+			log.error("", e);
+		} catch (Exception e) {
+			log.error(e.toString());
+		}
+
+		return result;
+	}
+
+	/**
+	 * Parses the from xml.
+	 *
+	 * @param xmlFileName
+	 *            the xml file name
+	 * @return the list
+	 */
 	public List<BookInfo> parseFromXML(String xmlFileName) {
 		List<BookInfo> lstResult = new LinkedList<BookInfo>();
 
 		try {
-			CategoryDao cateDao = new CategoryDao(false);
-			List<Subcategory> lstSubCate = cateDao.getSubCategory();
+			CategoryDao cateDao = new CategoryDao(true);
+			List<Subcategory> lstSubCate = cateDao.getLstSubCateoory();
 
 			int currID = 1;
 			org.dom4j.io.SAXReader reader = new SAXReader();
@@ -164,7 +277,7 @@ public class BookDao extends BaseDao {
 						.filter(ss -> ss.getSubCategoryName().equals(cat))
 						.findFirst();
 				if (findSub.isPresent())
-					bookItem.setSubCategoryID(findSub.get().getCategoryID());
+					bookItem.setSubCategoryID(findSub.get().getSubCategoryID());
 
 				bookItem.setTitle(elementToString(row, "Title"));
 				bookItem.setAuthor(elementToString(row, "Author"));
@@ -176,7 +289,7 @@ public class BookDao extends BaseDao {
 						"ProductDimensions"));
 				bookItem.setShippingWeight(elementToString(row,
 						"ShippingWeight"));
-				bookItem.setRating(elementToString(row, "Rating"));
+				bookItem.setRating(elementToInt(row, "Rating", 0));
 				bookItem.setDescription_P1(elementToString(row,
 						"Description_P1"));
 				bookItem.setDescription_P2(elementToString(row,
@@ -202,18 +315,49 @@ public class BookDao extends BaseDao {
 		return lstResult;
 	}
 
+	/**
+	 * Element to int.
+	 *
+	 * @param row
+	 *            the row
+	 * @param column
+	 *            the column
+	 * @param defaultValue
+	 *            the default value
+	 * @return the int
+	 */
 	private int elementToInt(Element row, String column, int defaultValue) {
 		if (row.element(column) == null || row.element(column).getText() == "")
 			return defaultValue;
 		return Integer.valueOf(row.element(column).getText());
 	}
 
+	/**
+	 * Element to float.
+	 *
+	 * @param row
+	 *            the row
+	 * @param column
+	 *            the column
+	 * @param defaultValue
+	 *            the default value
+	 * @return the float
+	 */
 	private float elementToFloat(Element row, String column, float defaultValue) {
 		if (row.element(column) == null || row.element(column).getText() == "")
 			return defaultValue;
 		return Float.valueOf(row.element(column).getText().trim()).floatValue();
 	}
 
+	/**
+	 * Element to string.
+	 *
+	 * @param row
+	 *            the row
+	 * @param column
+	 *            the column
+	 * @return the string
+	 */
 	private String elementToString(Element row, String column) {
 		if (row.element(column) == null || row.element(column).getText() == "")
 			return "";

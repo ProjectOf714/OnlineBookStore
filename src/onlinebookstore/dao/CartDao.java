@@ -22,7 +22,7 @@ public class CartDao extends BaseDao {
 		super();
 	}
 
-	public List<ShoppingCart> RetrieveByUserID(UserInfo userInfo) {
+	public void RetrieveByUserID(UserInfo userInfo) {
 		String sql = "select * from shoppingcart where UserID= ?;";
 		try {
 			DBConnect dbConn = new DBConnect(pool);
@@ -44,7 +44,12 @@ public class CartDao extends BaseDao {
 		} catch (Exception e) {
 			log.error(e.toString());
 		}
+	}
 
+	/**
+	 * @return the lstCart
+	 */
+	public List<ShoppingCart> getLstCart() {
 		return lstCart;
 	}
 
@@ -74,6 +79,22 @@ public class CartDao extends BaseDao {
 		}
 	}
 
+	public void Remove(ShoppingCart cart) {
+		try {
+			DBConnect dbConn = new DBConnect(pool);
+			String sqlCheck = "DELETE from shoppingcart where UserID = ? and ISBN=?;";
+			dbConn.prepareStatement(sqlCheck);
+			dbConn.setInt(1, cart.getUserID());
+			dbConn.setInt(2, cart.getISBN());
+			dbConn.executeUpdate();
+			dbConn.close();
+		} catch (SQLException e) {
+			log.error("", e);
+		} catch (Exception e) {
+			log.error(e.toString());
+		}
+	}
+
 	// Update the quantity for the given id
 	public boolean update(int isbn, int newQty) {
 		Iterator<ShoppingCart> iter = lstCart.iterator();
@@ -85,6 +106,7 @@ public class CartDao extends BaseDao {
 				return true;
 			}
 		}
+
 		return false;
 	}
 }
