@@ -25,6 +25,8 @@ public class ShoppingCart implements Serializable {
 		userInfo = user;
 		bookItem = pBook;
 		quantity = iQty;
+		iSBN = bookItem.getISBN();
+		userID = userInfo.getUserID();
 	}
 
 	/**
@@ -85,6 +87,7 @@ public class ShoppingCart implements Serializable {
 	 */
 	public void setUserInfo(UserInfo userInfo) {
 		this.userInfo = userInfo;
+		userID = userInfo.getUserID();
 	}
 
 	/**
@@ -100,6 +103,7 @@ public class ShoppingCart implements Serializable {
 	 */
 	public void setBookItem(BookInfo bookItem) {
 		this.bookItem = bookItem;
+		iSBN = bookItem.getISBN();
 	}
 
 	/**

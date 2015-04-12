@@ -6,6 +6,17 @@
 <%
 	List<ShoppingCart> lstCart= new ArrayList<ShoppingCart>();
 	CartDao cdSession = (CartDao) session.getAttribute("cart");
+	if (cdSession == null) {
+		UserInfo currentUser = (UserInfo) session
+		.getAttribute("CurrentUserInfo");
+		if (currentUser != null && currentUser.getUsername() != "") {
+	cdSession = new CartDao();
+	cdSession.RetrieveByUserID(currentUser);
+	// set session attribute "cart"
+	session.setAttribute("cart", cdSession);
+		}
+	}
+	
 	if (cdSession != null) {
 		lstCart = cdSession.getLstCart();
 	}
@@ -106,9 +117,10 @@
 											<div class="remove-item-btn">
 												<form name="frmRemove" action="AddToCartServlet"
 													method="POST">
-													<input type="hidden" name="action" value="remove">
+													<input type="hidden" name="Action" value="remove">
 													<input type="hidden" name="isbn"
-														value="<%=cart.getISBN()%>"> <a href="#"
+														value="<%=cart.getISBN()%>"> <a
+														href="javascript:;" onclick="parentNode.submit();"
 														title="Remove"><img src="images/delete_item_btn.png"
 														title="Remove" alt="Remove" /></a>
 												</form>
@@ -117,12 +129,13 @@
 											<div class="pro-qty">
 												<form name="frmUpdateQty" action="AddToCartServlet"
 													method="POST">
-													<input type="text" name="txtQty" value="1" /> <input
-														type="hidden" name="isbn" value="<%=cart.getISBN()%>">
-													<a href="javascript:;" onclick="parentNode.submit();"
+													<input type="text" name="txtQty"
+														value="<%=cart.getQuantity()%>" /> <input type="hidden"
+														name="isbn" value="<%=cart.getISBN()%>"> <a
+														href="javascript:;" onclick="parentNode.submit();"
 														title="Update"><img src="images/update_item_btn.png"
 														title="Update" alt="Update" /></a> <input type="hidden"
-														name="action" value="updateQty">
+														name="Action" value="updateQty">
 												</form>
 											</div>
 											<div class="pro-price">$ 26.51</div>

@@ -117,6 +117,5 @@ public class AddToCartServlet extends BaseServlet {
 				dispatcher.forward(request, response);
 			}
 		}
-
 	}
 }

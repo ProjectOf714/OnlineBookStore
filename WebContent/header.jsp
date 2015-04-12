@@ -65,12 +65,23 @@
 								CartDao cdSession = (CartDao) session.getAttribute("cart");
 								if (cdSession != null) {
 									lstCart = cdSession.getLstCart();
+								} else {
+									UserInfo currentUser = (UserInfo) session
+											.getAttribute("CurrentUserInfo");
+									if (currentUser != null && currentUser.getUsername() != "") {
+										cdSession = new CartDao();
+										cdSession.RetrieveByUserID(currentUser);
+										// set session attribute "cart"
+										session.setAttribute("cart", cdSession);
+										lstCart = cdSession.getLstCart();
+									}
 								}
+
 								if (lstCart == null || lstCart.isEmpty()) {
 									out.println("Your Cart is Empty <span>(0)</span>");
 								} else {
 									out.println(String
-											.format("Your have %d books in the cart.<a class=\"cart\" href=\"cart.jsp\">view</a>",
+											.format("Your have <span>(<a class=\"cart\" href=\"cart.jsp\">%d</a>)</span> books in the cart.",
 													lstCart.size()));
 
 								}//end of lstCart

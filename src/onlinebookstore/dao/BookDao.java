@@ -63,7 +63,7 @@ public class BookDao extends BaseDao {
 			String sortItem) {
 		List<BookInfo> lstResult = new ArrayList<BookInfo>();
 
-		String sql = "select * from books where SubCategoryID = ?;";
+		String sql = "select * from books where SubCategoryID = ?";
 		if (sortItem != null && sortItem != "") {
 			if (sortItem.equals("PriceASC"))
 				sql += " order by Price ASC";

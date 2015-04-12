@@ -69,9 +69,6 @@ public class UserServlet extends BaseServlet {
 			if (ui.getStatus() == 1) {
 				HttpSession session = request.getSession(true);
 				session.setAttribute("CurrentUserInfo", ui);
-				// RequestDispatcher dispatcher = request
-				// .getRequestDispatcher("/index.jsp");
-				// dispatcher.forward(request, response);
 				response.sendRedirect("index.jsp");
 			} else {
 				PrintWriter out = response.getWriter();
@@ -105,10 +102,7 @@ public class UserServlet extends BaseServlet {
 						.getParameter("Newsletter")));
 			UserDao ud = new UserDao();
 			if (ud.Register(ui)) {
-				// RequestDispatcher dispatcher = request
-				// .getRequestDispatcher("/login.jsp");
-				// dispatcher.forward(request, response);
-				response.sendRedirect("index.jsp");
+				response.sendRedirect("login.jsp");
 			} else {
 				PrintWriter out = response.getWriter();
 				out.println("<!DOCTYPE html>");
@@ -121,8 +115,6 @@ public class UserServlet extends BaseServlet {
 				out.close();
 			}
 		}
-
-		// TODO Return to the check
 	}
 
 	/**

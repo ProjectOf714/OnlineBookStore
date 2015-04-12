@@ -152,13 +152,17 @@
 					<div class="product-box-head-right">
 						<ul>
 							<li><span>Sort ::</span><a href=""> </a></li>
-							<li><label> </label> <a href="product.jsp?SortItem=Popular">
+							<li><label> </label> <a
+								href="product.jsp?cateID=<%=choosedCategoryID%>&subCateID=<%=choosedSubCategoryID%>&SortItem=Popular">
 									Popular</a></li>
-							<li><label> </label> <a href="product.jsp"> New</a></li>
+							<li><label> </label> <a
+								href="product.jsp?cateID=<%=choosedCategoryID%>&subCateID=<%=choosedSubCategoryID%>">
+									New</a></li>
 							<li><label> </label> <a href=""> Discount</a></li>
 							<li><span>Price ::</span><a
-								href="product.jsp?SortItem=PriceASC">Low </a><a
-								href="product.jsp?SortItem=PriceDESC">High</a></li>
+								href="product.jsp?cateID=<%=choosedCategoryID%>&subCateID=<%=choosedSubCategoryID%>&SortItem=PriceASC">Low
+							</a><a
+								href="product.jsp?cateID=<%=choosedCategoryID%>&subCateID=<%=choosedSubCategoryID%>&SortItem=PriceDESC">High</a></li>
 						</ul>
 					</div>
 					<div class="clear"></div>
@@ -171,9 +175,8 @@
 						List<BookInfo> lstBook = bd.getBookBySubcategory(
 								choosedSubCategoryID, strSortItem);
 						int index = 1;
-
 						for (BookInfo book : lstBook) {
-							if (index % 3 == 0) {
+							if (index % 3 == 0) {								
 					%>
 					<div class="product-grid fade last-grid"
 						onclick="location.href='details.jsp?isbn=<%=book.getISBN()%>';">

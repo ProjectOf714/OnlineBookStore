@@ -775,7 +775,31 @@ h2.resp-accordion:first-child {
 .copyrights{text-indent:-9999px;height:0;line-height:0;font-size:0;overflow:hidden;}
 /*---//login----*/
 /*---register----*/
-/*---//register----*/
+.register-grids form input[type="submit"]{
+	background: #E45D5D;
+	color: #FFF;
+	font-size: 0.8em;
+	padding: 0.7em 1.2em;
+	border-radius: 5px;
+	border-bottom: 4px solid #B93838;
+	transition: 0.5s all;
+	-webkit-transition: 0.5s all;
+	-moz-transition: 0.5s all;
+	-o-transition: 0.5s all;
+	display: inline-block;
+	font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	cursor: pointer;
+	outline: none;
+	text-transform: uppercase;
+	border-right: none;
+	border-left: none;
+	border-top: none;
+	float: left;
+}
+.register-grids form input[type="submit"]:hover{
+	background: #1C1C20;
+	border-bottom: 4px solid #333;
+}
 .register-top-grid h3,.register-bottom-grid h3{
 	color: #E45D5D;
 	font-weight: 700;
@@ -801,7 +825,7 @@ h2.resp-accordion:first-child {
 .register-top-grid input[type="text"],.register-bottom-grid input[type="text"]{
 	border: 1px solid #EEE;
 	outline-color: #E45D5D;
-	width: 96%;
+	width: 95%;
 	font-size: 1em;
 	padding: 0.5em;
 	font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -809,7 +833,7 @@ h2.resp-accordion:first-child {
 .register-top-grid input[type="password"],.register-bottom-grid input[type="password"]{
 	border: 1px solid #EEE;
 	outline-color: #E45D5D;
-	width: 96%;
+	width: 95%;
 	font-size: 1em;
 	padding: 0.5em;
 	font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -831,10 +855,11 @@ h2.resp-accordion:first-child {
 	color:#E45D5D;
 }
 .register-top-grid div,.register-bottom-grid div{
-	width: 48%;
+	width: 40%;
 	float: left;
 	margin: 0.5em;
 }
+/*---//register----*/
 /*start-checkbox*/
 .checkbox {
 	margin-bottom: 4px;
@@ -889,31 +914,6 @@ h2.resp-accordion:first-child {
 }
 .checkbox:last-child {
 	margin-bottom: 4px;
-}
-.register-grids form input[type="submit"]{
-	background: #E45D5D;
-	color: #FFF;
-	font-size: 0.8em;
-	padding: 0.7em 1.2em;
-	border-radius: 5px;
-	border-bottom: 4px solid #B93838;
-	transition: 0.5s all;
-	-webkit-transition: 0.5s all;
-	-moz-transition: 0.5s all;
-	-o-transition: 0.5s all;
-	display: inline-block;
-	font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-	cursor: pointer;
-	outline: none;
-	text-transform: uppercase;
-	border-right: none;
-	border-left: none;
-	border-top: none;
-	float: left;
-}
-.register-grids form input[type="submit"]:hover{
-	background: #1C1C20;
-	border-bottom: 4px solid #333;
 }
 /*end-checkbox*/
 /*-----start-details-page----*/
@@ -1174,7 +1174,7 @@ h2.resp-accordion:first-child {
 	padding: 0.5em 0;
 }
 .similar-products-left{
-	width: 15.7%;
+	width: 15%;
 	float: left;
 	background: #E45D5D;
 	padding: 1em 1.5em;
@@ -1192,7 +1192,7 @@ h2.resp-accordion:first-child {
 }
 .similar-products-right{
 	float: right;
-	width: 79.5%;
+	width: 80%;
 }
 .sproduct-grid{
 	width:100%;

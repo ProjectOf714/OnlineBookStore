@@ -23,12 +23,13 @@ public class CartDao extends BaseDao {
 	}
 
 	public void RetrieveByUserID(UserInfo userInfo) {
-		String sql = "select * from shoppingcart where UserID= ?;";
+		lstCart.clear();
+		String sql = "select * from shoppingcart where UserID =?;";
 		try {
 			DBConnect dbConn = new DBConnect(pool);
 			dbConn.prepareStatement(sql);
 			dbConn.setInt(1, userInfo.getUserID());
-			ResultSet rset = dbConn.executeQuery(sql);
+			ResultSet rset = dbConn.executeQuery();
 			while (rset.next()) {
 				int bookISBN = rset.getInt(3);
 				BookDao bd = new BookDao();
@@ -64,7 +65,7 @@ public class CartDao extends BaseDao {
 					.toString()) == 1;
 			String sql = "INSERT INTO shoppingcart(Quantity,UserID,ISBN)VALUES(?,?,?);";
 			if (checkRslt)
-				sql = "Update shoppingcart set Quantity=? where where UserID = ? and ISBN=?;";
+				sql = "Update shoppingcart set Quantity=? where UserID = ? and ISBN=?;";
 
 			dbConn.prepareStatement(sql);
 			dbConn.setInt(1, cart.getQuantity());

@@ -120,7 +120,6 @@
 									id="Email" name="Email" />
 								<p id="checkHistEmail" class="hint"></p>
 							</div>
-							<div class="clear"></div>
 							<a class="news-letter" href="#"> <label class="checkbox"><input
 									type="checkbox" name="Newsletter" value="1"><i> </i>Sign
 									Up for Newsletter</label>
