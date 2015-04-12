@@ -119,7 +119,12 @@
 						%>
 						<li><a href="">Welcome <%=currentUser.getUsername()%></a></li>
 						<%
-							}//end of if
+							if (currentUser.getUserRole() == 0) {
+						%>
+						<li><a href="BookSrv?Action=ImportFromXML">ImportBookFromXML</a></li>
+						<%
+							}//end of if check userRole
+							}//end of if check userInfo
 						%>
 					</ul>
 				</div>

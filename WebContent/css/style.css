@@ -39,7 +39,7 @@ body{
 }
 .top-header-center{
 	float: left;
-	width: 80%;
+	width: 60%;
 	padding: 0.25em;
 	padding: 0.4em;
 }
@@ -251,7 +251,7 @@ body{
 }
 .product-info-cust{
 	float: left;
-	width: 53%;
+	width: 50%;
 	padding: 0.5em 1em;
 	text-align: center;
 }
@@ -427,7 +427,7 @@ ul.resp-tabs-list, p {
     font-weight: 600;
     font-size: 13px;
     display: inline-block;
-    padding: 13px 15px;
+    padding: 13px 12px;
     margin: 0;
     list-style: none;
     cursor: pointer;
@@ -501,7 +501,7 @@ h2.resp-tab-title:last-child {
     background-color: #fff;
     border: 1px solid #EEE;
     float: left;
-    width: 79.8%;
+    width: 78%;
     min-height: 250px;
     border-radius: 4px;
     clear: none;
@@ -1174,7 +1174,7 @@ h2.resp-accordion:first-child {
 	padding: 0.5em 0;
 }
 .similar-products-left{
-	width: 15%;
+	width: 14%;
 	float: left;
 	background: #E45D5D;
 	padding: 1em 1.5em;

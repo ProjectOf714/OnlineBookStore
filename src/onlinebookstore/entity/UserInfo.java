@@ -88,7 +88,7 @@ public class UserInfo implements Serializable {
 	}
 
 	/**
-	 * @return the userRole
+	 * @return the userRole:0 for admin.
 	 */
 	public int getUserRole() {
 		return userRole;

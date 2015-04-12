@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,11 +16,12 @@ import javax.servlet.http.HttpSession;
 
 import onlinebookstore.dao.BookDao;
 import onlinebookstore.entity.BookInfo;
+import onlinebookstore.entity.UserInfo;
 
 /**
  * Servlet implementation class BookServlet
  */
-@WebServlet("/BookServlet")
+@WebServlet("/BookSrv")
 public class BookServlet extends BaseServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -40,62 +40,38 @@ public class BookServlet extends BaseServlet {
 	@Override
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession(false);
 		String action = request.getParameter("Action");
-		action = "ImportFromXML";
 		try {
-			if (action.equals("ImportFromXML")) {
-				String xmlFileNameRelativeWebPath = "/WEB-INF/books.xml";
-				String xmlFileName = getServletContext().getRealPath(
-						xmlFileNameRelativeWebPath);
+			UserInfo currentUser = (UserInfo) session
+					.getAttribute("CurrentUserInfo");
+			if (currentUser != null && currentUser.getUsername() != ""
+					&& currentUser.getUserRole() == 0) {
+				if (action.equals("ImportFromXML")) {
+					String xmlFileNameRelativeWebPath = "/WEB-INF/books.xml";
+					String xmlFileName = getServletContext().getRealPath(
+							xmlFileNameRelativeWebPath);
 
-				BookDao bd = new BookDao();
-				List<BookInfo> tmplist = bd.parseFromXML(xmlFileName);
-				tmplist.forEach(s -> log.debug(s.toString()));
-				Iterator<BookInfo> iter = tmplist.iterator();
-				while (iter.hasNext()) {
-					BookInfo item = iter.next();
-					bd.DeleteByISBN(item.getISBN());
-					bd.Add(item);
+					BookDao bd = new BookDao();
+					List<BookInfo> tmplist = bd.parseFromXML(xmlFileName);
+					tmplist.forEach(s -> log.debug(s.toString()));
+					Iterator<BookInfo> iter = tmplist.iterator();
+					while (iter.hasNext()) {
+						BookInfo item = iter.next();
+						bd.DeleteByISBN(item.getISBN());
+						bd.Add(item);
+					}
 				}
 			}
 		} catch (Exception e) {
 			log.error("", e);
 		}
 
-		// RequestDispatcher to forward client to bookstore home
-		// page if no session exists or no books are selected
-		RequestDispatcher dispatcher = request
-				.getRequestDispatcher("/index.jsp");
-		HttpSession session = request.getSession(false);
-		// // if session does not exist, forward to index.jsp
-		if (session == null)
-			dispatcher.forward(request, response);
-		//
-		// // get books from session object
-		// List<BookBean> titles = (List<BookBean>)
-		// session.getAttribute("titles");
-		//
-		// // locate BookBean object for selected book
-		// Iterator<BookBean> iterator = titles.iterator();
-		// BookBean book = null;
-		//
-		// String isbn = request.getParameter("isbn");
-		//
-		// while (iterator.hasNext()) {
-		// book = (BookBean) iterator.next();
-		//
-		// if (isbn.equals(book.getISBN())) {
-		//
-		// // save the book in a session attribute
-		// session.setAttribute("bookToAdd", book);
-		// dispatcher = request.getRequestDispatcher("/singleBook.jsp");
-		// dispatcher.forward(request, response);
-		// }
-		// }
-		//
-		// // if book is not in list, forward to index.jsp
-		// if (book == null)
-		// dispatcher.forward(request, response);
+		String strRef = request.getHeader("Referer");
+		if (strRef == null || strRef == "")
+			strRef = "index.jsp";
+		// get back to the referer page using redirect
+		response.sendRedirect(strRef);
 	}
 
 	/**
@@ -105,26 +81,6 @@ public class BookServlet extends BaseServlet {
 	@Override
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		String action = request.getParameter("Action");
-		try {
-			if (action.equals("ImportFromXML")) {
-				String xmlFileNameRelativeWebPath = "/WEB-INF/books.xml";
-				String xmlFileName = getServletContext().getRealPath(
-						xmlFileNameRelativeWebPath);
-
-				BookDao bd = new BookDao();
-				List<BookInfo> tmplist = bd.parseFromXML(xmlFileName);
-				tmplist.forEach(s -> log.debug(s.toString()));
-				Iterator<BookInfo> iter = tmplist.iterator();
-				while (iter.hasNext()) {
-					BookInfo item = iter.next();
-					bd.Add(item);
-				}
-			}
-		} catch (Exception e) {
-			log.error("", e);
-		}
-
 	}
 
 }
