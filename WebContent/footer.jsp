@@ -62,7 +62,7 @@
 	<div class="footer">
 		<div class="wrap">
 			<div class="footer-left">
-				<ul>				
+				<ul>
 					<li><a href="">Macau</a> <span> </span></li>
 					<li><a href="">University of Macau</a> <span> </span></li>
 					<li><a href="">Group 1</a> <span> </span></li>

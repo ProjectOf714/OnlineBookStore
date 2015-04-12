@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%><%@ page language="java"
+	pageEncoding="UTF-8"%>
+<%@ page language="java"
 	import="onlinebookstore.dao.*,onlinebookstore.entity.*, java.util.*"
 	session="true"%>
 <!DOCTYPE HTML>
@@ -22,7 +23,6 @@
 		$(".megamenu").megamenu();
 	});
 </script>
-<!--script src="js/menu_jquery.js"></script-->
 <!-- //End menu -->
 <!---slider---->
 <link rel="stylesheet" href="css/slippry.css">
@@ -69,102 +69,10 @@
 	<!---start-header---->
 	<jsp:include page="header.jsp" flush="true" />
 	<!---//End-header---->
-	<!----start-image-slider---->
-	<div class="img-slider">
-		<div class="wrap">
-			<ul id="jquery-demo">
-				<li><a href="#slide1"> <img src="images/slide-1.jpg" alt="" />
-				</a>
-					<div class="slider-detils">
-						<h3>
-							Hottest TV Show <label>Original Books</label>
-						</h3>
-						<span>Watching The TV, Reading The Book</span> <a
-							class="slide-btn" href="details.html"> Shop Now</a>
-					</div></li>
-				<li><a href="#slide2"> <img src="images/slide-2.jpg" alt="" />
-				</a>
-					<div class="slider-detils">
-						<h3>
-							Take Textbooks Home<label>50% Off</label>
-						</h3>
-						<span>Welcome New Year, Welcome New Semister</span> <a
-							class="slide-btn" href="details.html"> Shop Now</a>
-					</div></li>
-				<li><a href="#slide3"> <img src="images/slide-3.jpg" alt="" />
-				</a>
-					<div class="slider-detils">
-						<h3>
-							Share You Reading Notes<label>80% Off</label>
-						</h3>
-						<span>You Share, You Get</span> <a class="slide-btn"
-							href="details.html"> Shop Now</a>
-					</div></li>
-			</ul>
-		</div>
-	</div>
-	<div class="clear"></div>
-	<!----//End-image-slider---->
-	<!----start-price-rage--->
-	<!----//End-price-rage--->
 	<!--- start-content---->
 	<div class="content">
 		<div class="wrap">
-			<div class="content-left">
-				<div class="content-left-top-grid">
-					<h3>Popular In Books</h3>
-					<div class="content-left-bottom-grids">
-						<div class="content-left-bottom-grid1">
-							<h5>
-								<a href="">&nbsp;Best Books of The Month</a>
-							</h5>
-						</div>
-						<div class="content-left-bottom-grid1">
-							<h5>
-								<a href="">&nbsp;Books Made into Movies</a>
-							</h5>
-							<span>&nbsp;Read it before you see it</span>
-						</div>
-						<div class="content-left-bottom-grid1">
-							<h5>
-								<a href="">&nbsp;100 Books to Read in a Lifetime</a>
-							</h5>
-						</div>
-						<div class="content-left-bottom-grid1">
-							<h5>
-								<a href="">&nbsp;Best Books of 2014</a>
-							</h5>
-						</div>
-						<div class="content-left-bottom-grid1">
-							<h5>
-								<a href="">&nbsp;Award Winners</a>
-							</h5>
-						</div>
-					</div>
-				</div>
-				<br />
-				<div class="content-left-bottom-grid">
-					<h3>More In Books</h3>
-					<div class="content-left-bottom-grids">
-						<div class="content-left-bottom-grid1">
-							<h5>
-								<a href="">&nbsp;100 Biographies & Memoirs to Read in a
-									Lifetime</a>
-							</h5>
-						</div>
-						<div class="content-left-bottom-grid1">
-							<h5>
-								<a href="">&nbsp;100 Children's Books to Read in a Lifetime</a>
-							</h5>
-						</div>
-						<div class="content-left-bottom-grid1">
-							<h5>
-								<a href="">&nbsp;Popular Books on Facebook</a>
-							</h5>
-						</div>
-					</div>
-				</div>
-			</div>
+			<div class="content-left"></div>
 			<div class="content-right">
 				<div class="product-grids">
 					<!--- start-rate---->
@@ -221,10 +129,12 @@
 					<!---caption-script---->
 					<!---//caption-script---->
 					<%
-						BookDao bd = new BookDao();
-						bd.getBookByRate();
-						List<BookInfo> lstBook = bd.getLstBookInfo();
+						List<BookInfo> lstBook = new ArrayList<BookInfo>();
 
+						BookDao bdSession = (BookDao) session.getAttribute("serachResult");
+						if (bdSession != null) {
+							lstBook = bdSession.getLstBookInfo();
+						}
 						int index = 1;
 						for (BookInfo book : lstBook) {
 							if (index % 3 == 0) {
@@ -278,11 +188,12 @@
 				<div class="clear"></div>
 			</div>
 		</div>
-		<!--- //End-content---->
-		<!---start-footer---->
-		<jsp:include page="footer.jsp" flush="true" />
-		<!---//End-footer---->
-		<!---//End-wrap---->
+	</div>
+	<!--- //End-content---->
+	<!---start-footer---->
+	<jsp:include page="footer.jsp" flush="true" />
+	<!---//End-footer---->
+	<!---//End-wrap---->
 </body>
 </html>
 

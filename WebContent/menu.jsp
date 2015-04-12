@@ -12,11 +12,28 @@
 <body>
 	<div class="header-bottom">
 		<div class="wrap">
+			<%
+				Object errMsg = session.getAttribute("errorMessage");
+				if (errMsg != null) {
+			%>
+			<div style="color: #FF0000;"><%=errMsg.toString()%></div>
+			<%
+				}//if errMsg
+			%>
+
 			<!-- start header menu -->
 			<ul class="megamenu skyblue">
 				<%-- begin JSP scriptlet to create list of category --%>
 				<%
-					CategoryDao cateDao = new CategoryDao(true);
+					//Set CategoryDao to session
+					CategoryDao cateDao = (CategoryDao) session
+							.getAttribute("categorylist");
+					if (cateDao == null) {
+						cateDao = new CategoryDao(true);
+						session.setAttribute("categorylist", cateDao);
+					}
+				%>
+				<%
 					// obtain an Iterator to the set of keys in the List
 					Iterator<Category> itCate = cateDao.getLstCategory().iterator();
 					Category currCate;
@@ -45,16 +62,11 @@
 															currCate.getCategoryID()).iterator();
 													while (subIterator.hasNext()) {
 														Subcategory currSub = (Subcategory) subIterator.next();
-														if (currSub.getSubCategoryName().equals("Architecture")) {
 										%>
-										<li><a href="Architecture-Products.html"><%=currSub.getSubCategoryName()%></a></li>
+										<li><a
+											href="ShowCategory?cateID=<%=currSub.getCategoryID()%>&subCateID=<%=currSub.getSubCategoryID()%>"><%=currSub.getSubCategoryName()%></a></li>
 										<%
-											} else {
-										%>
-										<li><a href=""><%=currSub.getSubCategoryName()%></a></li>
-										<%
-											} //end of else
-													}//end of while subIterator.hasNext()
+											}//end of while subIterator.hasNext()
 										%>
 									</ul>
 								</div>
@@ -75,6 +87,34 @@
 				<li class="active grid"><a class="color4" href="#">C</a>
 					<div class="megapanel">
 						<div class="row">
+							<%
+								for (Category cate : cateDao.getLstCategory()) {
+									if (cate.getCategoryName().equals("Computer & Technology")) {
+							%>
+							<div class="col1">
+								<div class="h_nav">
+									<h4>Computer & Technology</h4>
+									<ul>
+										<%
+											Iterator<Subcategory> subIterator = cateDao.getSubCategory(
+															cate.getCategoryID()).iterator();
+													while (subIterator.hasNext()) {
+														Subcategory currSub = (Subcategory) subIterator.next();
+														//if (currSub.getSubCategoryName().equals("Architecture")) {
+										%>
+										<li><a
+											href="ShowCategory?cateID=<%=currSub.getCategoryID()%>&subCateID=<%=currSub.getSubCategoryID()%>"><%=currSub.getSubCategoryName()%></a></li>
+
+										<%
+											}//end of while subIterator.hasNext()
+										%>
+									</ul>
+								</div>
+							</div>
+							<%
+								}//if
+								}//for
+							%>
 							<div class="col1">
 								<div class="h_nav">
 									<h4>Children's Books</h4>
@@ -146,31 +186,6 @@
 										<li><a href="">Romance Manga</a></li>
 										<li><a href="">Science Fiction Graphic Novels</a></li>
 										<li><a href="">Superheroes</a></li>
-									</ul>
-								</div>
-							</div>
-							<div class="col1">
-								<div class="h_nav">
-									<h4>Computer & Technology</h4>
-									<ul>
-										<li><a href="">Business Technology</a></li>
-										<li><a href="">Certification</a></li>
-										<li><a href="">Computer Science</a></li>
-										<li><a href="">Database & Big Data</a></li>
-										<li><a href="">Digital Audio, Video & Photography</a></li>
-										<li><a href="">Games & Strategy Guides</a></li>
-										<li><a href="">Graphics & Design</a></li>
-										<li><a href="">Hardware & DIY</a></li>
-										<li><a href="">History & Culture</a></li>
-										<li><a href="">Intertional & Social Media</a></li>
-										<li><a href="">Mobile Phones, Tablets & E-Readers</a></li>
-										<li><a href="">Networking & Cloud Computing</a></li>
-										<li><a href="">Operating Systems</a></li>
-										<li><a href="">Programming</a></li>
-										<li><a href="">Security & Encrption</a></li>
-										<li><a href="">Software</a></li>
-										<li><a href="WebDesign-Products.html">Web Development
-												& Design</a></li>
 									</ul>
 								</div>
 							</div>

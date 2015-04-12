@@ -42,20 +42,18 @@
 		});
 	});
 
-	function submitSearch(myfield, e) {
-		var keycode;
-		if (window.event)
-			keycode = window.event.keyCode;
-		else if (e)
-			keycode = e.which;
-		else
-			return true;
-
-		if (keycode == 13) {
-			myfield.form.submit();
+	function validate(form) {
+		if ($('#UserName').val().length == 0) {
+			alert("Please input the user name.");
 			return false;
-		} else
-			return true;
+		}
+
+		if ($('#Password').val().length == 0) {
+			alert("Please input the password .");
+			return false;
+		}
+
+		return true;
 	}
 </script>
 <!---//move-top-top---->
@@ -77,25 +75,10 @@
 						addresses, view and track your orders in your account and more.</p>
 					<a class="acount-btn" href="register.jsp">Creat an Account</a>
 				</div>
-				<script type="text/javascript">
-					function validate(form) {
-						if ($('#UserName').val().length == 0) {
-							alert("Please input the user name.");
-							return false;
-						}
-
-						if ($('#Password').val().length == 0) {
-							alert("Please input the password .");
-							return false;
-						}
-
-						return true;
-					}
-				</script>
 				<div class="login-right">
 					<h3>REGISTERED CUSTOMERS</h3>
 					<p>If you have an account with us, please log in.</p>
-					<form name="frmLogin" action="UserSvr" method="post">
+					<form name="frmLogin" id="frmLogin" action="UserSvr" method="post">
 						<div>
 							<span>UserName<label>*</label></span> <input type="text"
 								id="UserName" name="UserName" />
@@ -105,7 +88,7 @@
 								id="Password" name="Password">
 						</div>
 						<input type="hidden" name="Action" value="Login"> <input
-							type="submit" value="Login" onclick="return validate(this.form)" />
+							type="submit" value="Login" onclick="return validate(this.form)" />						
 					</form>
 				</div>
 				<div class="clear"></div>
