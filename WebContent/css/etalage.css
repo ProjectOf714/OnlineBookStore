@@ -83,15 +83,15 @@
 		display: none !important;
 	}
 	#etalage .etalage_thumb_image {
-		width: 82% !important;
+		width: 10% !important;
 	}
 	.img.etalage_small_thumb{
 		width: 50px;
 		height: 90px;
 	}
 	#etalage .etalage_small_thumbs li img {
-		width: 50px !important;
-		height: 90px !important;
+		width: 5px !important;
+		height: 9px !important;
 	}
 }
 /*
@@ -100,14 +100,14 @@
  * -----------------------------------------------------------------------------------------
  */
 
-.etalage, .etalage_thumb, .etalage_thumb_image, .etalage_source_image, .etalage_zoom_preview, .etalage_icon, .etalage_hint{ display:none }
+.etalage, .etalage_thumb, .etalage_thumb_image, .etalage_source_image, .etalage_zoom_preview, .etalage_icon, .etalage_hint{ display:none; width:50%; height: }
 .etalage, .etalage ul, .etalage li, .etalage img, .etalage_hint, .etalage_icon, .etalage_description{ margin:0; padding:0; border:0; list-style:none }
 .etalage, .etalage_magnifier div, .etalage_magnifier div img, .etalage_small_thumbs ul, ul .etalage_small_thumbs li, .etalage_zoom_area div, .etalage_zoom_img{ position:relative }
 .etalage img, .etalage li{ -webkit-user-select:none; -khtml-user-select:none; -moz-user-select:none; -o-user-select:none; user-select:none; -webkit-user-drag:none; -moz-user-drag:none; user-drag:none }
 .etalage, .etalage_small_thumbs li{ float:left }
 .etalage_right{ float:right }
 .etalage li{ position:absolute }
-.etalage img{ vertical-align:bottom; max-width:none }
+.etalage img{ vertical-align:bottom; max-width:228px; max-height:300px }
 .etalage_magnifier{ cursor:default }
 .etalage_magnifier div, .etalage_small_thumbs{ overflow:hidden }
 .etalage_magnifier div img{ display:none }
