@@ -1,5 +1,5 @@
 /*
- *
+ * For handle books with database or XML.
  */
 package onlinebookstore.dao;
 
@@ -23,6 +23,8 @@ import org.dom4j.io.SAXReader;
  * The Class BookDao.
  */
 public class BookDao extends BaseDao {
+
+	/** The List book info. */
 	private List<BookInfo> lstBookInfo = new ArrayList<BookInfo>();
 
 	/**
@@ -33,6 +35,8 @@ public class BookDao extends BaseDao {
 	}
 
 	/**
+	 * Gets the list of book info.
+	 *
 	 * @return the lstBookInfo
 	 */
 	public List<BookInfo> getLstBookInfo() {
@@ -40,7 +44,7 @@ public class BookDao extends BaseDao {
 	}
 
 	/**
-	 * Gets the book by subcategory.
+	 * Gets the book by SubCategory.
 	 *
 	 * @param subcategoryID
 	 *            the subcategory id
@@ -92,8 +96,9 @@ public class BookDao extends BaseDao {
 	/**
 	 * Gets the book by keyword.
 	 *
-	 * @param strKeyword
-	 *            the str keyword
+	 * @param Keyword
+	 *            the keyword
+	 * @return the book by keyword
 	 */
 	public void getBookByKeyword(String strKeyword) {
 		lstBookInfo.clear();
@@ -114,6 +119,11 @@ public class BookDao extends BaseDao {
 		}
 	}
 
+	/**
+	 * Gets the book by rate.
+	 *
+	 * @return the book by rate
+	 */
 	public void getBookByRate() {
 		lstBookInfo.clear();
 
@@ -132,11 +142,11 @@ public class BookDao extends BaseDao {
 	}
 
 	/**
-	 * Gets the book by isbn.
+	 * Gets the book by ISBN.
 	 *
-	 * @param isbn
-	 *            the isbn
-	 * @return the book by isbn
+	 * @param ISBN
+	 *            the ISBN
+	 * @return the book by ISBN
 	 */
 	public BookInfo getBookByISBN(int isbn) {
 		BookInfo bookResult = null;
@@ -164,10 +174,10 @@ public class BookDao extends BaseDao {
 	}
 
 	/**
-	 * Adds the.
+	 * Save the book to database.
 	 *
-	 * @param bi
-	 *            the bi
+	 * @param bookinfo
+	 *            instance the bookinfo
 	 * @return true, if successful
 	 */
 	public boolean Add(BookInfo bi) {
@@ -224,7 +234,7 @@ public class BookDao extends BaseDao {
 	}
 
 	/**
-	 * Delete by isbn.
+	 * Delete book from database by isbn.
 	 *
 	 * @param isbn
 	 *            the isbn

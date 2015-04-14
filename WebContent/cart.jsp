@@ -94,7 +94,7 @@
 				<ul class="product-head">
 					<li><a href="index.jsp">Home</a> <span>::</span></li>
 					<li class="active-page"><a href="#">Cart Page</a></li>
-					<!-- 					<div class="clear"></div> -->
+					<div class="clear"></div>
 				</ul>
 				<div class="details-left">
 					<div class="mainContainer sixteen container">

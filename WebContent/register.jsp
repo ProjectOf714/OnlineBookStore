@@ -82,8 +82,8 @@
 						$.post("UserSvr", "Action=CheckEmail&Email="
 								+ $('#Email').val(), function(data) {
 							$('#checkHistEmail').html(data).css({
-								"color" : "red",
-								"background-color" : "yellow"
+								"color" : "blue",
+								"background-color" : "inherit"
 							});
 						});
 					}

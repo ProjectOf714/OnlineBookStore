@@ -1,5 +1,5 @@
 /*
- *
+ * This class will handle the DataSource Pool, the other should extend from this
  */
 package onlinebookstore.dao;
 
@@ -14,7 +14,7 @@ public class BaseDao {
 	protected static final Logger log = LogManager.getLogger(BaseDao.class);
 
 	/**
-	 *
+	 * construct: retrieve the datasource from context.
 	 */
 	public BaseDao() {
 		try {

@@ -74,7 +74,6 @@
 	});
 </script>
 <!---//End-rate---->
-
 </head>
 <body>
 	<!---start-wrap---->
