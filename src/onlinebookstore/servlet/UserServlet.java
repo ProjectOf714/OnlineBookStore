@@ -114,17 +114,12 @@ public class UserServlet extends BaseServlet {
 				out.println("</body></html>");
 				out.close();
 			}
+		} else if (action.equals("logout")) {
+			HttpSession session = request.getSession(false);
+			if (session != null) {
+				session.invalidate();
+			}
+			response.sendRedirect("index.jsp");
 		}
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	@Override
-	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
-	}
-
 }

@@ -123,7 +123,9 @@
 						%>
 						<li><a href="BookSrv?Action=ImportFromXML">ImportBookFromXML</a></li>
 						<%
-							}//end of if check userRole
+							}//end of if check userRole%>
+						<li><a href="UserSvr?Action=logout">Logout</a></li>
+						<%
 							}//end of if check userInfo
 						%>
 					</ul>

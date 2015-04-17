@@ -91,7 +91,7 @@
 							Hottest TV Show <label>Original Books</label>
 						</h3>
 						<span>Watching The TV, Reading The Book</span> <a
-							class="slide-btn" href="details.html"> Shop Now</a>
+							class="slide-btn" href="ShowCategory?cateID=4&subCateID=108"> Shop Now</a>
 					</div></li>
 				<li><a href="#slide2"> <img src="images/slide-2.jpg" alt="" />
 				</a>

@@ -553,7 +553,7 @@
 							</div>
 							<div class="col1 tech">
 								<div class="tech-pic">
-									<img src="images/reading5.png" title="" />
+									<img src="images/reading5.jpg" title="" />
 								</div>
 							</div>
 						</div>

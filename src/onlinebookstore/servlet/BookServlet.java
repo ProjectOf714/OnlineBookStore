@@ -73,14 +73,4 @@ public class BookServlet extends BaseServlet {
 		// get back to the referer page using redirect
 		response.sendRedirect(strRef);
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	@Override
-	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
-	}
-
 }

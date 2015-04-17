@@ -5,7 +5,6 @@ package onlinebookstore.servlet;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,35 +32,8 @@ public class CategoryServlet extends BaseServlet {
 		CategoryDao categoryLst = (CategoryDao) session
 				.getAttribute("categorylist");
 		if (categoryLst == null) {
-			// try {
-			// String xmlFileNameRelativeWebPath = "/WEB-INF/Category.xml";
-			// String xmlFileName = getServletContext().getRealPath(
-			// xmlFileNameRelativeWebPath);
-			// System.out.println("Current:" + xmlFileName);
-			// System.out
-			// .println("getRealPathByRelativeWebPath:"
-			// + getRealPathByRelativeWebPath(xmlFileNameRelativeWebPath));
-			//
-			// categoryLst = new CategoryDao();
-			// Dictionary<Category, List<Subcategory>> tmpDic = categoryLst
-			// .parseFromXML(xmlFileName);
-			//
-			// Enumeration<Category> key = tmpDic.keys();
-			// while (key.hasMoreElements()) {
-			// Category currCate = key.nextElement();
-			// log.debug(currCate.toString());
-			// List<Subcategory> subCate = tmpDic.get(currCate);
-			// subCate.forEach(s -> log.debug(s.toString()));
-			// }
-			// } catch (Exception e) {
-			// log.error("", e);
-			// }
-
 			categoryLst = new CategoryDao(true);
-			// getServletContext().setAttribute("categorylist1", categoryLst);
 			session.setAttribute("categorylist", categoryLst);
-			// categoryLst.getLstCategory().forEach(s ->
-			// log.debug(s.toString()));
 		}
 
 		String cateID = request.getParameter("cateID");
@@ -84,23 +56,4 @@ public class CategoryServlet extends BaseServlet {
 					response);
 		}
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	@Override
-	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession(false);
-		RequestDispatcher dispatcher;
-
-		// if session does not exist, forward to index.jsp
-		if (session == null) {
-			dispatcher = request.getRequestDispatcher("/index.jsp");
-			dispatcher.forward(request, response);
-		} else
-			doGet(request, response);
-	}
-
 }
