@@ -401,4 +401,59 @@
 		<Author>Matei Zaharia</Author>
 		<Price>24.92</Price>
 	</BOOK>
+	<!--TV Show category-->
+	<BOOK>
+		<Category>TV Show</Category>
+		<ISBN-10>0143126970</ISBN-10>
+		<Rating>701</Rating>
+		<ProductImage>TVShow-Product1.jpg</ProductImage>
+		<Title>Any Other Name: A Longmire Mystery</Title>
+		<Author>Craig Johnson</Author>
+		<Price>12.97</Price>
+	</BOOK>
+	<BOOK>
+		<Category>TV Show</Category>
+		<ISBN-10>0345535529</ISBN-10>
+		<Rating>5003</Rating>
+		<ProductImage>TVShow-Product2.jpg</ProductImage>
+		<Title>Song of Ice and Fire series</Title>
+		<Author>George R.R. Martin</Author>
+		<Price>29.97</Price>
+	</BOOK>
+	<BOOK>
+		<Category>TV Show</Category>
+		<ISBN-10>0441016995</ISBN-10>
+		<Rating>1409</Rating>
+		<ProductImage>TVShow-Product3.jpg</ProductImage>
+		<Title>Dead Until Dark</Title>
+		<Author>Charlaine Harris</Author>
+		<Price>5.87</Price>
+	</BOOK>
+	<BOOK>
+		<Category>TV Show</Category>
+		<ISBN-10>006114097X</ISBN-10>
+		<Rating>277</Rating>
+		<ProductImage>TVShow-Product4.jpg</ProductImage>
+		<Title>Vampire Diaries</Title>
+		<Author>L. J. Smith</Author>
+		<Price>8.92</Price>
+	</BOOK>
+	<BOOK>
+		<Category>TV Show</Category>
+		<ISBN-10>0307277887</ISBN-10>
+		<Rating>795</Rating>
+		<ProductImage>TVShow-Product5.jpg</ProductImage>
+		<Title>Darkly Dreaming Dexter: Dexter Morgan</Title>
+		<Author>Jeff Lindsay</Author>
+		<Price>9.60</Price>
+	</BOOK>
+	<BOOK>
+		<Category>TV Show</Category>
+		<ISBN-10>0061801313</ISBN-10>
+		<Rating>231</Rating>
+		<ProductImage>TVShow-Product6.jpg</ProductImage>
+		<Title>Pretty Little Liars</Title>
+		<Author>Sara Shepard</Author>
+		<Price>21.15</Price>
+	</BOOK>
 </BOOKS>
