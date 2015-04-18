@@ -146,7 +146,7 @@
 				<div class="product-box-head">
 					<div class="product-box-head-left">
 						<h3>
-							Products <span>(11354)</span>
+							Products <span>(12)</span>
 						</h3>
 					</div>
 					<div class="product-box-head-right">
